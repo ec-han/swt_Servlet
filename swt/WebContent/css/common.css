@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR');
+
+html,body {
+	background-color: #e9eaee;
+	height: 100%;
+}
+html{
+	scroll-behavior: smooth;
+}
+body, ul, h1 {
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Serif KR', serif;
+}
+
+ul { list-style: none; }
+a:link, a:visited {
+	text-decoration: none;
+	color: #252851;
+	font-size: 14px;
+}

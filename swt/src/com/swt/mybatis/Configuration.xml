@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="com/swt/mybatis/db.properties"/> 
+	
+	<!-- 별명 부여. resulttype에 알려줘야함. 현업에선 alias를 잘 안 씀. 그냥 type=의 경로 full로 길더라도 적어
+	주는게 좋음 그래야 유지보수 이어받은 사람이 파악하기 쉬움  -->
+	<typeAliases>
+		<typeAlias type="com.swt.dto.ProductDTO" alias="ProductDTO"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- mapper.xml 파일 설정 -->
+	<mappers>
+		<mapper resource="com/swt/mybatis/SWTMapper.xml"/>
+	</mappers>
+</configuration>
