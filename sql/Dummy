@@ -1,0 +1,87 @@
+-- swt 프로젝트 Dummy 데이터 생성
+
+-- 상품 sequence
+DROP SEQUENCE seq_product;
+CREATE SEQUENCE seq_product
+START WITH 1 
+INCREMENT BY 1
+NOCYCLE;
+
+-- 상품 테이블
+-- TABLE도 tbl_하고 이름에 붙여주는 게 좋음 
+DROP TABLE tbl_product;
+CREATE TABLE tbl_product(
+    p_code VARCHAR2(5) PRIMARY KEY,
+    p_type VARCHAR2(50) NOT NULL,
+    p_name VARCHAR2(100) NOT NULL,
+    p_price NUMBER NOT NULL,
+    p_img VARCHAR2(100),
+    p_cnt NUMBER DEFAULT 0,
+    p_good NUMBER DEFAULT 0,
+    p_indate DATE DEFAULT SYSDATE
+);
+-- 15건 이상 
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','얼 그레이 리저브',23000,'014001000002.jpg','20','5');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','NYC 브렉퍼스트',23000,'0140010000042.jpg','20','5');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','망고멜랑',23000,'0140010000052.jpg','30','7');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','썸머 피치',23000,'0140010000062.jpg','10','10');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','우바',23000,'0140010000072.jpg','35','3');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','썸머 후르츠',23000,'0140020000032.jpg','5','40');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','퓨어 그린',21000,'0140020000052.jpg','17','10');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','더블 민트',19000,'0140030000142.jpg','16','9');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA','로얄 캐모마일',15000,'0140030000022.jpg','26','30');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA SACHET','그레이트 화이트',19000,'0140060000152.jpg','15','8');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA SACHET','망고 멜랑',19000,'0140060000202.jpg','26','12');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'TEA SACHET','NYC 브렉퍼스트',17000,'0140060000232.jpg','32','15');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'LATTE','타바론 밀크티 베이스 750ml',22000,'0140050000122.jpg','20','5');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'LATTE','타바론 티 리얼 시리즈 750ml',21000,'0140050000112.jpg','20','5');
+
+INSERT INTO tbl_product(p_code,p_type,p_name,p_price,p_img,p_cnt,p_good)
+VALUES(seq_product.NEXTVAL,'LATTE','타바론 티 리믹스750ml',25000,'0140050000052.jpg','20','5');
+
+DELETE FROM tbl_product 
+WHERE p_type='LATTE';
+SELECT * FROM tbl_product;
+DELETE FROM tbl_product;
+
+-- 이렇게 하면 5개 뽑는걸 먼저해서 원하는데로 안 나옴
+SELECT * FROM tbl_product
+WHERE rownum <= 5
+ORDER BY p_good DESC;
+-- BEST상품 5건 추출 
+SELECT * 
+FROM (SELECT * FROM tbl_product
+      ORDER BY p_good DESC)
+WHERE rownum <= 5;
+-- 신상품 5건 추출
+SELECT * 
+FROM (SELECT * FROM tbl_product
+      ORDER BY p_indate DESC)
+WHERE rownum <= 5;
