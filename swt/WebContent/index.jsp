@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+<%@ include file="include/header.jsp" %>
+<!-- header include위치 여기에 쓰는 게 정석 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${path}/css/common.css?v=1">
-<title>Insert title here</title>
+<title>S.W.T</title>
 <style type="text/css">
-
 /* 캐로셀 */ 
 /* Make the image fully responsive */
 .carousel {
@@ -17,11 +17,21 @@
 }
 .carousel-inner img {
       width: 100%;
-      height: 100%;
+     /*  height: 100%; */
       margin: 30px 10px;
 }
+a {
+	color: #252851;
+	font-size: 14px;
+}
+a:link , a:visited {
+	color: inherit;
+}
+a:hover {
+	color: #252851;
+}
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
-    color: inherit;
+    color: #252851;
     text-decoration: none;
 }
 /* 모달창에서 거슬리는 작은 막대기 */ 
@@ -202,7 +212,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 </style>
 </head>
 <body>
-	<%@ include file="/include/header.jsp" %>
+	
 	<section>
 		<article>
 			<div class="container">

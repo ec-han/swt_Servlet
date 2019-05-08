@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.swt.action.Action;
 import com.swt.action.ActionForward;
+import com.swt.action.ConstractAction;
+import com.swt.action.IdCheckAction;
 import com.swt.action.IndexAction;
+import com.swt.action.MemberAction;
 
 /**
  * Servlet implementation class FrontController
@@ -47,7 +50,18 @@ public class FrontController extends HttpServlet {
 			action = new IndexAction();
 			forward = action.excute(request, response);
 			// execute라 하려면 Action.java의 추상메서드 이름도 똑같이 바꿔줘야함. excute나 execute나 같음.
-		}
+		} else if(command.equals("/constract.swt")) {
+			action = new ConstractAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/member.swt")) {
+			action = new MemberAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/idCheck.swt")) {
+			action = new IdCheckAction();
+			forward = action.excute(request, response);
+		}	  
+		
+		
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {

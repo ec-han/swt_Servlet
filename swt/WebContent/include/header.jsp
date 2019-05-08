@@ -73,7 +73,7 @@
 				<!-- 모달 로그인 끝  -->
 				<ul>
 					<li><a id="open_btn">Login</a></li>
-					<li><a href="swt_constract.html" target="_blank">Join</a></li>
+					<li><a href="${path}/constract.swt" target="_blank">Join</a></li>
 					<li><a href="#">MyPage</a></li>
 					<li><a href="#">Cart</a></li>
 				</ul>

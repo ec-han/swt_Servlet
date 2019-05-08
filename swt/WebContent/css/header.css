@@ -3,8 +3,8 @@
 	margin: 0 auto;
 	background-color: #252851;
 	height: 35px;
-	border-top: 2.5px solid #A7AFCC;
-	border-bottom: 2.5px solid #A7AFCC;
+	/* border-top: 2.5px solid #A7AFCC;
+	border-bottom: 2.5px solid #A7AFCC; */
 }
 .inner_header_nav{
 	width: 100%;
@@ -20,6 +20,7 @@
 	font-size: 16px!important; 
 	text-align: center;
 	float: left;
+	height: 80px;
 	display: inline-block;
 	padding: 25px 10px;
 	color: white!important;
@@ -100,6 +101,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 .header_member li{
 	float:left;
+	height: 35px;
 }
 .header_member ul > li > a{
 	color: #A7AFCC;
@@ -146,8 +148,8 @@ a:not([href]):not([tabindex]) {
 	width: 80%;
 	margin: 0 auto;
 	background-color: #66395C;
-	height: 70px;
-	border-top: 1.5px solid #A7AFCC;
+	height: 77px;
+	/* border-top: 1.5px solid #A7AFCC; */
 /* 	border-bottom: 1.5px solid #A7AFCC; */
 	position: relative;
 	/* margin-bottom: 10px; */
@@ -156,7 +158,7 @@ a:not([href]):not([tabindex]) {
 #logo{
 	padding-left: 32%;
 	padding-right: 32%;
-	height: 145px;
+	height: 150px;
 	max-width: 100%;
 }
 #dropdown1 {
@@ -165,7 +167,7 @@ a:not([href]):not([tabindex]) {
 .dropdown2 { /* 기준이 잘못 잡힘  */
 	position: absolute;
 	display: block;
-	top: 68.5px;
+	top: 77px;
     width: 110px;
 	color: white;
 	background-color: #66395C;
