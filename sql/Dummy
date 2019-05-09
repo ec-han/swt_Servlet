@@ -85,3 +85,30 @@ SELECT *
 FROM (SELECT * FROM tbl_product
       ORDER BY p_indate DESC)
 WHERE rownum <= 5;
+
+-- 회원 TABLE 생성
+
+DROP TABLE tbl_member;
+CREATE TABLE tbl_member(
+    id VARCHAR2(30) PRIMARY KEY,
+    pw VARCHAR2(30) NOT NULL,
+    name VARCHAR2(30) NOT NULL,
+    bir_yy NUMBER(4, 0),
+    bir_mm NUMBER(2, 0),
+    bir_dd NUMBER(2, 0),
+    phone VARCHAR2(30) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    zipcode VARCHAR2(20) NOT NULL,
+    addr1 VARCHAR2(200) NOT NULL,
+    addr2 VARCHAR2(200) NOT NULL,
+    regdate DATE DEFAULT SYSDATE
+);
+SELECT * FROM tbl_member;
+INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
+VALUES('user01','1234','한은체',1994,01,01,01011112222,'user01@gmail.com','61241','광주 북구 유동 57-47','1층');
+INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
+VALUES('user02','1234','박선미',1994,01,02,01022223333,'user02@gmail.com','61241','광주 북구 유동 57-47','2층');
+INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
+VALUES('user03','1234','황수연',1994,01,03,01033334444,'user03@gmail.com','61241','광주 북구 유동 57-47','3층');
+
+COMMIT;
