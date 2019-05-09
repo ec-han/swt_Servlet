@@ -20,5 +20,11 @@
  ]]>
  
  </select>
+ 
+ <select id="idCheck" parameterType="String" resultType="String">
+ 	SELECT id 
+ 	FROM tbl_member
+ 	WHERE id = #{id}
+ </select>
 
 </mapper>

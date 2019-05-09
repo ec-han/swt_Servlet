@@ -57,7 +57,7 @@
 		.footer {
 			height: 81px;
 			text-align: center;
-			padding: 30px 0px 15px;
+			padding: 0px 0px 15px;
 			background: white;
 			margin-top: -20px;
 		}
@@ -101,7 +101,7 @@
 		.int {
 			display: block;
 			position: relative;
-			width: 100%; /* 자기가 가질수있는 영역의 처음부터 끝까지 100%. 얘의 영역을 알려면 얘의 부모를 봐야함.  */
+			width: 95%; /* 자기가 가질수있는 영역의 처음부터 끝까지 100%. 얘의 영역을 알려면 얘의 부모를 봐야함.  */
 			height: 29px;
 			/* padding-right: 25px; */
 			line-height: 29px;
@@ -119,18 +119,27 @@
 			position: absolute;
 			top: 16px;
 			right: 13px;
-			font-size: 20px;
+			font-size: 13px;
 			line-height: 18px;
 			color: #8e8e8e;
+			padding-right: 30px;
 		}
-		.error_next_box { /* 유효성 체크  */
+		#step_mail {
+			/* display: none; */
+			font-size: 13px;
+			line-height: 18px;
+			color: #8e8e8e;
+		} 
+		
+		/* .error_next_box { /* 유효성 체크  */
 			display: none; /* 나중에 block으로 바꿔야 함  */
 			margin: 9px 0 -2px;
 			font-size: 12px;
 			line-height: 14px;
 			color: red;
 			height: 15px;
-		}
+			padding-left: 12px;
+		} */
 		.int_pass {
 			padding-right: 40px;
 		}
@@ -235,9 +244,11 @@
 		.s_logo > img {
 			padding-left: 170px;
 			padding-right: 220px;
+			margin-bottom: 60px;
 			height: 147px;
 		}
 		#wrap_email {
+			
 			padding: 5px;
 		}
 		#wrap_email > * {
@@ -370,11 +381,9 @@
 							</h3>
 							<span class="ps_box int_id">
 								<input type="text" id="id" name="id" class="int" maxlength="20">
-								<span class="step_url"><i class="far fa-check-square"></i></span>
-								<span class="step_url"><i class="fas fa-check-square chenked_btn"></i></span>
+								<span class="step_url" id="error_id"></span>
 								<!-- <span class="step_url">@naver.com</span> -->
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 						</div>
 
 						<div class="join_row">
@@ -385,9 +394,8 @@
 							</h3>
 							<span class="ps_box int_pass">
 								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="20">
-								<span class="step_url"><i class="fas fa-unlock-alt"></i></span>
+								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 
 							<h3 class="join_title">
 								<i class="fas fa-asterisk" id="star"></i>
@@ -395,9 +403,8 @@
 							</h3>
 							<span class="ps_box int_pass">
 								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="20">
-								<span class="step_url"><i class="fas fa-unlock"></i></span>
+								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 
 						</div>
 					</div>
@@ -410,8 +417,8 @@
 							</h3>
 							<span class="ps_box">
 								<input type="text" id="name" name="name" class="int" maxlength="20">
+								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 						</div>
 
 						<div class="join_row join_birthday">
@@ -422,7 +429,8 @@
 						<div class="bir_wrap">
 							<div class="bir_yy">
 								<span class="ps_box">
-									<input type="text" id="yy" placeholder="년(4자,Year)" class="int" maxlength="4"> 
+									<input type="text" id="yy" placeholder="년(4자,Year)" class="int" maxlength="4">
+									<span class="step_url"></span> 
 								</span>
 							</div>
 							<div class="bir_mm">
@@ -447,6 +455,7 @@
 							<div class="bir_dd">
 								<span class="ps_box">
 									<input type="text" id="dd" placeholder="일(Day)" class="int" maxlength="2">
+									<span class="step_url"></span>
 								</span>
 							</div>
 						</div>
@@ -468,7 +477,7 @@
 							<span class="addr_wrap">
 								<input type="text" id="sample6_address" placeholder="주소">
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+								
 							</span>
 							
 						</div>
@@ -479,16 +488,20 @@
 							</h3>
 							<span class="ps_box int_id">
 								<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력">
+								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 							<h3 class="join_title">
 								<label for="email">이메일</label>
 							</h3>
 							<div id="wrap_email">
-								<span class="ps_email" id="idemail">
-									<input type="text" class="int" id="email_id" placeholder="E-mail">
+								<span class="ps_box int_id">
+									<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com">
+									<span class="step_url"></span>
 								</span>
-								<span id="at">@</span>
+								<!-- <span class="ps_email" id="idemail">
+									<input type="text" class="int" id="email_id" placeholder="E-mail">
+								</span> -->
+								<!-- <span id="at">@</span>
 								<span class="ps_email" id="urlemail">
 									<input type="text" class="int" id="email_url" placeholder="URL">
 								</span>
@@ -503,7 +516,7 @@
 										<option value="gmail.com">gmail.com(구글)</option>
 										<option value="nate.com">nate.com(네이트)</option>
 									</select>
-								</span>
+								</span> -->
 							</div>
 						</div>
 					</div>
@@ -550,51 +563,209 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="valicode.js"></script> 
 	<script type="text/javascript">
-		$(document).ready(function(){
+	$(document).ready(function(){
 			$("#id").blur(function(){
 				var id = $.trim($(this).val());
-				alert(id);
-				// id에 값이 있는 경우에만 ajax 동작!
-				if(id!=""||id.length!=0){
-					$.ajax({
-						url: "idCheck.swt",
-						type: "POST",
-						dataType: "json",
-						data: "id="+id,
-						success: function(data) {
-							
-						},
-						error: function(){
-							alert("System Error!!!");
-						}
-					});
+//				alert(id);
+				var regEmpty = /\s/g; // 공백 문자 
+				var reg = /[^a-z0-9-_.]+/g; // 올바른 아이디 형식 
+				if(id == ""||id.length==0){
+					$(this).next().text("필수입력 정보입니다.").css("display","block").css("color","#b30000");
+					return false;
+				} else if(id.match(regEmpty)) {
+					$(this).next().text("ID는 공백없이 입력해주세요.").css("display","block").css("color","#b30000");
+					return false;
+				} else if(reg.test(id)) {
+					$(this).next().text("올바른 ID를 입력해주세요.").css("display","block").css("color","#b30000");
+					return false;
+				} else if(id.length<6||id.length>15) {
+					$(this).next().text("ID는 공백없이 6자 이상~15자 이하 ").css("display","block").css("color","#b30000");
+					return false;
 				}
-			});
-			
-			
-			
-			
-			
-			
-			
-			//change함수: 값(value)이 변화 됐을 때 적용
-			//메일 주소 선택 값 입력 
-			$('#selmail').change(function(){
-				//input(키보드 입력값) select(선택값)는 val로 가져와야함. 나머지는 text로 가져 옴 
-				var selmail = $(this).val();
-				//alert(selmail);
-				if(selmail == 'directVal'){
-					//그전에 값이 있을 땐 지워줘야함 
-					$('#email_url').val("");
-					$('#email_url').focus();
-				} else {
-					$('#email_url').val(selmail);
-				}
-	
+				// 유효한 ID: True, 중복 Check: False 인 상태
+				ajaxCheck(id); // 중복 check해주는 함수 호출 
 				
-				//alert(selmail);
+				
 			});
+			
+			$("#pswd1").blur(function(){
+				var pw = $.trim($(this).val());
+				var regEmpty = /\s/g; // 공백 문자
+				var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+				
+				
+				if(pw == ""||pw.length==0){
+					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+					return false;
+				} else if(pw.match(regEmpty)) {
+					$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
+					return false;
+				} else if(!pwReg.test(pw)) {
+					$(this).next().text("올바른 비밀번호(4~12자)를 입력해주세요").css("display","block").css("color","#b30000");
+					return false;
+				} else {
+					$(this).next().text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
+					var rpw = $.trim($("#pswd2").val());
+					if(rpw!=null||rpw.length!=0){
+						if(pw==rpw){
+							$(".step_url").eq(2).text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
+						} else {
+							$(".step_url").eq(2).text("입력하신 비밀번호와 일치하지 않습니다").css("display","block").css("color","#b30000");
+							return false;
+						}
+					}
+				}
+				
+			});
+			
+			$("#pswd2").blur(function(){
+				var pw = $.trim($("#pswd1").val());
+				var rpw = $.trim($(this).val());
+				var regEmpty = /\s/g; // 공백 문자
+				var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+				
+				
+				if(rpw == ""||rpw.length==0){
+					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+					return false;
+				} else if(rpw.match(regEmpty)) {
+					$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
+					return false;
+				} else if(!pwReg.test(pw)) {
+					$(this).next().text("올바른 비밀번호(4~12자)를 입력해주세요").css("display","block").css("color","#b30000");
+					return false;
+				} else if(pw != rpw){
+					$(this).next().text("입력하신 비밀번호와 일치하지 않습니다").css("display","block").css("color","#b30000");
+					return false;
+				} else {
+					$(this).next().text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
+					
+				}
+				
+			});
+			// 비번이랑 아이디랑 생년월일이랑 같은지 체크해주는것도 좋음 여기서는 안 하지만...
+			
+		//이름 1널값체크2중간에공백체크3length 4자제한 4. 멋진이름이네
+		$("#name").blur(function(){
+				var name = $.trim($(this).val());
+				var regEmpty = /\s/g; // 공백 문자 
+				var nameReg = RegExp(/^[가-힣]{2,4}$/);
+				if(name == ""||name.length==0){
+					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+					return false;
+				} else if(name.match(regEmpty)) {
+					$(this).next().text("이름은 공백없이 입력해주세요").css("display","block").css("color","#b30000");
+					return false;
+				} else if(!nameReg.test(name)) {
+					$(this).next().text("이름은 표준한글만 입력가능").css("display","block").css("color","#b30000");
+					return false;
+				} else if(name.length<2||name.length>4) {
+					$(this).next().text("이름은 공백없이 2자 이상~4자 이하").css("display","block").css("color","#b30000");
+					return false;
+				} else {
+					$(this).next().text("멋진 이름이네요").css("display","block").css("color","dodgerblue");
+					$("#yy").select();
+				}
+				
+			});
+		
+		function ajaxCheck(id){
+			// id에 값이 있는 경우에만 ajax 동작! : 중복체크 
+			$.ajax({
+				url: "idCheck.swt",
+				type: "POST",
+				dataType: "json",
+				data: "id="+id,
+				success: function(data) {
+					if(data.message == "-1"){
+						$("#error_id").css("display","block").css("color","#b30000").text("중복된 아이디입니다");
+						$("#id").select();
+					}else {
+						$("#error_id").css("display","block").css("color","dodgerblue").text("멋진 아이디네요");
+						$("#pw").select();
+					}
+					
+				},
+				error: function(){
+					alert("System Error!!!");
+				}
+			});
+		}
+		/* 숫자만 들어오게 일수랑 달은 1~31 년은 
+		2월은 28일까지만 
+		년도도 2019년 new 데이터 현재년도 계속 받아와서 그거보다 크지 않게 
+		1900년도부터  */
+		
+		
+		
+		
+		$("#phone").blur(function(){
+			var regEmpty = /\s/g; // 공백 문자 
+			var phone = $.trim($(this).val());
+			var phoneReg = RegExp(/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/);
+			if(phone==''||phone.length==0){
+				$(this).next().css('display','block').text('필수입력 정보입니다').css('color','#b30000');
+				phone.val('');
+				phone.focus();
+				return false;
+			} else if(phone.match(regEmpty)) {
+				$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
+				phone.select();
+				return false;
+			} else if(isNaN(phone)) {
+				// isNaN : 숫잔지 아닌지 판단. 숫자가 아닌 값이 들어오면 true 
+				$(this).next().css('display','block').text('숫자만 입력해주세요').css('color','#b30000');
+				phone.select();
+				return false;
+			} else if(!phoneReg.test(phone)) {
+				$(this).next().css('display','block').text('유효하지 않은 휴대폰 번호입니다').css('color','#b30000');
+				phone.select();
+				return false;
+			} else {
+				$(this).next().css('display','block').text('좋은 휴대폰 번호네요').css('color','dodgerblue');
+				// 포트폴리오 낼 땐 말장난 치면 안됨. 폰트체도 깔끔하고 가독성 높은걸로. 귀여운거X
+			}
 		});
+		
+		$("#email").blur(function(){
+			var email = $.trim($("#email").val());
+			var regEmpty = /\s/g; // 공백 문자 
+			var regEmail = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+			if(email==''||email.length==0) {
+				$(this).next().css("display","block").text('필수입력 정보입니다').css('color','#b30000');
+				return false;
+			} else if(email.match(regEmpty)){
+				$(this).next().css("display","block").text('공백없이 입력해주세요').css('color','#b30000');
+				return false;
+			} else if(!regEmail.test(email)){
+				$(this).next().css("display","block").text('올바른 값을 입력해주세요').css('color','#b30000');
+				return false;
+			} else{
+				$(this).next().css("display","block").text('샤이니한 이메일이네요').css('color','dodgerblue');
+			}  
+		});
+		
+		//change함수: 값(value)이 변화 됐을 때 적용
+		//메일 주소 선택 값 입력 
+		$('#selmail').change(function(){
+			//input(키보드 입력값) select(선택값)는 val로 가져와야함. 나머지는 text로 가져 옴 
+			var selmail = $(this).val();
+			//alert(selmail);
+			if(selmail == 'directVal'){
+				//그전에 값이 있을 땐 지워줘야함 
+				$('#email_url').val("");
+				$('#email_url').focus();
+				$('#email_url').removeAtrr('readonly');
+			} else {
+				$('#email_url').val(selmail);
+				$('#email_url').prop('readonly',true);
+				$('#email_url').blur();
+			}
+			//alert(selmail);
+		});
+		
+	});
+		
 		// 다음 지도 api
 		 function sample6_execDaumPostcode() {
 			new daum.Postcode({
@@ -628,12 +799,8 @@
 						if(extraAddr !== ''){
 							extraAddr = ' (' + extraAddr + ')';
 						}
-						// 조합된 참고항목을 해당 필드에 넣는다.
-						document.getElementById("sample6_extraAddress").value = extraAddr;
-					
-					} else {
-						document.getElementById("sample6_extraAddress").value = '';
-					}
+						
+					} 
 	
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
 					document.getElementById('sample6_postcode').value = data.zonecode;
@@ -642,35 +809,6 @@
 					document.getElementById("sample6_detailAddress").focus();
 				}
 			}).open();
-	
-			var
-			form = $('#join_frm'),
-			sid = $('#id'),
-			spw = $('#pswd1'),
-			srepw = $('#pswd12'),
-			sname = $('#name'),
-			syear = $('#yy'),
-			sday = $('#dd'),
-			sphone = $('#phone'),
-			smail = $('#email_id');
-	
-			var idReg = RegExp(/^[a-zA-Z0-9]{5,15}$/); //ID: 영문 대문자 또는 소문자 또는 숫자로 시작하는 아이디, 길이는5~15자, 끝날때 제한 없음(끝날때 특수문자 붙여라 그런게 없다는 거)
-			var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/);
-			var nameReg = RegExp(/^[가-힣]{2,4}$/);
-			var emailReg = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-			var phoneReg = RegExp(/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/); 
-			// 년, 일 유효성 체크 
-	
-			// name에서 blur() 했을 때 유효성 체크
-			$('#name').blur(function(){
-				memIdCheck();
-			});
-	
-			// name에서 keyup()했을 때 유효성 체크 
-			$('#name').keyup(function(){
-				memIdCheck();
-			});
-	
 		}
 	</script>
 </body>

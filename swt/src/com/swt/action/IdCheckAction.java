@@ -8,18 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
+import com.swt.dao.MemberDAO;
+
 public class IdCheckAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		System.out.println("id>>>>>"+id);
+//		System.out.println("id>>>>>"+id);
+		
+		MemberDAO mDao = MemberDAO.getInstance();
+		String result = mDao.idCheck(id);
+		
 		
 		// Ajax => JSON방식 => return할 때 보내는 값도 JSON방식
 		JSONObject jObj = new JSONObject();
-		int message = 1;
-		jObj.put("message", message);
+		jObj.put("message", result);
 		jObj.put("id", id);
 		
 		// JSON 객체에 담은 데이터를 호출한 페이지로 전송하는 기능
