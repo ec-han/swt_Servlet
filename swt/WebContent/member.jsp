@@ -238,7 +238,7 @@
 			font-family: 'Noto Serif KR', serif;
 			font-size: 12px;
 		}
-		.addree a {
+		.address a {
 			font-weight: bold;
 		}
 		.address a:hover {
