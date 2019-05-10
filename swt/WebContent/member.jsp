@@ -124,6 +124,9 @@
 			color: #8e8e8e;
 			padding-right: 30px;
 		}
+		.step_addr {
+			
+		}
 		#step_mail {
 			/* display: none; */
 			font-size: 13px;
@@ -355,6 +358,9 @@
 		#dd {
 			width: 84%;
 		}
+		.addr_wrap{
+			position: relative;
+		}
 	
 </style>
 </head>
@@ -370,7 +376,7 @@
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="">
+		<form class="join_form" id="join_frm" method="POST" action="memberPlay.swt">
 			<div class="container">
 				<div class="join_content">
 					<div class="row_group">
@@ -380,7 +386,7 @@
 								<label for="id">아이디</label>
 							</h3>
 							<span class="ps_box int_id">
-								<input type="text" id="id" name="id" class="int" maxlength="20">
+								<input type="text" id="id" name="id" class="int" maxlength="15">
 								<span class="step_url" id="error_id"></span>
 								<!-- <span class="step_url">@naver.com</span> -->
 							</span>
@@ -393,7 +399,7 @@
 								<label for="pswd1">비밀번호</label>
 							</h3>
 							<span class="ps_box int_pass">
-								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="20">
+								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="12">
 								<span class="step_url"></span>
 							</span>
 
@@ -402,7 +408,7 @@
 								<label for="pswd2">비밀번호 재확인</label>
 							</h3>
 							<span class="ps_box int_pass">
-								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="20">
+								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="12">
 								<span class="step_url"></span>
 							</span>
 
@@ -416,7 +422,7 @@
 								<label for="name">이름</label>
 							</h3>
 							<span class="ps_box">
-								<input type="text" id="name" name="name" class="int" maxlength="20">
+								<input type="text" id="name" name="name" class="int" maxlength="10">
 								<span class="step_url"></span>
 							</span>
 						</div>
@@ -429,13 +435,13 @@
 						<div class="bir_wrap">
 							<div class="bir_yy">
 								<span class="ps_box">
-									<input type="text" id="yy" placeholder="년(4자,Year)" class="int" maxlength="4">
+									<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4">
 									<span class="step_url"></span> 
 								</span>
 							</div>
 							<div class="bir_mm">
 								<span class="ps_mm">
-									<select id="mm" class="sel">
+									<select id="mm" class="sel" name="mm">
 										<option>월(Month)</option>
 										<option value="01">01(Jan.)</option>
 										<option value="02">02(Feb.)</option>
@@ -454,7 +460,7 @@
 							</div>
 							<div class="bir_dd">
 								<span class="ps_box">
-									<input type="text" id="dd" placeholder="일(Day)" class="int" maxlength="2">
+									<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2">
 									<span class="step_url"></span>
 								</span>
 							</div>
@@ -466,17 +472,19 @@
 							</h3>
 						
 							<span class="addr_wrap">
-								<input type="text" id="sample6_postcode" placeholder="우편번호">
+								<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
 							</span>
 						
 						
 							<span id="addr_btn">
-								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+								<input type="button" id="addr_btn2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 							</span>
 						
 							<span class="addr_wrap">
-								<input type="text" id="sample6_address" placeholder="주소">
-								<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+								<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly">
+								
+								<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소">
+								<span class="step_addr"></span> 
 								
 							</span>
 							
@@ -522,7 +530,7 @@
 					</div>
 					<div class="btn_double_area">
 						<span>
-							<a href="index.html" class="btn_type">가입하기</a>
+							<a href="#" class="btn_type">가입하기</a>
 						</span>
 					</div>
 
@@ -561,15 +569,56 @@
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="valicode.js"></script> 
+	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
+			$('.btn_type').click(function(){
+				$('#join_frm').submit();
+			});
+		
+			//우편번호, 주소 클릭시 다음주소API 창 출력
+			$('.addrbtn').click(function(){
+				var zipcode = $('.addrbtn').eq(0).val();
+				var addr = $('.addrbtn').eq(1).val();
+//				alert(zipcode+","+addr);
+				if(zipcode == ""|| addr == ""){
+					$('#addr_btn2').click();
+				}
+				
+			});
+			
+			$('#sample6_detailAddress').blur(function(){
+				var dAddr = $(this).val();
+				if(dAddr==""||dAddr.length==0){
+					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000").css("font-size","13px").css("padding-left","15px");
+					return false;
+				}
+			});
+			// 1. input(#id)에 값을 입력 후 blur()하면 이벤트 발생
 			$("#id").blur(function(){
-				var id = $.trim($(this).val());
-//				alert(id);
-				var regEmpty = /\s/g; // 공백 문자 
-				var reg = /[^a-z0-9-_.]+/g; // 올바른 아이디 형식 
-				if(id == ""||id.length==0){
+				// 2. input(#id) value값을 가져와 memId에 담음 
+				var memId = $.trim($("#id").val());
+				// 3. joinValidate의 checkId() 함수를 실행, memId를 매개변수로 보냄 
+				// 7. checkId() 함수를 실행 후 결과값(code, desc)을 변수 checkResult에 담음 
+				var checkResult  = joinValidate.checkId(memId); // code, desc를 가져와서 변수에 담음 
+				
+				if(checkResult.code != 0) { 
+					// 8-1(실패). code값이 0이 아닌 경우 => 유효한 값 아님 
+					// 			  경고 메시지 출력!
+					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
+					return false;
+				} else { 
+					// 8-2(성공). code값이 0인 경우 => 유효한 값 
+					//			 중복값인지 Ajax(에이젝스)로 검증 시작!
+					// 9. ajaxCheck() 메서드 실행, memId를 매개변수로 보냄 
+					// 31. ajaxCheck(memId)의 return값이 1이면 return true; (유효성체크완료, 사용가능한 아이디) 
+					if(ajaxCheck(memId)=="1"){
+						return true;
+					}
+				}
+				return false; // if(ajaxCheck(memId)=="1") 제외하고는 return false;해서 종료
+				
+				/* if(id == ""||id.length==0){
 					$(this).next().text("필수입력 정보입니다.").css("display","block").css("color","#b30000");
 					return false;
 				} else if(id.match(regEmpty)) {
@@ -583,39 +632,22 @@
 					return false;
 				}
 				// 유효한 ID: True, 중복 Check: False 인 상태
-				ajaxCheck(id); // 중복 check해주는 함수 호출 
-				
-				
+				ajaxCheck(id); // 중복 check해주는 함수 호출  */
 			});
 			
 			$("#pswd1").blur(function(){
-				var pw = $.trim($(this).val());
-				var regEmpty = /\s/g; // 공백 문자
-				var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+				var memPw = $.trim($("#pswd1").val());
+				var memRpw = $.trim($("#pswd2").val());
+				var checkResult  = joinValidate.checkPw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
 				
-				
-				if(pw == ""||pw.length==0){
-					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+				if(checkResult.code != 0) { //실패했을때
+					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
 					return false;
-				} else if(pw.match(regEmpty)) {
-					$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else if(!pwReg.test(pw)) {
-					$(this).next().text("올바른 비밀번호(4~12자)를 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else {
-					$(this).next().text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
-					var rpw = $.trim($("#pswd2").val());
-					if(rpw!=null||rpw.length!=0){
-						if(pw==rpw){
-							$(".step_url").eq(2).text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
-						} else {
-							$(".step_url").eq(2).text("입력하신 비밀번호와 일치하지 않습니다").css("display","block").css("color","#b30000");
-							return false;
-						}
-					}
+				} else { // code = 0일때. 즉, 성공했을때 success
+					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
+					return true;
 				}
-				
+				return false;
 			});
 			
 			$("#pswd2").blur(function(){
@@ -657,10 +689,10 @@
 					$(this).next().text("이름은 공백없이 입력해주세요").css("display","block").css("color","#b30000");
 					return false;
 				} else if(!nameReg.test(name)) {
-					$(this).next().text("이름은 표준한글만 입력가능").css("display","block").css("color","#b30000");
+					$(this).next().text("이름은 표준한글만 입력가능합니다").css("display","block").css("color","#b30000");
 					return false;
 				} else if(name.length<2||name.length>4) {
-					$(this).next().text("이름은 공백없이 2자 이상~4자 이하").css("display","block").css("color","#b30000");
+					$(this).next().text("이름은 공백없이 2자 이상~4자 이하만 가능합니다").css("display","block").css("color","#b30000");
 					return false;
 				} else {
 					$(this).next().text("멋진 이름이네요").css("display","block").css("color","dodgerblue");
@@ -669,35 +701,10 @@
 				
 			});
 		
-		function ajaxCheck(id){
-			// id에 값이 있는 경우에만 ajax 동작! : 중복체크 
-			$.ajax({
-				url: "idCheck.swt",
-				type: "POST",
-				dataType: "json",
-				data: "id="+id,
-				success: function(data) {
-					if(data.message == "-1"){
-						$("#error_id").css("display","block").css("color","#b30000").text("중복된 아이디입니다");
-						$("#id").select();
-					}else {
-						$("#error_id").css("display","block").css("color","dodgerblue").text("멋진 아이디네요");
-						$("#pw").select();
-					}
-					
-				},
-				error: function(){
-					alert("System Error!!!");
-				}
-			});
-		}
 		/* 숫자만 들어오게 일수랑 달은 1~31 년은 
 		2월은 28일까지만 
 		년도도 2019년 new 데이터 현재년도 계속 받아와서 그거보다 크지 않게 
 		1900년도부터  */
-		
-		
-		
 		
 		$("#phone").blur(function(){
 			var regEmpty = /\s/g; // 공백 문자 

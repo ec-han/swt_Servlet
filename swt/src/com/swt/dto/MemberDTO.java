@@ -37,6 +37,22 @@ public class MemberDTO {
 		this.regdate = regdate;
 	}
 
+	public MemberDTO(String id, String pw, String name, int bir_yy, int bir_mm, int bir_dd, String phone, String email,
+			String zipcode, String addr1, String addr2) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.bir_yy = bir_yy;
+		this.bir_mm = bir_mm;
+		this.bir_dd = bir_dd;
+		this.phone = phone;
+		this.email = email;
+		this.zipcode = zipcode;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+	}
+
 	public String getId() {
 		return id;
 	}
