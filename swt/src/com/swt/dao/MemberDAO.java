@@ -47,7 +47,7 @@ public class MemberDAO {
 	}
 	
 	public int memInsert(MemberDTO mDto) {
-		sqlSession = sqlSessionFactory.openSession();
+		sqlSession = sqlSessionFactory.openSession(true);
 		int result = 0;
 		try {
 			result = sqlSession.insert("memInsert", mDto); 
