@@ -18,7 +18,7 @@ public class MemberPlayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "index.swt";
+		String url = "";
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pswd1");
@@ -39,7 +39,7 @@ public class MemberPlayAction implements Action{
 		if(result>0) {
 			url = "index.swt";
 		}else {
-			url = "member.swt";
+			url = "constract.swt";
 		}
 		
 		
