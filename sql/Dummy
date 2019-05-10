@@ -103,6 +103,9 @@ CREATE TABLE tbl_member(
     addr2 VARCHAR2(200) NOT NULL,
     regdate DATE DEFAULT SYSDATE
 );
+SELECT name
+FROM tbl_member
+WHERE id='user01';
 SELECT * FROM tbl_member;
 INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
 VALUES('user01','1234','한은체',1994,01,01,01011112222,'user01@gmail.com','61241','광주 북구 유동 57-47','1층');
