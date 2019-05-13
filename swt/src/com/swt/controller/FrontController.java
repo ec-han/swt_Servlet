@@ -14,6 +14,8 @@ import com.swt.action.ActionForward;
 import com.swt.action.ConstractAction;
 import com.swt.action.IdCheckAction;
 import com.swt.action.IndexAction;
+import com.swt.action.LoginAjaxAction;
+import com.swt.action.LoginOutAction;
 import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
 
@@ -72,10 +74,16 @@ public class FrontController extends HttpServlet {
 			//	    이동: IdCheckAction 클래스의 excute()로 이동!:) 
 			action = new IdCheckAction();
 			forward = action.excute(request, response);
-		}  else if(command.equals("/memberPlay.swt")) {
+		} else if(command.equals("/memberPlay.swt")) {
 			action = new MemberPlayAction();
 			forward = action.excute(request, response);
-		}	
+		} else if(command.equals("/login.swt")) {
+			action = new LoginAjaxAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/loginOut.swt")) {
+			action = new LoginOutAction();
+			forward = action.excute(request, response);
+		}		
 		
 		
 		if(forward != null) {

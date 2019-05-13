@@ -39,6 +39,18 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     text-decoration: none;
 	font-weight: bold;
 }
+#step_url {
+	
+	/* position: absolute; */
+	/* top: 16px;
+	right: 13px;  */
+	
+	font-size: 13px;
+	line-height: 18px;
+	color: #b30000;
+	padding-right: 30px;
+	
+}
 
 
 .footer_sns{
@@ -320,8 +332,8 @@ a:not([href]):not([tabindex]) {
 
 }
 #wrap{
-	width: 420px;
-	height: 510px;
+	width: 370px;
+	height: 440px;
 	/* border: 1px solid blue; */
 	display: flex;
 	justify-content: center;
@@ -330,11 +342,13 @@ a:not([href]):not([tabindex]) {
 }
 .custom-control-label {
 	font-size: 0.85em;
+	margin-bottom: 15px;
 }
 /*switch버튼*/
 .custom-switch {
 	padding-left: 3.3rem!important;
     float: left;
+    margin-top: -15px;
 }
 .custom-control-input:checked~.custom-control-label::before {
 	color: #fff;
@@ -358,20 +372,21 @@ a:not([href]):not([tabindex]) {
 }
 #login_form{
 	position: relative;
+	margin-top: 15px;
 }
 #swt_content{
-	margin: 10px 0px;
+	margin: 10px auto;
 	height: 400px;
 	text-align: center;
 }
 
 #login_area {
 	width: 270px;
-	height: 372px;
+	height: 400px;
 	position: relative;
 	display: flex;
 	align-items: center;
-		justify-content: center;
+	justify-content: center;
 }
 #login_logo {
 	position: absolute;
@@ -380,6 +395,21 @@ a:not([href]):not([tabindex]) {
 #login_logo > img {
 	/* width: 250px; */
 	height: 75px;
+}
+
+#loginInfo {
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 35px;
+	padding: 0px 10px 0px 10px; 
+	/* 나중에 로그인 올리면 색깔변하게 할거라 margin보다는 padding이 더 예쁨 */
+	height: 35px;
+	display: inline-block; /* ★<a>는 항상 그 사이즈만큼만 줘야함. <li>사이즈야 맞춰줘야 hover했을때 손가락 뜸. <a>사이즈가 작으면 마우스 커서 올려도 손가락마우스버튼으로 안 바뀔 수 있음 */
+}
+#loginInfo:hover{
+	color: #252851;
 }
 
 .idpw {

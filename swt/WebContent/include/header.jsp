@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="common.jsp" %>    
-
+<%
+	String referer = request.getHeader("referer");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -48,11 +50,12 @@
 										    <div class="custom-control custom-switch">
 										      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
 										      <label class="custom-control-label" for="switch1">로그인 유지</label>
+										      <span id="step_url"></span>
 										    </div>
 										</form>
 											
 											<div>
-												<a href="index.html" id="btn_login">
+												<a href="#" id="btn_login">
 													<button class="btn btn1">Login</button>
 												</a>
 											</div>
@@ -72,10 +75,24 @@
 				</div>
 				<!-- 모달 로그인 끝  -->
 				<ul>
+				
+				<c:choose>
+					<c:when test="${empty sessionScope.loginUser}">
 					<li><a id="open_btn">Login</a></li>
 					<li><a href="${path}/constract.swt" target="_blank">Join</a></li>
+					</c:when>
+					<c:otherwise>
+					<li id="loginInfo">
+						<span>${sessionScope.loginUser.name}</span>
+							(${sessionScope.loginUser.id})
+					</li>
+					<li><a href="#" class="logout_btn">Logout</a></li>
+					</c:otherwise>
+				</c:choose>
+					
 					<li><a href="#">MyPage</a></li>
 					<li><a href="#">Cart</a></li>
+				
 				</ul>
 
 			</div>
@@ -146,6 +163,56 @@
 		});
 		$('#close_btn').click(function(){
 			$('#modal_all').css('display','none');
+		});
+		$('#btn_login').click(function(){
+			var id = $.trim($('#login_id').val());
+			var pw = $.trim($('#login_pw').val());
+			/* alert(id+','+pw); */
+		});
+		
+		$('#btn_login').click(function(){
+			var id = $.trim($('#login_id').val());
+			var pw = $.trim($('#login_pw').val());
+			/* alert(id+','+pw); */
+			
+			var regEmpty = /\s/g; // 공백문자 체크
+			//1. null값 체크
+			//2. 공백체크 
+			if(id == null || id.length == 0){
+				$('#step_url').text('필수정보 입니다').css('display','block');
+				return false;
+			}else if(id.match(regEmpty)){
+				$('#step_url').text('공백없이 입력해주세요').css('display','block');
+				return false;
+			}
+			if(pw == null || pw.length == 0){
+				$('#step_url').text('필수정보 입니다').css('display','block');
+				return false;
+			}else if(pw.match(regEmpty)){
+				$('#step_url').text('공백없이 입력해주세요').css('display','block');
+				return false;
+			}
+			
+			$.ajax({
+				url: "login.swt",
+				type: "POST",
+				dataType: "json",
+				data: "id="+id+"&pw="+pw,
+				success: function(data) {
+					if(data.message == "1") {
+						location.reload(); // 새로고침 
+					} else if(data.message == "-1"){
+						$('#login_id').focus();
+						$('#step_url').text('회원 아이디 또는 비밀번호가 일치하지 않습니다.').css('display','block');
+					}
+				},
+				error:function(){
+					alert("System Error!!");
+				}
+			});
+			
+			
+			
 		});
 		//모달 검색창
 		$('.search_btn').click(function(){

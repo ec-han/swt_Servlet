@@ -28,9 +28,18 @@
  	WHERE id = #{id}
  </select>
 
-<!-- 이클립스에서 오는건 parametertpye DB에서 오는건 resultType(0과1로만 오면 생략가능) -->
-<insert id="memInsert" parameterType="com.swt.dto.MemberDTO">
-	INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
-	VALUES(#{id},#{pw},#{name},#{bir_yy},#{bir_mm},#{bir_dd},#{phone},#{email},#{zipcode},#{addr1},#{addr2})
-</insert>
+	<!-- 이클립스에서 오는건 parametertpye DB에서 오는건 resultType(0과1로만 오면 생략가능) -->
+	<insert id="memInsert" parameterType="com.swt.dto.MemberDTO">
+		INSERT INTO tbl_member(id,pw,name,bir_yy,bir_mm,bir_dd,phone,email,zipcode,addr1,addr2)
+		VALUES(#{id},#{pw},#{name},#{bir_yy},#{bir_mm},#{bir_dd},#{phone},#{email},#{zipcode},#{addr1},#{addr2})
+	</insert>
+
+	<select id="loginCheck" parameterType="com.swt.dto.MemberDTO" resultType="com.swt.dto.MemberDTO">
+		SELECT * FROM tbl_member
+		WHERE id=#{id} AND pw=#{pw}
+	</select>
+
+
+
+
 </mapper>
