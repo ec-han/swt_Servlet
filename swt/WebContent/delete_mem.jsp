@@ -261,7 +261,7 @@
 		}
 		#modal {
 			border-top: 1px solid black;
-			border-radius: 10px;
+			border-radius: 35% 35% 0px 0px;
 			background-color: #eee;
 			width: 250px;
     		height: 350px;
@@ -290,6 +290,8 @@
 			justify-content: center;
 			align-items: center;
 			position: relative;
+			border-top: 1px solid black;
+			border-radius: 35%;
 		}
 		#h_wrap {
 			float: left;
@@ -299,6 +301,8 @@
 			display: inline-block;
 			width: 125px;
 			height: 55px;
+			border-top: 1px solid black;
+			border-radius: 85px;
 			border-bottom: 1px solid black;
 			
 		}
