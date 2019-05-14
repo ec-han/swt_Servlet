@@ -14,10 +14,15 @@ import com.swt.action.ActionForward;
 import com.swt.action.ConstractAction;
 import com.swt.action.IdCheckAction;
 import com.swt.action.IndexAction;
+import com.swt.action.InfoUpdateAction;
+import com.swt.action.InfoUpdatePlayAction;
 import com.swt.action.LoginAjaxAction;
 import com.swt.action.LoginOutAction;
+import com.swt.action.LogoutAjaxAction;
 import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
+import com.swt.action.PwCheckAction;
+import com.swt.action.PwUpdateAction;
 
 /**
  * Servlet implementation class FrontController
@@ -80,10 +85,26 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/login.swt")) {
 			action = new LoginAjaxAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/loginOut.swt")) {
+		} else if(command.equals("/loginOut.swt")) { //ajax없이 referer로 로그아웃 한 방법
 			action = new LoginOutAction();
 			forward = action.excute(request, response);
+		} else if(command.equals("/logoutAjax.swt")) { //ajax로 로그아웃 
+			action = new LogoutAjaxAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/infoUpdate.swt")) { //ajax로 로그아웃 
+			action = new InfoUpdateAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/infoUpdatePlay.swt")) { //ajax로 로그아웃 
+			action = new InfoUpdatePlayAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/pwUpdate.swt")) { //ajax로 로그아웃 
+			action = new PwUpdateAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/pwCheck.swt")) { //ajax로 로그아웃 
+			action = new PwCheckAction();
+			forward = action.excute(request, response);
 		}		
+		
 		
 		
 		if(forward != null) {

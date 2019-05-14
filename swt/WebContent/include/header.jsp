@@ -90,7 +90,19 @@
 					</c:otherwise>
 				</c:choose>
 					
-					<li><a href="#">MyPage</a></li>
+					<li class="mydrop1">
+						<a href="#">MyPage</a>
+						<div class="mydrop2">
+						<%-- <c:choose>
+							<c:when test="${empty sessionScope.loginUser}"> --%>
+							<a href="${path}/infoUpdate.swt">Account</a>
+							<a href="${path}/pwUpdate.swt">Password</a>
+							<a href="#">Order</a>
+							<a href="#">WishList</a>
+							<%-- </c:when>
+						</c:choose> --%>
+						</div> 
+					</li>
 					<li><a href="#">Cart</a></li>
 				
 				</ul>
@@ -170,6 +182,20 @@
 			/* alert(id+','+pw); */
 		});
 		
+		$(".logout_btn").click(function(){
+			$.ajax({
+				url: "logoutAjax.swt",
+				type: "POST",
+				dataType: "json",
+				success: function(data) {
+					location.reload();
+				},
+				error:function(){
+					alert("System Error!!");
+				}
+			});
+		});
+			
 		$('#btn_login').click(function(){
 			var id = $.trim($('#login_id').val());
 			var pw = $.trim($('#login_pw').val());
@@ -212,7 +238,6 @@
 			});
 			
 			
-			
 		});
 		//모달 검색창
 		$('.search_btn').click(function(){
@@ -223,6 +248,12 @@
 		});
 		
 	});
+	
+	
+	
+	
+	
+	
 </script>
 </body>
 </html>

@@ -201,6 +201,28 @@ a:not([href]):not([tabindex]) {
 .dropdown2 > a:hover{
 	background-color: #696D98;
 }
+
+.mydrop1 {
+	position: relative;
+	
+}
+
+.mydrop2 {
+	position: absolute;
+	display: block;
+	top: 30px;
+    width: 30px;
+	color: black;
+	z-index: 99;
+	/* display: none; */
+}
+.mydrop2 > a {
+	text-align: left;
+	display: inline-block;
+	width: 30px;
+	color: white;
+	box-sizing: border-box;
+}
 .search_box {
 	position: absolute;
 	top: 50%;

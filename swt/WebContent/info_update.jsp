@@ -112,7 +112,14 @@
 		}
 		#id {
 			width: 95%;
+			cursor: not-allowed;
+		
 		}
+		#yy, #mm, #dd {
+			cursor: not-allowed;
+			
+		}
+	
 		.step_url {
 			position: absolute;
 			top: 16px;
@@ -394,7 +401,7 @@
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="memberPlay.swt">
+		<form class="join_form" id="join_frm" method="POST" action="infoUpdatePlay.swt">
 			<div class="container">
 				<div class="join_content">
 					<div class="row_group">
@@ -404,7 +411,7 @@
 								<label for="id">아이디</label>
 							</h3>
 							<span class="ps_box int_id">
-								<input type="text" id="id" name="id" class="int" maxlength="15" readonly="readonly">
+								<input type="text" id="id" name="id" class="int" maxlength="15" readonly="readonly" value="${sessionScope.loginUser.id}">
 								<span class="step_url" id="error_id"></span>
 								<!-- <span class="step_url">@naver.com</span> -->
 							</span>
@@ -419,7 +426,7 @@
 								<label for="name">이름</label>
 							</h3>
 							<span class="ps_box">
-								<input type="text" id="name" name="name" class="int" maxlength="10">
+								<input type="text" id="name" name="name" class="int" maxlength="10" value="${sessionScope.loginUser.name}" >
 								<span class="step_url"></span>
 							</span>
 						</div>
@@ -432,7 +439,7 @@
 						<div class="bir_wrap">
 							<div class="bir_yy">
 								<span class="ps_box">
-									<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4" readonly="readonly">
+									<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4" readonly="readonly" value="${sessionScope.loginUser.bir_yy}">
 									<span class="step_url"></span> 
 								</span>
 							</div>
@@ -440,15 +447,15 @@
 								<span class="ps_mm">
 									<select id="mm" class="sel" name="mm" disabled="disabled">
 										<option>월(Month)</option>
-										<option value="01">01(Jan.)</option>
-										<option value="02">02(Feb.)</option>
-										<option value="03">03(Mar.)</option>
-										<option value="04">04(Apr.)</option>
-										<option value="05">05(May)</option>
-										<option value="06">06(Jun)</option>
-										<option value="07">07(Jul.)</option>
-										<option value="08">08(Aug.)</option>
-										<option value="09">09(Sep.)</option>
+										<option value="1">01(Jan.)</option>
+										<option value="2">02(Feb.)</option>
+										<option value="3">03(Mar.)</option>
+										<option value="4">04(Apr.)</option>
+										<option value="5">05(May)</option>
+										<option value="6">06(Jun)</option>
+										<option value="7">07(Jul.)</option>
+										<option value="8">08(Aug.)</option>
+										<option value="9">09(Sep.)</option>
 										<option value="10">10(Oct.)</option>
 										<option value="11">11(Nov.)</option>
 										<option value="12">12(Dec.)</option>
@@ -457,7 +464,7 @@
 							</div>
 							<div class="bir_dd">
 								<span class="ps_box">
-									<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2" readonly="readonly">
+									<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2" readonly="readonly" value="${sessionScope.loginUser.bir_dd}">
 									<span class="step_url"></span>
 								</span>
 							</div>
@@ -469,7 +476,7 @@
 							</h3>
 						
 							<span class="addr_wrap">
-								<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+								<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly" value="${sessionScope.loginUser.zipcode}">
 							</span>
 						
 						
@@ -478,9 +485,9 @@
 							</span>
 						
 							<span class="addr_wrap">
-								<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly">
+								<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly" value="${sessionScope.loginUser.addr1}">
 								
-								<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소">
+								<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" value="${sessionScope.loginUser.addr2}">
 								<span class="step_addr"></span> 
 								
 							</span>
@@ -492,7 +499,7 @@
 								<label for="phone">휴대전화</label>
 							</h3>
 							<span class="ps_box int_id">
-								<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력">
+								<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력" value="${sessionScope.loginUser.phone}">
 								<span class="step_url"></span>
 							</span>
 							<h3 class="join_title">
@@ -500,7 +507,7 @@
 							</h3>
 							<div id="wrap_email">
 								<span class="ps_box int_id">
-									<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com">
+									<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com" value="${sessionScope.loginUser.email}">
 									<span class="step_url"></span>
 								</span>
 							</div>
@@ -509,7 +516,7 @@
 					<div class="btn_double_area">
 						<span>
 							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type">회원수정</a>	
+							<a href="#" class="btn_type" id="btn_update">회원수정</a>	
 						</span>
 					</div>
 					<div class="cancel_area">
@@ -575,7 +582,7 @@
 					return false;
 				}
 			});
-			// 1. input(#id)에 값을 입력 후 blur()하면 이벤트 발생
+			/* // 1. input(#id)에 값을 입력 후 blur()하면 이벤트 발생
 			$("#id").blur(function(){
 				// 2. input(#id) value값을 가져와 memId에 담음 
 				var memId = $.trim($("#id").val());
@@ -600,7 +607,7 @@
 				return false; // if(ajaxCheck(memId)=="1") 제외하고는 return false;해서 종료
 				
 				
-			});
+			}); */
 			
 			$("#pswd1").blur(function(){
 				var memPw = $.trim($("#pswd1").val());
@@ -643,6 +650,12 @@
 				
 			});
 			// 비번이랑 아이디랑 생년월일이랑 같은지 체크해주는것도 좋음 여기서는 안 하지만...
+			
+			var val = "${sessionScope.loginUser.bir_mm}";
+			/* alert(val); */
+			$('#mm').val(val).prop("selected",true);
+			
+			
 			
 		//이름 1널값체크2중간에공백체크3length 4자제한 4. 멋진이름이네
 		$("#name").blur(function(){
@@ -737,6 +750,17 @@
 			}
 			//alert(selmail);
 		});
+		
+		// 이메일 분할해서 받을 경우 가져오는 법(난 분할 안 하고 한줄로 받았으니 안해도 됨)
+		/* var email = "${sessionScope.loginUser.email}";
+		var index = email.indexOf('@');
+		var emailid = email.substring(0, index);
+		var emailurl = email.substring(index+1); */
+		
+		$("#btn_update").click(function(){
+			$("#join_frm").submit;
+		});
+		
 		
 	});
 		

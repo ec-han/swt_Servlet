@@ -3,30 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.swt.mybatis.SWTMapper.xml">
- <select id="bestList" resultType="com.swt.dto.ProductDTO">
- <![CDATA[
- 	SELECT * 
-	FROM (SELECT * FROM tbl_product
-	      ORDER BY p_good DESC)
-	WHERE rownum <= 5
- ]]>
- </select>
- <select id="newList" resultType="com.swt.dto.ProductDTO">
- <![CDATA[
- 	SELECT * 
-	FROM (SELECT * FROM tbl_product
-	      ORDER BY p_indate DESC)
-	WHERE rownum <= 5
- ]]>
- 
- </select>
- 
- <!-- 21. 매개변수로 전달받은 id값을 sql문에 바인딩변수로 넣고 sql문 실행(DB로 이동)-->
- <select id="idCheck" parameterType="String" resultType="String">
- 	SELECT id 
- 	FROM tbl_member
- 	WHERE id = #{id}
- </select>
+	 <select id="bestList" resultType="com.swt.dto.ProductDTO">
+	 <![CDATA[
+	 	SELECT * 
+		FROM (SELECT * FROM tbl_product
+		      ORDER BY p_good DESC)
+		WHERE rownum <= 5
+	 ]]>
+	 </select>
+	 <select id="newList" resultType="com.swt.dto.ProductDTO">
+	 <![CDATA[
+	 	SELECT * 
+		FROM (SELECT * FROM tbl_product
+		      ORDER BY p_indate DESC)
+		WHERE rownum <= 5
+	 ]]>
+	 
+	 </select>
+	 
+	 <!-- 21. 매개변수로 전달받은 id값을 sql문에 바인딩변수로 넣고 sql문 실행(DB로 이동)-->
+	 <select id="idCheck" parameterType="String" resultType="String">
+	 	SELECT id 
+	 	FROM tbl_member
+	 	WHERE id = #{id}
+	 </select>
 
 	<!-- 이클립스에서 오는건 parametertpye DB에서 오는건 resultType(0과1로만 오면 생략가능) -->
 	<insert id="memInsert" parameterType="com.swt.dto.MemberDTO">
@@ -38,8 +38,26 @@
 		SELECT * FROM tbl_member
 		WHERE id=#{id} AND pw=#{pw}
 	</select>
+	
+	<update id="memUpdate" parameterType="com.swt.dto.MemberDTO">
+		UPDATE tbl_member SET
+			name = #{name},
+			phone = #{phone},
+			email = #{email},
+			zipcode = #{zipcode},
+			addr1 = #{addr1},
+			addr2 = #{addr2}
+		WHERE id = #{id}
+	</update>
 
-
-
-
+	<select id="memOne" parameterType="String" resultType="com.swt.dto.MemberDTO">
+		SELECT * FROM tbl_member
+		WHERE id = #{id}
+	</select>
+	
+	
+	<select id="pwCheck" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) FROM tbl_member
+		WHERE id = #{id} AND pw = #{pw}
+	</select>
 </mapper>

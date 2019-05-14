@@ -1,5 +1,7 @@
 package com.swt.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -10,6 +12,10 @@ public class MemberDAO {
 	SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
 	
 	SqlSession sqlSession;
+	
+	int result = 0;
+	MemberDTO mDto = new MemberDTO();
+	boolean flag = false;
 	
 	private MemberDAO() {} 
 	
@@ -48,7 +54,7 @@ public class MemberDAO {
 	
 	public int memInsert(MemberDTO mDto) {
 		sqlSession = sqlSessionFactory.openSession(true);
-		int result = 0;
+		result = 0;
 		try {
 			result = sqlSession.insert("memInsert", mDto); 
 		} catch (Exception e) {
@@ -59,6 +65,60 @@ public class MemberDAO {
 		
 		return result;
 	}
+	
+	// 회원정보 수정(PW 제외)
+	
+	public int memUpdate(MemberDTO mDto) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			result = sqlSession.update("memUpdate", mDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+	
+	// 회원 1명의 정보를 가져옴
+	public MemberDTO memOne(String id) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			mDto = sqlSession.selectOne("memOne", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return mDto;
+	}
+	
+	// 비밀번호 재설정: 현재비밀번호와 입력한 비밀번호가 일치하는지 확인
+	public boolean pwCheck(String id,String pw) {
+		sqlSession = sqlSessionFactory.openSession();
+		HashMap<String, String> map = new HashMap<>();
+		
+		try {
+			map.put("id",id);
+			map.put("pw", pw);
+			result = sqlSession.selectOne("pwCheck", map);
+			System.out.println("result>>"+result);
+			if(result == 1) {
+				flag = true;
+			} else {
+				flag = false;
+			}
+			
+			System.out.println("flag>>> "+flag);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return true;
+	}
+	
+	
 	
 	
 }

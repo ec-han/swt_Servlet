@@ -253,10 +253,10 @@
 							<div class="pres_pw">
 								<h3 class="join_title">
 									<i class="fas fa-asterisk" id="star"></i>
-									<label for="pswd">현재 비밀번호</label>
+									<label for="pw_now">현재 비밀번호</label>
 								</h3>
 								<span class="ps_box int_pass">
-									<input type="password" id="pswd" name="pswd" class="int" maxlength="20">
+									<input type="password" id="pw_now" name="pw_now" class="int" maxlength="20">
 									<span class="step_url"></span>
 								</span>
 								<span class="error_next_box">필수정보입니다.</span>
@@ -335,7 +335,25 @@
 				$('#join_frm').submit();
 			});
 		
-			
+			// Ajax를 활용하여 입력한 비밀번호와 현재 유저의 비밀번호가 일치하는지 확인
+			$("#pw_now").blur(function(){
+				var nowPw = $("#pw_now").val(); // 입력한 비밀번호 
+				var nowId = "${sessionScope.loginUser.id}";
+				if(nowPw != null || nowPw.length != 0) {
+					$.ajax({
+						url: 'pwCheck.swt',
+						type: 'POST',
+						dataType: 'json',
+						data: 'id='+nowId+'&pw='+nowPw,
+						success: function(data) {
+							
+						},
+						error: function(){
+							alert("System Error!!!");
+						}
+					});
+				}
+			});
 			
 			$("#pswd1").blur(function(){
 				var memPw = $.trim($("#pswd1").val());

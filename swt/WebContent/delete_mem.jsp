@@ -260,73 +260,53 @@
 			display: none;
 		}
 		#modal {
-			border-top: 1px solid black;
-			border-radius: 35% 35% 0px 0px;
+			border-radius: 3px;
 			background-color: #eee;
-			width: 250px;
-    		height: 350px;
+			width: 450px;
+    		height: 250px;
     		margin: 220px auto;
 			box-shadow: 0 3px 10px 0 rgba(0,0,0,0.2),
 						0 3px 15px 0 rgba(0,0,0,0.15);   
 		}
 		.modal_txt {
 			border: none;
-		    color: white;
+		    color: black;
 			outline: none;
 			font-weight: bold;
-			font-size: 15px; 
+			font-size: 22px; 
 			line-height: 40px;
-		    height: 40px;
+		    height: 55px;
 		}
-		.focus_name {
-			font-weight: bold;
-			color: white;
-			font-size: 1.1em;
-		}
+
 		.wrap{
-			width: 250px;
-			height: 350px;
+			width: 450px;
+			height: 240px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			position: relative;
-			border-top: 1px solid black;
-			border-radius: 35%;
 		}
 		#h_wrap {
 			float: left;
 			position: absolute;
-			top: 10px;
-			left: 62.5px;
+			top: 0;
+			left: 0;
 			display: inline-block;
-			width: 125px;
-			height: 55px;
-			border-top: 1px solid black;
-			border-radius: 85px;
-			border-bottom: 1px solid black;
-			
+			width: 450px;
+			height: 30px;
+			background-color: #252851;
 		}
 		#h_wrap > h3 {
 			font-weight: bold;
 			font-size: 20px;
-			color: black;
-			text-align: center;
+			color: #eee;
 		}
 
 		.btn_wrap {
 			position: absolute;
 			bottom: 0;
-			left: 30px;
 			display: flex;
 			padding-left: 10px;
-			flex-direction: column;
-		}
-		.btn_wrap > a{
-			text-decoration: none;
-		}
-		.btn_wrap > a:hover {
-			text-decoration: none;
-			color: white;
 		}
 		.modal_btn{
 			width: 105px;
@@ -346,18 +326,23 @@
 		#btn_no{
 			order: 1;
 			padding: 10px;
-			/* background-color: #696D98; */
+			background-color: #696D98;
+		}
+		#btn_no:hover, #btn_yes:hover {
+			color: white;
+			text-decoration: none;
 		}
 		#btn_yes {
 			order: 2;
 			padding: 10px;
-			/* background-color: #816288; */
+			background-color: #816288;
 		}
+		
 		
 		#close_modal {
 			position: absolute;
-			top: 250px;
-			left: 125%;
+			top: 0;
+			left: 100%;
 			background-color: #A7AFCC;
 			color: white;
 			font-weight: bold;
@@ -368,21 +353,7 @@
 		    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1),
 		    				0 3px 15px 0 rgba(0,0,0,0.05);
 		}
-		#tea_leaves {
-			/* background-color: #0B0604; */
-			width: 200px;
-			height: 210px;
-			position: absolute;
-			bottom: 10px;
-			text-align: center;
-			
-		}
-		#leaves {
-			position: absolute;
-			bottom: 10px;
-			width: 230px;
-			height: 270px;
-		}
+	
 	
 </style>
 </head>
@@ -405,16 +376,12 @@
 					<div id="modal">
 						<div class="wrap">
 							<div id="h_wrap">
-								<h3>회원탈퇴<br>○</h3>
+								<h3>회원탈퇴</h3>
 							</div>
-							<img alt="모달배경" src="images/RooibosLemon.png" id="leaves">
-							<div id="tea_leaves">
-								
-								<p><span class="modal_txt">정말 <span class="focus_name">S.W.T</span>를<br> 탈퇴<br>하시겠습니까?</span></p>
-								<div class="btn_wrap">
-									<a class="modal_btn" id="btn_no" href="#">아니오</a>
-									<a class="modal_btn" id="btn_yes" href="#">예</a>
-								</div>
+							<p><span class="modal_txt">정말 <span class="focus_text">S.W.T</span>를 탈퇴하시겠습니까?</span></p>
+							<div class="btn_wrap">
+								<a class="modal_btn" id="btn_no" href="#">아니오</a>
+								<a class="modal_btn" id="btn_yes" href="#">예</a>
 							</div>
 							<button id="close_modal">X</button>
 						</div>
