@@ -206,7 +206,9 @@ a:not([href]):not([tabindex]) {
 	position: relative;
 	
 }
-
+.mydrop1:hover .mydrop2 {
+	display: block;
+}
 .mydrop2 {
 	position: absolute;
 	display: block;
@@ -214,7 +216,7 @@ a:not([href]):not([tabindex]) {
     width: 30px;
 	color: black;
 	z-index: 99;
-	/* display: none; */
+	display: none;
 }
 .mydrop2 > a {
 	text-align: left;

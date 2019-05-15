@@ -520,7 +520,7 @@
 						</span>
 					</div>
 					<div class="cancel_area">
-						<span><a href="swt_member_cancel.html" id="cancel_mem">회원탈퇴</a></span>
+						<span><a href="${path}/dropMember.swt" id="cancel_mem">회원탈퇴</a></span>
 					</div>
 				</div>
 			</div>

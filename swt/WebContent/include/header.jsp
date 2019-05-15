@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="${path}/css/header.css?v=1"> 
 
 
-<title>Insert title here</title>
+<title>SleepWellTea</title>
 
 </head>
 <body>
@@ -97,6 +97,7 @@
 							<c:when test="${empty sessionScope.loginUser}"> --%>
 							<a href="${path}/infoUpdate.swt">Account</a>
 							<a href="${path}/pwUpdate.swt">Password</a>
+							<a href="${path}/dropMember.swt">ByeBye</a>
 							<a href="#">Order</a>
 							<a href="#">WishList</a>
 							<%-- </c:when>
@@ -172,6 +173,7 @@
 		 //모달 로그인
 		$('#open_btn').click(function(){
 			$('#modal_all').css('display','flex');
+			$('#login_id').focus();
 		});
 		$('#close_btn').click(function(){
 			$('#modal_all').css('display','none');

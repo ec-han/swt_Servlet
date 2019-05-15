@@ -245,7 +245,12 @@
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="memberPlay.swt">
+		<form class="join_form" id="join_frm" method="POST" action="pwUpdatePlay.swt">
+			<!-- 비밀번호재설정하기 위해 기본키인 아이디값을 가져와야하는데 아이디값이 세션을 통해 가져와야하는데
+			그 방법이 두가지 있음. 액션에서 세션객체 생성후 꺼내오는 법(좀 복잡)과 jsp페이지에서 input태그 
+			하나 만든다음에 거기다가 세션값을 value에 집어넣어서 form태그 안에 써서 얘를 비번 가져올때 같이 받는 방법  -->
+			<input name="id" type="hidden" name="id" value="${sessionScope.loginUser.id}">
+			<!-- input태그를 변수처럼 씀. type="hidden"으로 -->
 			<div class="container">
 				<div class="join_content">
 					<div class="row_group">
@@ -256,40 +261,33 @@
 									<label for="pw_now">현재 비밀번호</label>
 								</h3>
 								<span class="ps_box int_pass">
-									<input type="password" id="pw_now" name="pw_now" class="int" maxlength="20">
-									<span class="step_url"></span>
+									<input type="password" id="pw_now" name="pw_now" class="int" maxlength="15">
+									<span class="step_url pwAjax"></span>
 								</span>
-								<span class="error_next_box">필수정보입니다.</span>
 							</div>
-							
 							<h3 class="join_title">
 								<i class="fas fa-asterisk" id="star"></i>
 								<label for="pswd1">새 비밀번호</label>
 							</h3>
 							<span class="ps_box int_pass">
-								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="20">
+								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="15">
 								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
-
 							<h3 class="join_title">
 								<i class="fas fa-asterisk" id="star"></i>
 								<label for="pswd2">새 비밀번호 재확인</label>
 							</h3>
 							<span class="ps_box int_pass">
-								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="20">
+								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="15">
 								<span class="step_url"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
-
 						</div>
-						
 					</div>
 				</div>
 					<div class="btn_double_area">
 						<span>
 							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type">저장하기</a>	
+							<a href="#" class="btn_type" id="btn_save">저장하기</a>	
 						</span>
 					</div>
 					
@@ -331,7 +329,30 @@
 	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
-			$('.btn_type').click(function(){
+			var currentPw = false;
+			var newPwEq= false;
+			
+			$('#btn_save').click(function(){
+				var postPw = $('#pw_now').val();
+				var newPw = $('#pswd1').val();
+				// pwUpdatePlay.swt
+				
+//				alert(currentPw);
+				if(!currentPw) {
+					//1. 현재 비밀번호가 맞는지 확인
+					$('#pw_now').focus();
+					return false;
+				} else if(!newPwEq){
+					$('#pswd1').focus();
+					//2. 새비밀번호와 새비밀번호확인 유효성체크
+					return false;
+				} else if(postPw==newPw){ 
+					//3. 현재비밀번호와 새비밀번호가 같은지 체크
+					//alert(postPw+","+newPw);
+					$('#pswd1').focus();
+					$('#pswd1').next().text('현재 비밀번호와 다르게 입력해주세요.').css("color","dodgerblue");
+					return false; // 메서드 종료시켜서 조건에 맞지 않으면 submit못하게 막음 
+				}
 				$('#join_frm').submit();
 			});
 		
@@ -340,18 +361,7 @@
 				var nowPw = $("#pw_now").val(); // 입력한 비밀번호 
 				var nowId = "${sessionScope.loginUser.id}";
 				if(nowPw != null || nowPw.length != 0) {
-					$.ajax({
-						url: 'pwCheck.swt',
-						type: 'POST',
-						dataType: 'json',
-						data: 'id='+nowId+'&pw='+nowPw,
-						success: function(data) {
-							
-						},
-						error: function(){
-							alert("System Error!!!");
-						}
-					});
+					currentPw = ajaxPwCheck(nowId,nowPw);
 				}
 			});
 			
@@ -365,35 +375,44 @@
 					return false;
 				} else { // code = 0일때. 즉, 성공했을때 success
 					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
+					if(memRpw!=null||memRpw.length!=0){
+						newPwEq= true;
+						if(memPw==memRpw){
+							$(".step_url").eq(2).text('사용가능한 비밀번호입니다').css("display","block").css("color","dodgerblue");
+						} else {
+							newPwEq= false;
+							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
+							return false;
+						}
+					}
 					return true;
 				}
 				return false;
 			});
 			
 			$("#pswd2").blur(function(){
-				var pw = $.trim($("#pswd1").val());
-				var rpw = $.trim($(this).val());
-				var regEmpty = /\s/g; // 공백 문자
-				var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+				var memPw = $.trim($("#pswd1").val());
+				var memRpw = $.trim($("#pswd2").val());
+				var checkResult  = joinValidate.checkRpw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
 				
-				
-				if(rpw == ""||rpw.length==0){
-					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+				if(checkResult.code != 0) { //실패했을때
+					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
 					return false;
-				} else if(rpw.match(regEmpty)) {
-					$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else if(!pwReg.test(pw)) {
-					$(this).next().text("올바른 비밀번호(4~12자)를 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else if(pw != rpw){
-					$(this).next().text("입력하신 비밀번호와 일치하지 않습니다").css("display","block").css("color","#b30000");
-					return false;
-				} else {
-					$(this).next().text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
-					
+				} else { // code = 0일때. 즉, 성공했을때 success
+					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
+					if(memPw!=null||memPw.length!=0){
+						if(memPw==memRpw){
+							newPwEq= true;
+							$(".step_url").eq(2).text('비밀번호가 일치합니다').css("display","block").css("color","dodgerblue");
+						} else {
+							newPwEq= false;
+							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
+							return false;
+						}
+					}
+					return true;
 				}
-				
+				return false;
 			});
 		
 		});

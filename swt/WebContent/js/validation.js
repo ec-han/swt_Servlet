@@ -114,17 +114,23 @@ var joinValidate = {
 			} else if(!pwReg.test(memPw)) {
 				return this.resultCode.invalid_pw;
 			} else {
-				
-				if(memRpw!=null||memRpw.length!=0){
-					if(memPw==memRpw){
-						$(".step_url").eq(2).text(this.resultCode.success_pw.desc).css("display","block").css("color","dodgerblue");
-					} else {
-						$(".step_url").eq(2).text(this.resultCode.other_pw.desc).css("display","block").css("color","#b30000");
-						return false;
-					}
-				}
 				return this.resultCode.success_pw;
 			}
+		},
+		checkRpw : function(memPw,memRpw) {
+			var regEmpty = /\s/g; // 공백 문자
+			var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+			
+			if(memRpw == ""||memRpw.length==0){
+				return this.resultCode.empty_val;
+			} else if(memRpw.match(regEmpty)) {
+				return this.resultCode.space_length_val;
+			} else if(!pwReg.test(memRpw)) {
+				return this.resultCode.invalid_pw;
+			} else {
+				return this.resultCode.success_pw;
+			}
+			
 		}
 		
 }
@@ -170,3 +176,34 @@ function ajaxCheck(memId){
 		}
 	});
 }
+
+
+
+
+function ajaxPwCheck(nowId, nowPw){
+	var return_val = false;
+	$.ajax({
+		url: 'pwCheck.swt',
+		type: 'POST',
+		dataType: 'json',
+		async: false,
+		data: 'id='+nowId+'&pw='+nowPw,
+		success: function(data) {
+			if(data.flag){
+				$(".pwAjax").css('color','dodgerblue').css('display','block').text('비밀번호가 일치합니다.');
+				return_val = true;
+			} else {
+				$(".pwAjax").css('color','#b30000').css('display','block').text('비밀번호가 일치하지 않습니다.');
+				return_val = false;
+			}
+		},
+		error: function(){
+			alert("System Error!!!");
+		}
+	});
+	return return_val;
+}
+
+
+
+

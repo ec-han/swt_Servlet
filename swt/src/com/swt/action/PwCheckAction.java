@@ -23,6 +23,7 @@ public class PwCheckAction implements Action {
 		boolean flag = mDao.pwCheck(id,pw);
 		
 		JSONObject jObj = new JSONObject();
+		jObj.put("flag", flag);
 		response.setContentType("application/x-json; charset=UTF-8");
 		response.getWriter().print(jObj);
 		

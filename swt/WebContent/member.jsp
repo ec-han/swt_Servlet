@@ -645,35 +645,40 @@
 					return false;
 				} else { // code = 0일때. 즉, 성공했을때 success
 					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
+					if(memRpw!=null||memRpw.length!=0){
+						if(memPw==memRpw){
+							$(".step_url").eq(2).text('사용가능한 비밀번호입니다').css("display","block").css("color","dodgerblue");
+						} else {
+							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
+							return false;
+						}
+					}
 					return true;
 				}
 				return false;
 			});
 			
 			$("#pswd2").blur(function(){
-				var pw = $.trim($("#pswd1").val());
-				var rpw = $.trim($(this).val());
-				var regEmpty = /\s/g; // 공백 문자
-				var pwReg = RegExp(/^[a-zA-Z0-9]{4,12}$/); // 비밀번호 체크
+				var memPw = $.trim($("#pswd1").val());
+				var memRpw = $.trim($("#pswd2").val());
+				var checkResult  = joinValidate.checkRpw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
 				
-				
-				if(rpw == ""||rpw.length==0){
-					$(this).next().text("필수입력 정보입니다").css("display","block").css("color","#b30000");
+				if(checkResult.code != 0) { //실패했을때
+					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
 					return false;
-				} else if(rpw.match(regEmpty)) {
-					$(this).next().text("공백없이 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else if(!pwReg.test(pw)) {
-					$(this).next().text("올바른 비밀번호(4~12자)를 입력해주세요").css("display","block").css("color","#b30000");
-					return false;
-				} else if(pw != rpw){
-					$(this).next().text("입력하신 비밀번호와 일치하지 않습니다").css("display","block").css("color","#b30000");
-					return false;
-				} else {
-					$(this).next().text("사용가능한 비밀번호 입니다").css("display","block").css("color","dodgerblue");
-					
+				} else { // code = 0일때. 즉, 성공했을때 success
+					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
+					if(memPw!=null||memPw.length!=0){
+						if(memPw==memRpw){
+							$(".step_url").eq(2).text('비밀번호가 일치합니다').css("display","block").css("color","dodgerblue");
+						} else {
+							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
+							return false;
+						}
+					}
+					return true;
 				}
-				
+				return false;
 			});
 			// 비번이랑 아이디랑 생년월일이랑 같은지 체크해주는것도 좋음 여기서는 안 하지만...
 			

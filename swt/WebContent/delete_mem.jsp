@@ -391,7 +391,7 @@
 				<div class="join_content">
 					<div class="check_container">
 						<span class="terms_wrap" id="terms_h">
-							<br><span class="focus_text">"님"</span> 회원탈퇴시 아래의 조취가 취해집니다.<br><br>
+							<br><span class="focus_text">"${sessionScope.loginUser.name}님"</span> 회원탈퇴 시 아래의 조치가 취해집니다.<br><br>
 						</span>
 						<span class="terms_wrap">
 							1. 계정정보는 <span class="focus_text">"개인 정보 보호 정책"에 따라 60일간 보관(잠김)</span>되며, 60일이 경과된 후에는
@@ -414,10 +414,9 @@
 								<label for="pswd1">비밀번호</label>
 							</h3>
 							<span class="ps_box int_pass">
-								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="20">
-								<span class="step_url"><i class="fas fa-unlock-alt"></i></span>
+								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="15">
+								<span class="step_url pwAjax"></span>
 							</span>
-							<span class="error_next_box">필수정보입니다.</span>
 						</div>
 						
 					</div>
@@ -470,28 +469,23 @@
 			/* $('.btn_type').click(function(){
 				$('#join_frm').submit();
 			}); */
-		
-			
+			var state = false;
 			
 			$("#pswd1").blur(function(){
-				var memPw = $.trim($("#pswd1").val());
-				var memRpw = $.trim($("#pswd2").val());
-				var checkResult  = joinValidate.checkPw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
+				var nowId = "${sessionScope.loginUser.id}";
+				var nowPw = $(this).val();
+				state = ajaxPwCheck(nowId,nowPw);
 				
-				if(checkResult.code != 0) { //실패했을때
-					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
-					return false;
-				} else { // code = 0일때. 즉, 성공했을때 success
-					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
-					return true;
-				}
-				return false;
 			});
 
 			//모달 검색창
 			$('#btn_memout').click(function(){
-				
-				$('#modal_all').css('display','block');
+				alert(state);
+				if(state){
+					$('#modal_all').css('display','block');
+				} else {
+					$('#pswd1').focus();				
+				}
 			});
 			$('#close_modal').click(function(){
 				$('#modal_all').css('display','none');
@@ -499,9 +493,13 @@
 			$('#btn_no').click(function(){
 				$('#modal_all').css('display','none');
 			});
-			
-			
-		
+			$('#btn_yes').click(function(){
+				// 아이디값 가져오고 이동하는 방법 중 하나 
+				/* var id = "${sessionScope.loginUser.id}";
+				location.href="dropMember.swt?id="+id; */
+				
+				location.href="dropMemberPlay.swt";
+			});
 		});
 	</script>
 </body>

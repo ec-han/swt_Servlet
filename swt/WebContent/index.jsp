@@ -28,7 +28,7 @@ a:link , a:visited {
 	color: inherit;
 }
 a:hover {
-	color: #252851;
+	color: #252851!important;
 }
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     color: #252851;

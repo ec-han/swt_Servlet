@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.swt.action.Action;
 import com.swt.action.ActionForward;
 import com.swt.action.ConstractAction;
+import com.swt.action.DropMemberAction;
+import com.swt.action.DropMemberPlayAction;
 import com.swt.action.IdCheckAction;
 import com.swt.action.IndexAction;
 import com.swt.action.InfoUpdateAction;
@@ -23,6 +25,7 @@ import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
 import com.swt.action.PwCheckAction;
 import com.swt.action.PwUpdateAction;
+import com.swt.action.PwUpdatePlayAction;
 
 /**
  * Servlet implementation class FrontController
@@ -103,8 +106,16 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/pwCheck.swt")) { //ajax로 로그아웃 
 			action = new PwCheckAction();
 			forward = action.excute(request, response);
-		}		
-		
+		} else if(command.equals("/pwUpdatePlay.swt")) { //ajax로 로그아웃 
+			action = new PwUpdatePlayAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/dropMember.swt")) { //ajax로 로그아웃 
+			action = new DropMemberAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/dropMemberPlay.swt")) { //ajax로 로그아웃 
+			action = new DropMemberPlayAction();
+			forward = action.excute(request, response);
+		}	
 		
 		
 		if(forward != null) {
