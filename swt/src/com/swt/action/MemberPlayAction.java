@@ -39,7 +39,7 @@ public class MemberPlayAction implements Action{
 		if(result>0) {
 			url = "index.swt";
 		}else {
-			url = "constract.swt";
+			url = "member/constract.swt";
 		}
 		
 		

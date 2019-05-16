@@ -287,7 +287,7 @@
 <header>
 		<div class="header">
 			<h1 class="swt_logo">
-				<a href="#" class="n_logo">
+				<a href="index.swt" class="n_logo">
 					<img src="images/mylogo_constract.png">
 				</a>
 			</h1>
@@ -421,14 +421,14 @@
 				
 				<div class="address">
 					<span>
-						<a href="#">
+						<a href="index.swt">
 							<images class="addr_logo" alt="S.W.T 로고" src="images/logo3.png">
 						</a>
 					</span>
 					<span>Copyright</span>
 					<span>ⓒ</span>
 					<span>
-						<strong><a href="#">S.W.T Corp.</a></strong>
+						<strong><a href="index.swt">S.W.T Corp.</a></strong>
 					</span>
 					<span>All Rights Reserved.</span>
 				</div>

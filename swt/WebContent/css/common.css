@@ -15,6 +15,20 @@ body, ul, h1 {
 }
 
 ul { list-style: none; }
+a {
+	color: #252851;
+	font-size: 14px;
+}
 a:link, a:visited {
 	text-decoration: none;
+	color: #252851;
+}
+a:hover {
+	color: #252851;
+}
+hr, caption, legend {
+	display: none;
+}
+li {
+	list-style: none;
 }

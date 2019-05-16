@@ -84,14 +84,14 @@ footer {
 				</ul>
 				<div id="address">
 					<!-- <span>
-						<a href="#"> 작은 로고 
+						<a href="index.swt"> 작은 로고 
 							<img src="images/logo3.png" id="addr_logo">
 						</a>
 					</span> -->
 					<div id="footer_bottom">
 						<span>Copyright</span>
 						<span>ⓒ</span>
-						<span><strong><a href="#">S.W.T Corp.</a></strong></span>
+						<span><strong><a href="index.swt">S.W.T Corp.</a></strong></span>
 						<span>All rights Reserved.</span>
 					</div>
 				</div>

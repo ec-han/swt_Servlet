@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="include/common.jsp" %>
+<%@ include file="../include/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 수정</title>
+<title>회원탈퇴</title>
 <style type="text/css">
 		* { 
 			box-sizing: border-box; 
@@ -32,6 +32,8 @@
 		}
 		footer {
 			background-color: #f5f6f7;
+			position: relative;
+			right: 25%;
 		}
 
 		
@@ -50,7 +52,7 @@
 			margin: 0 auto;
 			max-width: 768px;
 			min-width: 460px;
-			height: 550px;
+			height: 700px;
 			background: white;
 		}
 		.footer {
@@ -58,7 +60,9 @@
 			text-align: center;
 			padding: 0px 0px 15px;
 			background: white;
-			margin-top: -20px;
+			position: absolute;
+			top: -15px;
+			left: 50%;
 		}
 		.n_logo {
 			display: block;
@@ -67,7 +71,7 @@
 			background: url('img/pc_sp_join.png') 0 -106px;
 			margin: auto;
 		}
-		/* 회원정보 */
+		/* 회원가입 정보 */
 		.join_content {
 			width: 460px;
 			margin: 0 auto;
@@ -145,7 +149,7 @@
 			margin: 30px -5px 0px;
 			overflow: hidden;
 			position: relative;
-			padding-left: 130px;
+			text-align: center;
 		}
 		.btn_double_area > span {
 			display: block;
@@ -224,12 +228,132 @@
 		#star {
 			color: #b30000;
 		}
-		.pres_pw {
-			width: 100%;
+		.check_container {
 			border: 3px double #eee;
+		}
+		.terms_wrap {
+			font-size: 18px;
+			padding: 10px 15px 10px;
+		}
+		.focus_text {
+			font-weight: bold;
+			color: #1B1B22;
+			font-size: 1.1em;
+		}
+		#terms_h {
+			font-weight: bold;
+			font-size: 22px;
+		}
+		/* 탈퇴 확인 모달창 */
+		#modal_all {
+			border: 3px solid black;
+			position: fixed;
+			z-index: 50;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto; /* 넘어가면 스크롤 만들어줌  */
+			background-color: rgba(0,0,0,0.5);
+			align-items: center;
+			justify-content: center;
+			display: none;
+		}
+		#modal {
+			border-radius: 3px;
+			background-color: #eee;
+			width: 450px;
+    		height: 250px;
+    		margin: 220px auto;
+			box-shadow: 0 3px 10px 0 rgba(0,0,0,0.2),
+						0 3px 15px 0 rgba(0,0,0,0.15);   
+		}
+		.modal_txt {
+			border: none;
+		    color: black;
+			outline: none;
+			font-weight: bold;
+			font-size: 22px; 
+			line-height: 40px;
+		    height: 55px;
+		}
+
+		.wrap{
+			width: 450px;
+			height: 240px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+		}
+		#h_wrap {
+			float: left;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			width: 450px;
+			height: 30px;
+			background-color: #252851;
+		}
+		#h_wrap > h3 {
+			font-weight: bold;
+			font-size: 20px;
+			color: #eee;
+		}
+
+		.btn_wrap {
+			position: absolute;
+			bottom: 0;
+			display: flex;
+			padding-left: 10px;
+		}
+		.modal_btn{
+			width: 105px;
+			margin: 0 5px;
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 30px;
+			height: 50px;
+			padding-top: 1px;
+			text-align: center;
+			color: #fff;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			flex-direction: row;
+		}
+		#btn_no{
+			order: 1;
+			padding: 10px;
+			background-color: #696D98;
+		}
+		#btn_no:hover, #btn_yes:hover {
+			color: white;
+			text-decoration: none;
+		}
+		#btn_yes {
+			order: 2;
+			padding: 10px;
+			background-color: #816288;
 		}
 		
 		
+		#close_modal {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			background-color: #A7AFCC;
+			color: white;
+			font-weight: bold;
+			width: 30px;
+		    height: 30px;
+		    border: none;
+		    cursor: pointer;
+		    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1),
+		    				0 3px 15px 0 rgba(0,0,0,0.05);
+		}
+	
 	
 </style>
 </head>
@@ -237,7 +361,7 @@
 <header>
 		<div class="header">
 			<h1 class="swt_logo">
-				<a href="#" class="s_logo">
+				<a href="index.swt" class="s_logo">
 					<img alt="로고 이미지 "src="images/mylogo_6.png">
 				</a>
 			</h1>
@@ -245,55 +369,69 @@
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="pwUpdatePlay.swt">
-			<!-- 비밀번호재설정하기 위해 기본키인 아이디값을 가져와야하는데 아이디값이 세션을 통해 가져와야하는데
-			그 방법이 두가지 있음. 액션에서 세션객체 생성후 꺼내오는 법(좀 복잡)과 jsp페이지에서 input태그 
-			하나 만든다음에 거기다가 세션값을 value에 집어넣어서 form태그 안에 써서 얘를 비번 가져올때 같이 받는 방법  -->
-			<input name="id" type="hidden" name="id" value="${sessionScope.loginUser.id}">
-			<!-- input태그를 변수처럼 씀. type="hidden"으로 -->
+		<form class="join_form" id="join_frm" method="POST" action="">
 			<div class="container">
+				<!-- 모달 창  -->
+				<div id="modal_all">
+					<div id="modal">
+						<div class="wrap">
+							<div id="h_wrap">
+								<h3>회원탈퇴</h3>
+							</div>
+							<p><span class="modal_txt">정말 <span class="focus_text">S.W.T</span>를 탈퇴하시겠습니까?</span></p>
+							<div class="btn_wrap">
+								<a class="modal_btn" id="btn_no" href="#">아니오</a>
+								<a class="modal_btn" id="btn_yes" href="#">예</a>
+							</div>
+							<button id="close_modal">X</button>
+						</div>
+					</div>
+				</div>
+
 				<div class="join_content">
+					<div class="check_container">
+						<span class="terms_wrap" id="terms_h">
+							<br><span class="focus_text">"${sessionScope.loginUser.name}님"</span> 회원탈퇴 시 아래의 조치가 취해집니다.<br><br>
+						</span>
+						<span class="terms_wrap">
+							1. 계정정보는 <span class="focus_text">"개인 정보 보호 정책"에 따라 60일간 보관(잠김)</span>되며, 60일이 경과된 후에는
+							모든 개인정보는 완전히 삭제되며 더 이상 복구할 수 없게 됩니다.<br><br>
+						</span>
+						<span class="terms_wrap">
+							2. 작성된 게시물은 삭제되지 않으며, 익명처리 후 <span class="focus_text">S.W.T로 소유권이 귀속</span>됩니다.<br><br>
+						</span>
+						<span class="terms_wrap">
+							3. 게시물 삭제가 필요한 경우에는 <span class="focus_text">관리자(eunchehan@gmail.com)</span>로 문의해 주시기 바랍니다.<br><br>
+						</span>
+						
+					</div>
+
 					<div class="row_group">
 						<div class="join_row">
-							<div class="pres_pw">
-								<h3 class="join_title">
-									<i class="fas fa-asterisk" id="star"></i>
-									<label for="pw_now">현재 비밀번호</label>
-								</h3>
-								<span class="ps_box int_pass">
-									<input type="password" id="pw_now" name="pw_now" class="int" maxlength="15">
-									<span class="step_url pwAjax"></span>
-								</span>
-							</div>
+							
 							<h3 class="join_title">
 								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd1">새 비밀번호</label>
+								<label for="pswd1">비밀번호</label>
 							</h3>
 							<span class="ps_box int_pass">
 								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="15">
-								<span class="step_url"></span>
-							</span>
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd2">새 비밀번호 재확인</label>
-							</h3>
-							<span class="ps_box int_pass">
-								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="15">
-								<span class="step_url"></span>
+								<span class="step_url pwAjax"></span>
 							</span>
 						</div>
+						
 					</div>
 				</div>
 					<div class="btn_double_area">
 						<span>
 							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type" id="btn_save">저장하기</a>	
+							<a href="#" class="btn_type" id="btn_memout">회원탈퇴</a>	
 						</span>
 					</div>
 					
 				</div>
 			</div>
 		</form>
+
 	</section>
 
 	<footer>
@@ -308,14 +446,14 @@
 				
 				<div class="address">
 					<span>
-						<a href="index.html">
+						<a href="index.swt">
 							<img class="addr_logo" alt="S.W.T 로고" src="images/logoswt_trans.png">
 						</a>
 					</span>
 					<span>Copyright</span>
 					<span>ⓒ</span>
 					<span>
-						<strong><a href="#">S.W.T Corp.</a></strong>
+						<strong><a href="index.swt">S.W.T Corp.</a></strong>
 					</span>
 					<span>All Rights Reserved.</span>
 				</div>
@@ -324,97 +462,44 @@
 		</div>
 	</footer>
 	
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
-			var currentPw = false;
-			var newPwEq= false;
-			
-			$('#btn_save').click(function(){
-				var postPw = $('#pw_now').val();
-				var newPw = $('#pswd1').val();
-				// pwUpdatePlay.swt
-				
-//				alert(currentPw);
-				if(!currentPw) {
-					//1. 현재 비밀번호가 맞는지 확인
-					$('#pw_now').focus();
-					return false;
-				} else if(!newPwEq){
-					$('#pswd1').focus();
-					//2. 새비밀번호와 새비밀번호확인 유효성체크
-					return false;
-				} else if(postPw==newPw){ 
-					//3. 현재비밀번호와 새비밀번호가 같은지 체크
-					//alert(postPw+","+newPw);
-					$('#pswd1').focus();
-					$('#pswd1').next().text('현재 비밀번호와 다르게 입력해주세요.').css("color","dodgerblue");
-					return false; // 메서드 종료시켜서 조건에 맞지 않으면 submit못하게 막음 
-				}
+			/* $('.btn_type').click(function(){
 				$('#join_frm').submit();
-			});
-		
-			// Ajax를 활용하여 입력한 비밀번호와 현재 유저의 비밀번호가 일치하는지 확인
-			$("#pw_now").blur(function(){
-				var nowPw = $("#pw_now").val(); // 입력한 비밀번호 
-				var nowId = "${sessionScope.loginUser.id}";
-				if(nowPw != null || nowPw.length != 0) {
-					currentPw = ajaxPwCheck(nowId,nowPw);
-				}
-			});
+			}); */
+			var state = false;
 			
 			$("#pswd1").blur(function(){
-				var memPw = $.trim($("#pswd1").val());
-				var memRpw = $.trim($("#pswd2").val());
-				var checkResult  = joinValidate.checkPw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
+				var nowId = "${sessionScope.loginUser.id}";
+				var nowPw = $(this).val();
+				state = ajaxPwCheck(nowId,nowPw);
 				
-				if(checkResult.code != 0) { //실패했을때
-					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
-					return false;
-				} else { // code = 0일때. 즉, 성공했을때 success
-					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
-					if(memRpw!=null||memRpw.length!=0){
-						newPwEq= true;
-						if(memPw==memRpw){
-							$(".step_url").eq(2).text('사용가능한 비밀번호입니다').css("display","block").css("color","dodgerblue");
-						} else {
-							newPwEq= false;
-							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
-							return false;
-						}
-					}
-					return true;
-				}
-				return false;
 			});
-			
-			$("#pswd2").blur(function(){
-				var memPw = $.trim($("#pswd1").val());
-				var memRpw = $.trim($("#pswd2").val());
-				var checkResult  = joinValidate.checkRpw(memPw,memRpw); // code, desc를 가져와서 변수에 담음 
+
+			//모달 검색창
+			$('#btn_memout').click(function(){
+				alert(state);
+				if(state){
+					$('#modal_all').css('display','block');
+				} else {
+					$('#pswd1').focus();				
+				}
+			});
+			$('#close_modal').click(function(){
+				$('#modal_all').css('display','none');
+			});
+			$('#btn_no').click(function(){
+				$('#modal_all').css('display','none');
+			});
+			$('#btn_yes').click(function(){
+				// 아이디값 가져오고 이동하는 방법 중 하나 
+				/* var id = "${sessionScope.loginUser.id}";
+				location.href="dropMember.swt?id="+id; */
 				
-				if(checkResult.code != 0) { //실패했을때
-					$(this).next().text(checkResult.desc).css('display','block').css('color','#b30000');
-					return false;
-				} else { // code = 0일때. 즉, 성공했을때 success
-					$(this).next().text(checkResult.desc).css('display','block').css('color','dodgerblue');
-					if(memPw!=null||memPw.length!=0){
-						if(memPw==memRpw){
-							newPwEq= true;
-							$(".step_url").eq(2).text('비밀번호가 일치합니다').css("display","block").css("color","dodgerblue");
-						} else {
-							newPwEq= false;
-							$(".step_url").eq(2).text('입력하신 비밀번호와 일치하지 않습니다').css("display","block").css("color","#b30000");
-							return false;
-						}
-					}
-					return true;
-				}
-				return false;
+				location.href="dropMemberPlay.swt";
 			});
-		
 		});
 	</script>
 </body>

@@ -16,7 +16,7 @@ public class ConstractAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "constract.jsp";
+		String url = "member/constract.jsp";
 		
 		ProductDAO pDao = ProductDAO.getInstance();
 		List<ProductDTO> bList = pDao.bestList();

@@ -64,7 +64,7 @@
 											<div class="right">
 												<a href="#">아이디 찾기</a>
 												<span class="right_bar">｜</span>
-												<a href="#">비밀번호 재설정</a>
+												<a href="pwUpdate.swt">비밀번호 재설정</a>
 											</div>
 										</div>
 									</div>
@@ -151,7 +151,10 @@
 		</div>
 	</div>
 		<div class="search_box">
-			<a class="search_btn" href="#"><i class="fas fa-search"></i></a>
+			<a class="search_btn" href="#">
+				<!-- <i class="fas fa-search"></i> -->
+				<img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn">
+			</a>
 		</div>
 	</div>
 </header>

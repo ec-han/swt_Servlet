@@ -12,7 +12,7 @@ public class PwUpdateAction implements Action {
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "pw_update.jsp";
+		String url = "member/pw_update.jsp";
 		
 		// 로그인된 유저만 회원수정 가능
 		HttpSession session = request.getSession();

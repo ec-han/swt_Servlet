@@ -13,7 +13,7 @@ public class DropMemberAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "delete_mem.jsp";
+		String url = "member/delete_mem.jsp";
 		
 		// 로그인된 유저만 회원수정 가능
 		HttpSession session = request.getSession();
