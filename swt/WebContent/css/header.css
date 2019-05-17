@@ -66,18 +66,16 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	height: 40px;
 	background-color: #A7AFCC;
 	margin: 0 10px;
-	border: 0.5px solid #E5F3FA;
-	border-radius: 30%;
-	/* border-radius: 50%; */
+	border: 3px double #E5F3FA;
+	/* border-radius: 30%; */
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1),
 				0 2px 10px 0 rgba(0,0,0,0.05); 
-	color: #8A2BE2;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
 }
 .sns_btn i {
-	line-height: 40px;
+	line-height: 35px;
 	font-size: 1.5em;
 	transition: 0.2s linear;
 }
@@ -90,7 +88,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	position: absolute;
 	width: 120%;
 	height: 130%;
-	transform: rotate(45deg);
+	/* transform: rotate(90deg); */
 	left: -110%;
 	top: 90%;
 	/* 141 Earl gray */
@@ -99,9 +97,9 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
         background-blend-mode: normal, multiply;
 }
 .sns_btn:hover:before {
-	animation: sns_hover 0.8s 1;
-	top: -10%;
-	left: -10%;
+	/* animation: sns_hover 0.8s 1; */
+	/* top: -10%;
+	left: -10%; */
 }
 @keyframes sns_hover {
 	0% { left: -100%; top: 90%; }

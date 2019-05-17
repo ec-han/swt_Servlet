@@ -6,6 +6,30 @@ ul {
 	height: 35px;
 	float: left;
 }
+.text_center {
+    text-align: center;
+    position: relative;
+}
+.text_center > span {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+}	
+.btn_good {
+	position: absolute;
+	left: 0px;
+	top: -2px;
+}
+.btn_hits {
+	position: absolute;
+	left: 0px;
+	top: -5px;
+}
+.btn_att {
+	position: absolute;
+	top: -7px;
+	left: 5px;
+}
 #contentWrapper {
     position: relative;
     border: 3px solid red;
@@ -31,11 +55,13 @@ ul {
     padding: 20px;
 }
 
-.box-title {
-    margin: 20px 0 10px 0;
-    display: block;
-    font-size: 35px;
-    text-align: center;
+#ribon {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 130px;
 }
 #order_board {
     display: inline-block;
@@ -78,9 +104,7 @@ th {
 th, td {
     border-bottom: 1px solid black;
 }
-.text_center {
-    text-align: center;
-}		
+	
 td:nth-child(2) {
     text-align: left;
     padding-left: 10px;
@@ -99,7 +123,7 @@ td {
 }
 #selsearch {
     height: 40px;
-    width: 100px;
+    width: 89px;
     font-size: 15px;
     float: left;
     border-radius: 5px;

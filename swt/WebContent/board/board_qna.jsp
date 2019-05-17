@@ -19,7 +19,7 @@
 					<div class="page_body">
 						<div class="bd_hd">
 							<div class="bd_tit01">
-								<h3 class="box-title">Q&A</h3>
+								<img alt="제목" src="${path}/images/ribon2.png" id="ribon">
 								<div id="order_board">
 									<input type="hidden" value="new" id="code">
 									<span>
@@ -38,13 +38,14 @@
 								</div>
 								<!-- <button class="board_btn btn-primary">게시글 등록</button> -->
 								<a href="#">
-									<img id="btn_regi" alt="게시글 등록" src="../images/regi.png">
+									<img id="btn_regi" alt="게시글 등록" src="${path}/images/regi.png">
 								</a>
 							</div>
 							
 							<div class="box-body">
 								<table class="table table-boarded" summary="No., Title, Name, Date, Likes, Hits, attachments">
 									<caption>Q&A 게시글</caption>
+									<thead>
 										<tr style="width: 10px">
 											<th style="width: 50px">
 												<div class="tb_center">No.</div>
@@ -98,7 +99,7 @@
 											<td>
 												<!-- 좋아요 -->
 												<div class="text_center">
-													<img class="btn_img" alt="좋아요" src="../images/good.png">
+													<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
 													<span class="good_cnt">
 														7
 													</span>
@@ -106,16 +107,17 @@
 											</td>
 											<td>
 												<!-- 조회수 -->
-												<img class="btn_img" alt="조회수" src="../images/hits.png">
+												
 												<div class="text_center">
-													7
+													<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
+													<span>7</span>
 												</div>
 											</td>
 											<td>
 												<!-- 첨부-->
 												<div class="text_center">
 													<!-- <i class="fas fa-sticky-note"></i> -->
-													<img class="btn_img" alt="첨부파일" src="../images/attachment1.png">
+													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
 												</div>
 											</td>
 										</tr>
@@ -146,7 +148,7 @@
 											<td>
 												<!-- 좋아요 -->
 												<div class="text_center">
-													<img class="btn_img" alt="좋아요" src="../images/good.png">
+													<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
 													<span class="good_cnt">
 														5
 													</span>
@@ -155,14 +157,14 @@
 											<td>
 												<!-- 조회수 -->
 												<div class="text_center">
-													<img class="btn_img" alt="조회수" src="../images/hits.png">
-													5
+													<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
+													<span>5</span>
 												</div>
 											</td>
 											<td>
 												<!-- 첨부-->
 												<div class="text_center">
-													<img class="btn_img" alt="첨부파일" src="../images/attachment2.png">
+													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment2.png">
 												</div>
 											</td>
 		
@@ -171,14 +173,14 @@
 								</table>
 								<div class="div_search">
 									<select id="selsearch">
-										<option value="3" selected="selected">-조건 선택-</option>
+										<option value="3" selected="selected">--선택--</option>
 										<option value="1">제목</option>
 										<option value="2">내용</option>
 										<option value="3">제목+내용</option>
 										<option value="4">작성자</option>
 									</select>
 									<input type="text" placeholder="검색할 값을 입력하세요" id="search_board" name="search_board">
-									<a href="#" id="search_btn"><img alt="검색" src="../images/search2.png"></a>
+									<a href="#" id="search_btn"><img alt="검색" src="${path}/images/search2.png"></a>
 									<!-- class="board_btn btn_search" -->
 								</div>
 								<div class="board_pagination">
