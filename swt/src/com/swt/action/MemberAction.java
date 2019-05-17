@@ -16,7 +16,7 @@ public class MemberAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "member/member.jsp";
+		String url = "member/member_join.jsp";
 	
 		
 		ActionForward forward = new ActionForward();

@@ -150,6 +150,8 @@ a:not([href]):not([tabindex]) {
 	margin: 0 auto;
 	position: relative;
 	background-color: white;
+	border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 .header_logo{
 	width: 80%;
@@ -513,19 +515,22 @@ a:not([href]):not([tabindex]) {
 	bottom: 40px;
 	right: 40px;
 	font-size: 22px;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	color: white;
-	border: none;
+	border: 3px double #828db0;
 	cursor: pointer;
-	border-radius: 50%;
+	/* border-radius: 50%; */
+	transform: rotate(45deg);
+    transition: 0.2s;
 	outline: none;
 	display: none;
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
 #topBtn i {
 	transition: .3s;
-
+	transform: rotate(315deg);
+	font-size: 1.35em;
 }
 #topBtn:hover {
 	color: black;
@@ -536,6 +541,7 @@ a:not([href]):not([tabindex]) {
 }
 #topBtn:hover i {
 	transform: scale(1.3);
+	transform: rotate(315deg);
 }
 .search_btn{
 	float: right;

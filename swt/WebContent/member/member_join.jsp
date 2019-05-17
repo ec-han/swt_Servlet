@@ -45,7 +45,8 @@
 			background: white;
 			padding-top: 62px;
 			position: relative;
-			
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.container {
 			margin: 0 auto;
@@ -53,6 +54,8 @@
 			min-width: 460px;
 			height: 1150px;
 			background: white;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.footer {
 			height: 81px;
@@ -60,6 +63,8 @@
 			padding: 0px 0px 15px;
 			background: white;
 			margin-top: -20px;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.n_logo {
 			display: block;
@@ -187,18 +192,22 @@
 			display: block;
 			width: 100%;
 		}
+		a:hover {
+			color: white;
+			text-decoration: none;
+		}
 		.btn_type {
 			width: auto;
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 61px;
+			line-height: 50px;
 			display: block;
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
-			color: #fff;
-			border: 1px solid #816288;
+			color: #dee2e6!important;
+			border: 3px double #dee2e6;
 			background-color: #816288;
 		}
 		.btn_type:hover {
@@ -337,13 +346,13 @@
 			position: relative;
 			height: 29px;
 			margin: 10px 14px;
-			line-height: 29px;
+			/* line-height: 29px; */
 			background: transparent;
 			font-size: 15px;
 			z-index: 10;
 			outline: none;
 			background-color: #816288;
-			border: 0.5px outset #dadada;
+			border: 3px double #dee2e6;
 			color: white;
 		}
 		.chenked_btn {

@@ -23,7 +23,8 @@
 								<div id="order_board">
 									<input type="hidden" value="new" id="code">
 									<span>
-										<a href="#" id="orderNew" style="color: rgb(231, 29, 54); font-weight: bold; text-decoration: underline;">최신순</a>
+										<!-- rgb(231, 29, 54) -->
+										<a href="#" id="orderNew" style="color: rgb(36, 195, 182); font-weight: bold; text-decoration: underline;">최신순</a>
 									</span>
 									<span>
 										<a href="#" id="orderGood">추천순</a>
@@ -209,6 +210,9 @@
 										</li>
 										<li class="active">
 											<a href="#">6</a>
+										</li>
+										<li class="active">
+											<a href="#">...</a>
 										</li>
 										<li class="active">
 											<a href="#">

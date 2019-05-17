@@ -207,8 +207,22 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 .fa-search:before {
 	color: black;
 }
-
-
+/* 메인페이지 */
+.container {
+	width: 80%;
+	margin: 0 auto;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	max-width: 1215.35px;
+	max-width: 80%;
+	height: auto;
+	justify-content: center;
+	align-items: center;
+	border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
+	/* opacity: 0.8; */
+}
 </style>
 </head>
 <body>

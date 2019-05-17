@@ -19,7 +19,8 @@ footer {
 #footer {
 	position: relative;
 	bottom: 0;
-	/* border: 1px solid orange; */
+	border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 #footer > ul > li {
 	padding: 10px 10px;
@@ -37,21 +38,6 @@ footer {
 	float: left;
 	padding: 10px 10px;
 } 
-.container {
-	width: 100%;
-	margin: 0 auto;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	/* border: 1px solid blue; */
-	/*max-width: 1215px;*/
-	max-width: 80%;
-	height: auto;
-	justify-content: center;
-	align-items: center;
-	
-	/* opacity: 0.8; */
-}
 
 #footer_bottom {
 	width: 80%;
@@ -61,6 +47,7 @@ footer {
 #footer_bottom > span {
 	text-align: center;
 }
+
 </style>
 </head>
 <body>

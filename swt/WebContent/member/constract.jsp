@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>회원가입 동의</title>
 <!-- favicon -->
 <link rel="icon" type="image/png" href="images/logoswt_trans.png"> 
@@ -34,9 +36,9 @@
 			display: inline-block;
 		    position: absolute;
 		    top: 30px;
-		    left: 200px;
+		    left: 195px;
 		    height: 130px;
-		    margin: auto;
+		    margin: 0 auto;
 		    box-sizing: border-box;
 		}
 		.container {
@@ -64,15 +66,15 @@
 			padding: 6px 8px 5px 7px;
 			min-width: 98px;
 			color:#333;
-			border: 1px solid #ccc;
-
+			border: 3px double #dee2e6;
 		}
 		.lang>select {
-			background: url('images/sel_arr.gif') 100% 50% no-repeat;
+			background: url('${path}/images/sel_arr.gif') 100% 50% no-repeat;
 			-webkit-appearance: none; 
 			width: 98px;
-			height: 30px;
+			height: 35px;
 			background-color: white;
+			outline: none;
 		}
 		.join_content {
 			width: 460px;
@@ -81,7 +83,7 @@
 		.terms {
 			margin-bottom: 20px;
 			background-color: white;
-			border: 1px solid #dadada;
+			border: 3px double #dee2e6;
 		}
 		.terms_span > input {
 			position: absolute;
@@ -99,7 +101,7 @@
 			position: relative;
 		}
 		.terms_span > label {
-			background: url('images/check_off.gif') 100% 50% no-repeat;
+			background: url('${path}/images/check_off.gif') 100% 50% no-repeat;
 			display: block;
 			line-height: 20px;
 			height: 58px;
@@ -114,7 +116,7 @@
 			height: 58px;
 		}
 		.terms_span > input:checked +label {
-			background-image: url('images/check_on.gif');
+			background-image: url('${path}/images/check_on.gif');
 		}
 		.terms_ul {
 			padding-bottom: 7px;
@@ -158,11 +160,11 @@
 			top: 50%;
 		}
 		.ul_li_span > label {
-			background: url('images/check_off.gif') 100% 50% no-repeat;
+			background: url('${path}/images/check_off.gif') 100% 50% no-repeat;
 			display: block;
 		}
 		.ul_li_span > input:checked +label {
-			background-image: url('images/check_on.gif');
+			background-image: url('${path}/images/check_on.gif');
 		}
 		.terms_box {
 			position: relative;
@@ -200,6 +202,14 @@
 			float: left;
 			width: 50%
 		}
+		.btn_default:hover {
+			color: inherit!important;
+			text-decoration: none;
+		}
+		.btn_agree:hover {
+			color: white!important;
+			text-decoration: none;
+		}
 		.btn_default {
 			color: #333;
 			border: 1px solid #e7e7e7;
@@ -215,12 +225,13 @@
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 61px;
+			line-height: 50px;
 			display: block;
 			box-sizing: border-box;
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
+			border: 3px double #dee2e6;
 		}
 		a {
 			text-decoration: none;
@@ -238,6 +249,7 @@
 		}
 		footer {
 			background-color: #f7f7f7;
+			border-top: 3px double #dee2e6;
 		}
 		.footer_wrap > ul {
 			list-style: none;
@@ -260,8 +272,8 @@
 			border-left: 0px;
 		}
 		.addr_logo {
-			width: 63px;
-			height: 11px;
+			width: 20px;
+			height: 20px;
 		}
 		.address {
 			margin: 0px auto;
@@ -288,7 +300,7 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="n_logo">
-					<img src="images/mylogo_constract.png">
+					<img src="${path}/images/mylogo_constract.png">
 				</a>
 			</h1>
 			<div class="lang">
@@ -422,13 +434,13 @@
 				<div class="address">
 					<span>
 						<a href="index.swt">
-							<images class="addr_logo" alt="S.W.T 로고" src="images/logo3.png">
+							<img class="addr_logo" alt="S.W.T 로고" src="${path}/images/logoswt_trans.png">
 						</a>
 					</span>
 					<span>Copyright</span>
 					<span>ⓒ</span>
 					<span>
-						<strong><a href="index.swt">S.W.T Corp.</a></strong>
+						<strong><a href="${path}/index.swt">S.W.T Corp.</a></strong>
 					</span>
 					<span>All Rights Reserved.</span>
 				</div>
