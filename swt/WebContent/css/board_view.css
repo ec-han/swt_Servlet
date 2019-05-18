@@ -1,30 +1,7 @@
 ul {
     list-style-type: none;
 }
-.btn_img {
-	width: 35px;
-	height: 35px;
-	float: left;
-}
-.text_center {
-    text-align: center;
-    position: relative;
-}
-.text_center > span {
-	position: absolute;
-	right: 10px;
-	top: 0px;
-}	
-.btn_good {
-	position: absolute;
-	left: 0px;
-	top: -2px;
-}
-.btn_hits {
-	position: absolute;
-	left: 0px;
-	top: -5px;
-}
+
 .btn_att {
 	position: absolute;
 	top: -7px;
@@ -39,6 +16,8 @@ ul {
     height: auto;
     justify-content: center;
     align-items: center;
+    border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 .content01 {
     padding: 37px 0;
@@ -77,45 +56,110 @@ ul {
 .box-body {
     margin-top: 7px;
 }
+/* 테이블 css */
 table {
     width: 960px;
-    border: 1px solid black;
-    border-collapse: collapse;
-    border-radius: 4px;
 }
-th {
-    font-size: 20px;
-    color: #ececef; /* #363240 */
-    height: 35px;
-}
-th, td {
-    border-bottom: 1px solid black;
+td {
+    border-bottom: 1.5px solid #dee2e6;
+    line-height: 34.1px;
 }
 	
 td:nth-child(2) {
-    text-align: left;
-    padding-left: 10px;
-}
-td {
-    height: 35px;
-    background-color: white;
-    text-align: center;
-}
-.table td, .table th {
-	border-top: 1px solid black;
+   
 }
 
 /* 상세페이지에 맞는 테이블 새 디자인 */
 .table-boarded thead th {
+    font-size: 14px;
+    padding: 18px 0;
+}
+.table thead th {
 	color: #4c4c4c;
     font-size: 14px;
     border-top: 2px solid #555555;
     border-bottom: 1px solid #555555;
     padding: 18px 0;
+    font-weight: bold;
 }
-.table thead th {
-	border: 1px solid black;
+.tb-center {
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
 }
+.line {
+	padding: 13px 0;
+}
+.cont-sub-des .date01 {
+    text-align: left;
+}
+.cont-sub-des>div {
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+}
+.cont-sub-des {
+    position: relative;
+}
+.cont-sub-des .date01 {
+    text-align: left;
+}
+.cont-sub-des .date01 span {
+    padding-left: 42px;
+}
+.cont-sub-des span {
+    font-size: 13px;
+    color: #787878;
+    margin-right: 15px;
+    font-weight: 600;
+}
+.cont-sub-des span strong {
+    color: #787878;
+    font-size: 11px;
+}
+.good01 {
+	top: 15px;
+	right: 0;
+	position: static;
+	text-align: right;
+}
+.good01 span {
+	padding-right: 200px;
+	margin-right: 0;
+}
+.hits01 {
+	top: 15px;
+	right: 0;
+	position: static;
+	text-align: right;
+}
+.hits01 span {
+	padding-right: 42px;
+	margin-right: 0;
+}
+.btn_img {
+	width: 35px;
+	height: 35px;
+	float: left;
+}
+.text_center > span {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+}
+.btn_good {
+	position: absolute;
+    top: 0px;
+    right: 80px;
+}
+.btn_hits {
+	position: relative;
+    top: -2px;
+    right: -15px;
+}
+
+
+
 
 #btn_regi {
 	width: 70px;

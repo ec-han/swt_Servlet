@@ -32,7 +32,6 @@ ul {
 }
 #contentWrapper {
     position: relative;
-    border: 3px solid red;
     background-color: white;
     width: 100%;
     margin: 0 auto;
@@ -40,6 +39,8 @@ ul {
     height: auto;
     justify-content: center;
     align-items: center;
+    border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 .content01 {
     padding: 37px 0;

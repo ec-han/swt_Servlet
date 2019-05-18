@@ -21,70 +21,68 @@
 							<div class="bd_tit01">
 								<img alt="제목" src="${path}/images/ribon2.png" id="ribon">
 							</div>
-							
 							<div class="box-body">
 								<table class="table table-boarded">
 									<caption>Q&A 게시글</caption>
 									<thead>
 										<tr>
 											<th>
-												<div class="tb_center">냉침해도 되나요?</div>
+												<div class="tb-center">[질문] 냉침해도 되나요</div>
 											</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- 공지사항 리스트 끝 -->
-										<!-- 게시글 리스트 시작(한페이지당 게시글 수)-->
 										<tr>
-											<td class="text_center">
-												<!-- No. -->
-												<div class="tb_center">4</div>
-											</td>
-											<td>
-												<!-- 제목 -->
-												<div class="title_table">
-													<a href="#">냉침해도 되나요?</a>
+											<td class="line">
+												<div class="cont-sub-des">
+													<div class="date01">
+														<span>
+															<strong>작성일 :</strong>
+															" 2019-05-16"
+														</span>
+													</div>
+													<div class="name01">
+														<span>
+															<strong>작성자 :</strong>
+															" 은체 "
+														</span>
+													</div>
+													<div class="good01 text_center">
+														<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
+														<span class="good_cnt">
+															"7"
+														</span>
+													</div>
+													<div class="hits01 text_center">
+														<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
+														<span>"15"</span>
+													</div>
 												</div>
 											</td>
+										</tr>
+										<tr>
 											<td>
-												<!-- 작성자 -->
-												<div >
-													은체
-												</div>
-											</td>
-											<td>
-												<!-- 작성일 -->
-												<div class="text_center">
-													2019-05-16
-												</div>
-											</td>
-											<td>
-												<!-- 좋아요 -->
-												<div class="text_center">
-													<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
-													<span class="good_cnt">
-														7
+												<div class="data-bd-cont">
+													<span class="detail_wr">
+														<br>
+														자스민펄을 구입했는데 냉침해도 되나요?
+														<br> 
+														된다면 몇 분 우려내야 하나요?
 													</span>
-												</div>
-											</td>
-											<td>
-												<!-- 조회수 -->
-												
-												<div class="text_center">
-													<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
-													<span>7</span>
-												</div>
-											</td>
-											<td>
-												<!-- 첨부-->
-												<div class="text_center">
-													<!-- <i class="fas fa-sticky-note"></i> -->
-													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
 												</div>
 											</td>
 										</tr>
 									</tbody>
+									<tbody>
+										<tr>
+											<!-- <td scope="row">첨부파일</td>
+											<td>
+												자스민펄.jpg
+											</td> -->
+										</tr>
+									</tbody>
 								</table>
+								
 								<a href="#">
 									<img id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
 								</a>
@@ -99,3 +97,17 @@
 	<%@ include file="/include/footer.jsp" %>
 </body>
 </html>
+
+<%-- <!-- 좋아요 -->
+<div class="">
+	
+</div> --%>
+<%-- <!-- 조회수 -->
+<div class="text_center">
+	<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
+	<span>7</span>
+</div> --%>
+<%-- <!-- 첨부-->
+<div class="text_center">
+	<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
+</div> --%>
