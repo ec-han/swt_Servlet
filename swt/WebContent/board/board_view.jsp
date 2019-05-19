@@ -22,7 +22,7 @@
 								<img alt="제목" src="${path}/images/ribon2.png" id="ribon">
 							</div>
 							<div class="box-body">
-								<table class="table table-boarded">
+								<table class="table-boarded">
 									<caption>Q&A 게시글</caption>
 									<thead>
 										<tr>
@@ -73,19 +73,58 @@
 											</td>
 										</tr>
 									</tbody>
-									<tbody>
-										<tr>
-											<!-- <td scope="row">첨부파일</td>
-											<td>
-												자스민펄.jpg
-											</td> -->
-										</tr>
-									</tbody>
 								</table>
+								<div class="att_wrap">
+									<div class="att_area">
+										<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
+										<a href="#">자스민펄.jpg</a>
+									</div>
+								</div>
+								<div class="btn_area">
+									<a href="#">
+										<img class="bd-btns" id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
+									</a>
+									<a href="#">
+										<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete.png">
+									</a>
+									<a href="#">
+										<img class="bd-btns" id="btn_list" alt="게시글 목록" src="${path}/images/list.png">
+									</a>
+									<a href="#">
+										<img class="bd-btns" id="btn_rpl" alt="게시글 답변" src="${path}/images/reply_blue.png">
+									</a>
+								</div>
+								<div>
+									<ul class="list-link">
+										<li>
+											<div>
+												<span class="arrow prev">▲이전글 :</span>
+											</div>
+										</li>
+										<li>
+											<div>
+												<span class="arrow nex">▼다음글 :</span>
+												<a href="#">일본에서 수입되는 차도 있나요?</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="reply-wrapper">
+								<ul class="list-group">
+									<li id="note-title" class="list-group-item note-title">
+										<h3 class="panel-title">
+											"댓글 "
+											<span id="note-count">1</span>
+										</h3>
+									</li>
+									<li class="list-group-item note-item clearfix">
+										<form action="" method="" class="">
+											<input>
+										</form>
+									</li>
+								</ul>
 								
-								<a href="#">
-									<img id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
-								</a>
 							</div>
 						</div>
 						
@@ -97,11 +136,6 @@
 	<%@ include file="/include/footer.jsp" %>
 </body>
 </html>
-
-<%-- <!-- 좋아요 -->
-<div class="">
-	
-</div> --%>
 <%-- <!-- 조회수 -->
 <div class="text_center">
 	<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">

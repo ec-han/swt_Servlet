@@ -1,12 +1,6 @@
 ul {
     list-style-type: none;
 }
-
-.btn_att {
-	position: absolute;
-	top: -7px;
-	left: 5px;
-}
 #contentWrapper {
     position: relative;
     background-color: white;
@@ -59,6 +53,7 @@ ul {
 /* 테이블 css */
 table {
     width: 960px;
+    margin-bottom: 0px;
 }
 td {
     border-bottom: 1.5px solid #dee2e6;
@@ -66,20 +61,16 @@ td {
 }
 	
 td:nth-child(2) {
-   
+   border-bottom: 2px solid #dee2e6;
 }
 
 /* 상세페이지에 맞는 테이블 새 디자인 */
 .table-boarded thead th {
-    font-size: 14px;
-    padding: 18px 0;
-}
-.table thead th {
 	color: #4c4c4c;
     font-size: 14px;
     border-top: 2px solid #555555;
     border-bottom: 1px solid #555555;
-    padding: 18px 0;
+    padding: 18px 0; 
     font-weight: bold;
 }
 .tb-center {
@@ -108,14 +99,14 @@ td:nth-child(2) {
     padding-left: 42px;
 }
 .cont-sub-des span {
-    font-size: 13px;
+    font-size: 14px;
     color: #787878;
     margin-right: 15px;
     font-weight: 600;
 }
 .cont-sub-des span strong {
     color: #787878;
-    font-size: 11px;
+    font-size: 14px;
 }
 .good01 {
 	top: 15px;
@@ -157,12 +148,78 @@ td:nth-child(2) {
     top: -2px;
     right: -15px;
 }
-
-
-
-
-#btn_regi {
-	width: 70px;
+/* 글 내용 */
+.data-bd-cont {
+    padding: 20px 0 40px 42px;
+}
+.data-bd-cont > span {
+	font-size: 15px;
+	text-align: left;
+}
+/* 첨부파일 */
+.att_wrap{
+	border-bottom: 1.5px solid #555555;
+}
+.att_area {
+	position: relative;
+	font-weight: 700;
+	text-align: left;
+	line-height: 34.1px;
+	padding: .75rem;
+    vertical-align: top;
+}
+.att_area > a {
+	margin-left: 40px;
+}
+.btn_att {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.btn_area {
+	display: block;
+	width: 100%;
 	height: 70px;
+}
+.bd-btns{
+	width: 60px;
+	height: 60px;
+}
+#btn_del {
 	float: right;
+}
+#btn_regi {
+	float: right;
+}
+#btn_list{
+	float: left;
+}
+#btn_rpl{
+	float: left;
+}
+.list-link {
+    border-bottom: 1.5px solid #555555;
+    border-top: 1.5px solid #555555;
+}
+.list-link span.arrow {
+    padding: 0px 10px 0px 15px;
+    font-size: 13px;
+    color: #787878;
+    font-weight: bold;
+}
+.list-link a {
+    font-size: 13px;
+    color: #787878;
+}
+.list-link li:first-child {
+    border-bottom: 1px solid #e5e5e5;
+}
+.list-link li {
+    padding: 14px 0px;
+}
+.reply-wrapper {
+	margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
