@@ -85,7 +85,7 @@
 										<img class="bd-btns" id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
 									</a>
 									<a href="#">
-										<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete.png">
+										<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete2.png">
 									</a>
 									<a href="#">
 										<img class="bd-btns" id="btn_list" alt="게시글 목록" src="${path}/images/list.png">
@@ -93,7 +93,14 @@
 									<a href="#">
 										<img class="bd-btns" id="btn_rpl" alt="게시글 답변" src="${path}/images/reply_blue.png">
 									</a>
+									<div id="wrap_like">
+										<button type="button" class="btn_like" id="btn_good">
+											<span class="img_emoti">좋아요</span>
+											<span class="ani_heart_m"></span>
+										</button>
+									</div>
 								</div>
+								
 								<div>
 									<ul class="list-link">
 										<li>
@@ -119,9 +126,62 @@
 										</h3>
 									</li>
 									<li class="list-group-item note-item clearfix">
-										<form action="" method="" class="">
-											<input>
-										</form>
+										<div class="content-body panel-body pull-left">
+											<div class="avatar avatar-medium clearfix">
+												<a href="#" class="avatar-photo">
+													<img alt="사진" src="${path}/images/avatar_tea.png">
+												</a>
+												<div class="avatar-info">
+													<a class="nickname" href="#">선미</a>
+													<div class="date-created">
+														<span class="timeago">2019-05-19 20:29:31</span>
+													</div>
+												</div>
+											</div>
+											<fieldset class="fform">
+												<article>
+													<p>돼요.</p>
+												</article>
+											</fieldset>
+										</div>
+										<div class="content-function-cog note-submit-buttons clearfix">
+											<p>
+												<a href="#" id="note-create-delete-btn" class="bd-btn btn-default btn-wide" style="">삭제</a>
+											</p>
+											<input type="submit" name="create" id="btn-modify-btn" class="bd-btn btn-default btn-wide" value="수정" disabled="disabled">
+										</div>
+									</li>
+									<li class="list-group-item note-item clearfix">
+										<h5>
+											"등록된 댓글이 없습니다. 첫 번째 댓글을 남겨주세요:)"
+										</h5>
+									</li>
+									<li class="list-group-item note-item clearfix">
+										<div class="content-body panel-body pull-left">
+											<div class="avatar avatar-medium clearfix">
+												<a href="#" class="avatar-photo">
+													<img alt="사진" src="${path}/images/avatar1.png">
+												</a>
+												<div class="avatar-info">
+													<a class="nickname" href="#">은체</a>
+												</div>
+											</div>
+											<fieldset class="fform">
+												<input type="hidden" name="" value="HTML">
+												<textarea rows="1" cols="1" placeholder="댓글쓰기" class="form-control"></textarea>
+											</fieldset>
+										</div>
+										<div class="content-function-cog note-submit-buttons clearfix">
+											<p>
+												<a href="#" id="note-create-cancel-btn" class="bd-btn btn-default btn-wide" style="">취소</a>
+											</p>
+											<input type="submit" name="create" id="btn-create-btn" class="bd-btn btn-default btn-wide" value="등록" disabled="disabled">
+										</div>
+									</li>
+									<li class="list-group-item note-item clearfix">
+										<h5>
+											<a href="#" class="link">로그인</a>"을 하시면 댓글을 등록할 수 있습니다."
+										</h5>
 									</li>
 								</ul>
 								
@@ -134,14 +194,23 @@
 		</div>
 	</section>
 	<%@ include file="/include/footer.jsp" %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btn_good').click(function(){
+				if($(this).hasClass('btn_unlike')) {
+					$(this).removeClass('btn_unlike');
+					$('.ani_heart_m').removeClass('hi');
+					$('.ani_heart_m').addClass('bye');
+				}
+				else {
+					$(this).addClass('btn_unlike');
+					$('.ani_heart_m').addClass('hi');
+					$('.ani_heart_m').removeClass('bye');
+				}
+			});
+		});
+	
+	</script>	
 </body>
 </html>
-<%-- <!-- 조회수 -->
-<div class="text_center">
-	<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
-	<span>7</span>
-</div> --%>
-<%-- <!-- 첨부-->
-<div class="text_center">
-	<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
-</div> --%>
