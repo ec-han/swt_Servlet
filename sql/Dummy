@@ -161,5 +161,18 @@ VALUES(seq_board.NEXTVAL, '테스트페이지입니다9','테스트야~','user01
 INSERT INTO tbl_board(bno,title,content, writer)
 VALUES(seq_board.NEXTVAL, '테스트페이지입니다10','테스트야~','user02');
 
+SELECT COUNT(*) FROM tbl_board;
+
+SELECT *
+FROM (SELECT rownum rnum, a.*
+      FROM (SELECT *
+            FROM tbl_board
+            WHERE bno > 0
+            ORDER BY bno DESC
+            ) a
+     ) WHERE rnum BETWEEN 1 AND 10
+     
+
+
 COMMIT;
 
