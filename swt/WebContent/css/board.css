@@ -158,6 +158,11 @@ td {
     text-align: center;
     border-radius: 5px;
     vertical-align: middle;
+    background-color: #a49bb9!important;
+  
+}
+.pagination > li > a {
+	color: #d6d2df;
 }
 .pagination * {
     font-weight: bold;
@@ -165,11 +170,12 @@ td {
     height: 30px;
 }
 .active {
-    background-color: #a49bb9 !important;
+    /* background-color: #d6d2df #a49bb9; */
     color: white;
     position: relative;
     margin-right: 3px;
 }
+
 .active > a {
 	color: white!important;
 }
@@ -186,7 +192,7 @@ td {
 .fa-angle-double-left:before {
 	position: absolute;
 	top: 5px;
-	left: 5px;
+	left: 3px;
 }
 .fa-angle-left:before {
 	position: absolute;
@@ -209,4 +215,27 @@ td {
 	width: 70px;
 	height: 70px;
 	float: right;
+}
+
+.new_time {
+	background-color: #8e99df;
+	font-size: 11px;
+	color: white;
+	border-radius: 25px;
+	padding: 2px 5px;
+	animation-name: twinkle;
+	animation-duration: 1.2s;
+	animation-iteration-count: infinite;
+}
+@keyframes twinkle {
+	0% {opacity: 0;}
+	100%{opacity: 1;}
+}
+.replyCnt_Color {
+	background-color: rgb(180, 172, 206);
+	font-size: 11px;
+	color: white;
+	border-radius: 25px;
+	padding: 1px 7px;
+	
 }

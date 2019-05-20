@@ -135,7 +135,7 @@
 					<li><a href="#">·</a></li>
 					<li><a class="ihn" href="#">S.W.T</a></li>
 					<li><a href="#">·</a></li>
-					<li><a class="ihn" href="#">CS Center</a></li>
+					<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
 				</ul>
 				
 			</div>

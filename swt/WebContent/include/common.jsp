@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- jstl 라이브러리를 사용하기 위한 선언문 --> <!-- prefix: 약어. c라 하면 core함수 fmt쓰면 fmt함수 -->
+<!-- jstl 라이브러리를 사용하기 위한 선언문 --> <!-- prefix: 약어. c라 하면 core함수 fmt쓰면 fmt함수(포멧팅) -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 

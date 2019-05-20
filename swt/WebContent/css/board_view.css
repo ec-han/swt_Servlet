@@ -214,7 +214,7 @@ td:nth-child(2) {
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.03);
 	transition: border .2s ease-out, box-shadow .1s ease-out, background-color .4s ease-out;
 	cursor: pointer;
-	outline: none;
+	outline: none!important;
 }
 .btn_like: hover {
 	border: 1px solid rgba(228, 89, 89, 0.3);
@@ -274,6 +274,7 @@ td:nth-child(2) {
 #wrap_like {
 	text-align: center;
 	padding-top: 15px;
+	outline: none!important;
 }
 i.fa-heart {
 	font-size: 14px;

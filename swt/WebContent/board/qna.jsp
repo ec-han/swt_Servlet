@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="../css/board.css?v=1"> 
+<link rel="stylesheet" href="${path}/css/board.css?v=1"> 
 <title>Q&A</title>
 </head>
 <body>
@@ -70,30 +70,54 @@
 											</th>
 										</tr>
 									</thead>
-									<tbody>
-										<!-- 공지사항 리스트 끝 -->
+									<!-- 공지사항 리스트 끝 -->
+									
+									<tbody>							
+															
 										<!-- 게시글 리스트 시작(한페이지당 게시글 수)-->
+									<c:forEach items="${list}" var="bDto">
+										<!-- 현재시간 구하기  -->
+										<jsp:useBean id="now" class="java.util.Date"/>
+										<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
+										<fmt:formatDate value="${bDto.regdate}" pattern="yyyy-MM-dd" var="regdate"/>
 										<tr>
 											<td class="text_center">
 												<!-- No. -->
-												<div class="tb_center">4</div>
+												<div class="tb_center">${bDto.bno}</div>
 											</td>
 											<td>
 												<!-- 제목 -->
 												<div class="title_table">
-													<a href="#">냉침해도 되나요?</a>
+													<a href="#">${bDto.title}</a>
+													<c:if test="${bDto.replycnt >0}">
+														<span class="replyCnt_Color">${bDto.replycnt}</span>
+													</c:if>
+													
+													<c:if test="${today==regdate}">
+													
+														<span class="new_time">New</span>
+													</c:if>
 												</div>
 											</td>
 											<td>
 												<!-- 작성자 -->
 												<div >
-													은체
+													${bDto.writer}
 												</div>
 											</td>
 											<td>
 												<!-- 작성일 -->
 												<div class="text_center">
-													2019-05-16
+												<c:choose>
+													<c:when test="${today==regdate}">
+														<fmt:formatDate pattern="hh:mm:ss" value="${bDto.regdate}"/>
+													</c:when>
+													<c:otherwise>
+														<fmt:formatDate pattern="yyyy.MM.dd" value="${bDto.regdate}"/>
+													</c:otherwise>
+												</c:choose>
+												
+												<!-- 년월일 시분초까지 띄우고 싶으면=> pattern="yyyy-MM-dd hh:mm:ss" -->
 												</div>
 											</td>
 											<td>
@@ -101,7 +125,7 @@
 												<div class="text_center">
 													<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
 													<span class="good_cnt">
-														7
+														${bDto.goodcnt}
 													</span>
 												</div>
 											</td>
@@ -110,7 +134,7 @@
 												
 												<div class="text_center">
 													<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
-													<span>7</span>
+													<span>${bDto.viewcnt}</span>
 												</div>
 											</td>
 											<td>
@@ -118,57 +142,13 @@
 												<div class="text_center">
 													<!-- <i class="fas fa-sticky-note"></i> -->
 													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
+													<!-- ${bDto.filesize} -->
 												</div>
 											</td>
 										</tr>
-										<!-- 게시글 리스트 시작(한페이지당 게시글 수)-->
-										<tr>
-											<td class="text_center">
-												<!-- No. -->
-												<div class="tb_center">3</div>
-											</td>
-											<td>
-												<!-- 제목 -->
-												<div class="title_table">
-													<a href="#">일본에서 수입되는 차도 있나요?</a>
-												</div>
-											</td>
-											<td>
-												<!-- 작성자 -->
-												<div >
-													수연
-												</div>
-											</td>
-											<td>
-												<!-- 작성일 -->
-												<div class="text_center">
-													2019-05-15
-												</div>
-											</td>
-											<td>
-												<!-- 좋아요 -->
-												<div class="text_center">
-													<img class="btn_img btn_good" alt="좋아요" src="${path}/images/good.png">
-													<span class="good_cnt">
-														5
-													</span>
-												</div>
-											</td>
-											<td>
-												<!-- 조회수 -->
-												<div class="text_center">
-													<img class="btn_img btn_hits" alt="조회수" src="${path}/images/hits.png">
-													<span>5</span>
-												</div>
-											</td>
-											<td>
-												<!-- 첨부-->
-												<div class="text_center">
-													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment2.png">
-												</div>
-											</td>
-		
-										</tr>
+									</c:forEach>
+										
+										
 									</tbody>
 								</table>
 								<div class="div_search">
@@ -183,49 +163,60 @@
 									<a href="#" id="search_btn"><img alt="검색" src="${path}/images/search2.png"></a>
 									<!-- class="board_btn btn_search" -->
 								</div>
+								
+								<!-- 페이지네이션 -->
 								<div class="board_pagination">
 									<ul class="pagination">
-										<li class="active">
-											<a href="#">
-												<i class="fas fa-angle-double-left"></i>
-											</a>
-										</li>
-										<li class="active">
-											<a href="#">
-												<i class="fas fa-angle-left"></i>
-											</a>
-										</li>
-										<li class="active">
-											<a href="#">1</a>
-										</li>
-										<li class="active">
-											<a href="#">2</a>
-										</li>
-										<li class="active">
-											<a href="#">3</a>
-										</li>
-										<li class="active">
-											<a href="#">4</a>
-										</li>
-										<li class="active">
-											<a href="#">5</a>
-										</li>
-										<li class="active">
-											<a href="#">6</a>
-										</li>
-										<li class="active">
-											<a href="#">...</a>
-										</li>
-										<li class="active">
-											<a href="#">
-												<i class="fas fa-angle-right"></i>
-											</a>
-										</li>
-										<li class="active">
-											<a href="#">
-												<i class="fas fa-angle-double-right"></i>
-											</a>
-										</li>
+									
+										<c:if test="${pageMaker.prev}">
+											<li class="active">
+												<a href="${path}/boardList.swt?page=${pageMaker.startPage - 1}">
+													<i class="fas fa-angle-double-left"></i>
+												</a>
+											</li>
+											<!-- <li class="active">
+												<a href="#">
+													<i class="fas fa-angle-left"></i>
+												</a>
+											</li> -->
+											
+											<li class="active">
+												<a href="${path}/boardList.swt?page=1">1</a>
+											</li>
+											<li class="active">
+												<a href="#">...</a>
+											</li>
+										</c:if>
+										<!-- begin end로 몇번부터 몇번까지 반복하게 설정. startPage(1)부터 begin해서 endPage(10)에서 end. var="idx"는 for문의 i(index) 같은거
+										c:out은 출력임. 삼항연산자 사용. pageMaker.criDto.page : 선택한 페이지 == idx랑 같으면 class="active"효과를 주는 거 -->
+										<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+											<li <c:out value="${pageMaker.criDto.page == idx ? 'class=active':''}"/>>
+												<a href="${path}/boardList.swt?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}">${idx}</a>
+											</li>
+										</c:forEach>
+										
+										<c:if test="${pageMaker.next}">
+											<li class="active">
+												<a href="#">...</a>
+											</li>
+											
+											<li class="active">
+												<a href="${path}/boardList.swt?page=${pageMaker.finalPage}">
+													${pageMaker.finalPage}
+													<!-- <i class="fas fa-angle-right"></i> -->
+												</a>
+											</li>
+											
+											<li class="active">
+												<a href="${path}/boardList.swt?page=${pageMaker.endPage+1}">
+													<!-- &raquo; --> 
+													<i class="fas fa-angle-double-right"></i>
+												</a>
+											</li>
+										</c:if>
+										
+										
+										
 									</ul>
 								</div>
 							</div>

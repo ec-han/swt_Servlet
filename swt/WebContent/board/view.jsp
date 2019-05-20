@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="../css/board_view.css?v=1"> 
-<title>Q&A</title>
+<link rel="stylesheet" href="${path}/css/board_view.css?v=1"> 
+<title>QnA</title>
 </head>
 <body>
 	<section>
