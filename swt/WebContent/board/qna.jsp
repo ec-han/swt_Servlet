@@ -184,7 +184,7 @@
 												<a href="${path}/boardList.swt?page=1">1</a>
 											</li>
 											<li class="active">
-												<a href="#">...</a>
+												<a href="">...</a>
 											</li>
 										</c:if>
 										<!-- begin end로 몇번부터 몇번까지 반복하게 설정. startPage(1)부터 begin해서 endPage(10)에서 end. var="idx"는 for문의 i(index) 같은거
@@ -197,7 +197,7 @@
 										
 										<c:if test="${pageMaker.next}">
 											<li class="active">
-												<a href="#">...</a>
+												<a href="">...</a>
 											</li>
 											
 											<li class="active">

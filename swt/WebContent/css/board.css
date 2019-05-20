@@ -179,6 +179,7 @@ td {
 .active > a {
 	color: white!important;
 }
+
 .fa-angle-right:before {
 	position: absolute;
 	top: 5px;
