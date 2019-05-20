@@ -251,10 +251,11 @@
 		$('#close_search').click(function(){
 			$('#modal_search').css('display','none');
 		});
-		
+	
+	
 	});
 	
-	
+
 	
 	
 	

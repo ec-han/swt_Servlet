@@ -215,7 +215,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	display: flex;
 	flex-direction: column;
 	max-width: 1215.35px;
-	max-width: 80%;
+	max-width: 80%!important;
 	height: auto;
 	justify-content: center;
 	align-items: center;

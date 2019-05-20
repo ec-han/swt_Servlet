@@ -384,9 +384,7 @@ i.fa-heart {
     color: #ccc;
     font-size: 12px;
 }
-.form {
-    margin-top: 20px;
-}
+
 fieldset {
     min-width: 0;
     padding: 0;
@@ -494,3 +492,114 @@ textarea {
 	color: #2a6496;
 	font-weight: 600;
 }
+
+/* 삭제 확인 모달창 */
+#bd_modal_all {
+	border: 3px solid black;
+	position: fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto; /* 넘어가면 스크롤 만들어줌  */
+	background-color: rgba(0,0,0,0.5);
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+#bd_modal {
+	border-radius: 3px;
+	background-color: #eee;
+	width: 450px;
+  		height: 250px;
+  		margin: 220px auto;
+	box-shadow: 0 3px 10px 0 rgba(0,0,0,0.2),
+				0 3px 15px 0 rgba(0,0,0,0.15);   
+}
+.bd_modal_txt {
+	border: none;
+    color: black;
+	outline: none;
+	font-weight: bold;
+	font-size: 22px; 
+	line-height: 40px;
+    height: 55px;
+}
+
+.bd_wrap{
+	width: 450px;
+	height: 240px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+#bd_h_wrap {
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 450px;
+	height: 30px;
+	background-color: #252851;
+}
+#bd_h_wrap > h3 {
+	font-weight: bold;
+	font-size: 20px;
+	color: #eee;
+}
+
+.bd_btn_wrap {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	padding-left: 10px;
+}
+.bd_modal_btn{
+	width: 105px;
+	margin: 0 5px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 30px;
+	height: 50px;
+	padding-top: 1px;
+	text-align: center;
+	color: #fff;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	flex-direction: row;
+}
+#bd_btn_no{
+	order: 1;
+	padding: 10px;
+	background-color: #696D98;
+}
+#bd_btn_no:hover, #bd_btn_yes:hover {
+	color: white;
+	text-decoration: none;
+}
+#bd_btn_yes {
+	order: 2;
+	padding: 10px;
+	background-color: #816288;
+}
+
+
+#bd_close_modal {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background-color: #A7AFCC;
+	color: white;
+	font-weight: bold;
+	width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1),
+    				0 3px 15px 0 rgba(0,0,0,0.05);
+}
+	

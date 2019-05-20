@@ -68,7 +68,7 @@
 			display: block;
 			width: 240px;
 			height: 44px;
-			background: url('img/pc_sp_join.png') 0 -106px;
+			background: url('${path}/images/pc_sp_join.png') 0 -106px;
 			margin: auto;
 		}
 		/* 회원가입 정보 */
@@ -362,7 +362,7 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="s_logo">
-					<img alt="로고 이미지 "src="images/mylogo_6.png">
+					<img alt="로고 이미지 "src="${path}/images/mylogo_6.png">
 				</a>
 			</h1>
 		</div>
@@ -447,7 +447,7 @@
 				<div class="address">
 					<span>
 						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="images/logoswt_trans.png">
+							<img class="addr_logo" alt="S.W.T 로고" src="${path}/images/logoswt_trans.png">
 						</a>
 					</span>
 					<span>Copyright</span>
@@ -478,7 +478,7 @@
 				
 			});
 
-			//모달 검색창
+			//모달 탈퇴확인 창 
 			$('#btn_memout').click(function(){
 				alert(state);
 				if(state){

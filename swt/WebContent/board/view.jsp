@@ -84,7 +84,7 @@
 									<a href="#">
 										<img class="bd-btns" id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
 									</a>
-									<a href="#">
+									<a href="#" id="del_btn">
 										<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete2.png">
 									</a>
 									<a href="#">
@@ -98,6 +98,22 @@
 											<span class="img_emoti">좋아요</span>
 											<span class="ani_heart_m"></span>
 										</button>
+									</div>
+								</div>
+								<!-- 모달 창  -->
+								<div id="bd_modal_all">
+									<div id="bd_modal">
+										<div class="bd_wrap">
+											<div id="bd_h_wrap">
+												<h3>글 삭제</h3>
+											</div>
+											<p><span class="bd_modal_txt">정말 <span class="bd_focus_text">삭제</span>하시겠습니까?</span></p>
+											<div class="bd_btn_wrap">
+												<a class="bd_modal_btn" id="bd_btn_no" href="#">아니오</a>
+												<a class="bd_modal_btn" id="bd_btn_yes" href="#">예</a>
+											</div>
+											<button id="bd_close_modal">X</button>
+										</div>
 									</div>
 								</div>
 								
@@ -208,6 +224,19 @@
 					$('.ani_heart_m').addClass('hi');
 					$('.ani_heart_m').removeClass('bye');
 				}
+			});
+			/* 삭제확인 모달창 */
+			$('#del_btn').click(function(){
+				$('#bd_modal_all').css('display','block');
+			});
+			$('#bd_close_modal').click(function(){
+				$('#bd_modal_all').css('display','none');
+			});
+			$('#bd_btn_no').click(function(){
+				$('#bd_modal_all').css('display','none');
+			});
+			$('#bd_btn_yes').click(function(){
+				location.href="boardList.swt";
 			});
 		});
 	
