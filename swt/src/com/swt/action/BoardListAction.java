@@ -22,6 +22,8 @@ public class BoardListAction implements Action {
 		String url = "board/qna.jsp";
 		
 		CriteriaDTO criDto = new CriteriaDTO();
+		
+		// 페이지번호 설정 시작 
 		int page = 1;
 		
 		// ★★★★★★null로 들어오냐 안 들어오냐 체크하는 게 중요. 그래야 Integer.parseInt할때 널포인트익셉션이 안 뜸.
@@ -32,18 +34,37 @@ public class BoardListAction implements Action {
 		}
 		System.out.println("페이지번호:" + page);
 		criDto.setPage(page); 
+		// 페이지번호 설정 끝
 		
+		// 페이지정렬 설정 시작
 		String sort_type = "new";
 		if(request.getParameter("sort_type")!=null) {
-			sort_type = request.getParameter("sort_tpye");
+			sort_type = request.getParameter("sort_type");
 		}
+		criDto.setSort_type(sort_type);
 		System.out.println("정렬타입:"+sort_type);
+		// 페이지정렬 설정 끝
 		
+		// 검색 설정 시작(검색타입, 키워드)
+		String search_option = null;
+		String keyword = null;
+		if(request.getParameter("keyword") != null) {
+			search_option = request.getParameter("search_option");
+			keyword = request.getParameter("keyword");
+			criDto.setSearch_option(search_option);
+			criDto.setKeyword(keyword);
+			// 검색한 값이 있을때만 보내줘야 하니까 if문안에 setAttribute씀. 
+			request.setAttribute("search_option", search_option);
+			request.setAttribute("keyword", keyword);
+			System.out.println("검색타입: "+search_option+", 검색키워드: "+keyword);
+		}
+		System.out.println(criDto.toString());
 		
 		
 		// DB에서 게시글 목록 호출 
 		BoardDAO bDao = BoardDAO.getInstance();
-		List<BoardDTO> list = bDao.listAll(criDto);
+		List<BoardDTO> list = bDao.listAll(criDto); // 정렬타입 뭔지 알려주려고 criDto 보냄. 
+		// mapper 다녀와서 정렬된 데이터가 쭉 들어옴
 		
 		// 페이지네이션 생성
 		PageMakerDTO pageMaker = new PageMakerDTO();
@@ -55,7 +76,7 @@ public class BoardListAction implements Action {
 		request.setAttribute("list", list);
 		request.setAttribute("pageMaker", pageMaker);
 		request.setAttribute("totalCount", totalCount);
-		request.setAttribute("sort_type", sort_type);
+		request.setAttribute("sort_type", sort_type); // sort_type을 계속 보내줘야 페이지 이동해도 계속 sort_type을 가지고 다님. 
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url); 

@@ -76,16 +76,53 @@
 		SELECT COUNT(bno)
 		FROM tbl_board
 		WHERE bno > 0
+	   <if test="search_option == 1">
+   			AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%'
+	   </if>
+	   <if test="search_option == 2">
+	   		AND title LIKE '%'||#{keyword}||'%'
+	   </if>
+	   <if test="search_option == 3">
+	   		AND content LIKE '%'||#{keyword}||'%'
+	   </if>
+	   <if test="search_option == 4">
+	   		AND writer LIKE '%'||#{keyword}||'%'
+	   </if>
+		
 	</select>
 	
-	
+	<!-- listAll 기본적으로 띄워주는거, 정렬로 띄워주는 거, 검색으로 띄워주는 게 있음 -->
+	<!-- criDto.getSort_type(); == new 또는 reply 또는 good 또는 view  -->
 	<select id="listAll" resultType="com.swt.dto.BoardDTO">
 		SELECT *
 		FROM (SELECT rownum rnum, a.*
      		 FROM (SELECT *
            		   FROM tbl_board
            		   WHERE bno > 0
-            	   ORDER BY bno DESC
+           		   <if test="search_option == 1">
+           		   		AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%'
+           		   </if>
+           		   <if test="search_option == 2">
+           		   		AND title LIKE '%'||#{keyword}||'%'
+           		   </if>
+           		   <if test="search_option == 3">
+           		   		AND content LIKE '%'||#{keyword}||'%'
+           		   </if>
+           		   <if test="search_option == 4">
+           		   		AND writer LIKE '%'||#{keyword}||'%'
+           		   </if>
+           		   <if test="sort_type == 'new'">
+           		   	 ORDER BY bno DESC
+           		   </if>
+           		   <if test="sort_type == 'good'">
+           		   	 ORDER BY goodcnt DESC, bno DESC
+           		   </if>
+           		   <if test="sort_type == 'reply'">
+           		   	 ORDER BY replycnt DESC, bno DESC
+           		   </if>
+           		   <if test="sort_type == 'view'">
+           		   	 ORDER BY viewcnt DESC, bno DESC
+           		   </if>
                    ) a
              ) WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 	</select>

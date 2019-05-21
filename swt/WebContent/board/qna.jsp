@@ -24,16 +24,16 @@
 									<input type="hidden" value="new" id="code">
 									<span>
 										<!-- rgb(231, 29, 54) -->
-										<a href="#" id="orderNew" style="color: rgb(36, 195, 182); font-weight: bold; text-decoration: underline;">최신순</a>
+										<a href="${path}/boardList.swt?sort_type=new&search_option=${search_option}&keyword=${keyword}" id="orderNew">최신순</a>
 									</span>
 									<span>
-										<a href="#" id="orderGood">추천순</a>
+										<a href="${path}/boardList.swt?sort_type=good&search_option=${search_option}&keyword=${keyword}" id="orderGood">추천순</a>
 									</span>
 									<span>
-										<a href="#" id="orderReply">댓글순</a>
+										<a href="${path}/boardList.swt?sort_type=reply&search_option=${search_option}&keyword=${keyword}" id="orderReply">댓글순</a>
 									</span>
 									<span>
-										<a href="#" id="orderCnt">조회순</a>
+										<a href="${path}/boardList.swt?sort_type=view&search_option=${search_option}&keyword=${keyword}" id="orderCnt">조회순</a>
 									</span>
 								</div>
 								<!-- <button class="board_btn btn-primary">게시글 등록</button> -->
@@ -151,18 +151,29 @@
 										
 									</tbody>
 								</table>
+								
+								<!-- 검색창 -->
 								<div class="div_search">
-									<select id="selsearch">
-										<option value="3" selected="selected">--선택--</option>
-										<option value="1">제목</option>
-										<option value="2">내용</option>
-										<option value="3">제목+내용</option>
+								
+									<select id="selsearch" name="selsearch">
+										<option value="1" selected="selected">제목+내용</option>
+										<option value="2">제목</option>
+										<option value="3">내용</option>
 										<option value="4">작성자</option>
 									</select>
+									
 									<input type="text" placeholder="검색할 값을 입력하세요" id="search_board" name="search_board">
 									<a href="#" id="search_btn"><img alt="검색" src="${path}/images/search2.png"></a>
+									
 									<!-- class="board_btn btn_search" -->
 								</div>
+								
+								<c:if test="${!empty keyword}">
+									<div id="search_result">
+										<span class="search_span">"${keyword}"</span>로 검색한 결과는 총
+										<span class="search_span">${totalCount}</span>건 입니다.  
+									</div>
+								</c:if>
 								
 								<!-- 페이지네이션 -->
 								<div class="board_pagination">
@@ -170,7 +181,7 @@
 									
 										<c:if test="${pageMaker.prev}">
 											<li class="active">
-												<a href="${path}/boardList.swt?page=${pageMaker.startPage - 1}">
+												<a href="${path}/boardList.swt?page=${pageMaker.startPage - 1}&sort_type=${sort_type}&search_option=${search_option}&keyword=${keyword}">
 													<i class="fas fa-angle-double-left"></i>
 												</a>
 											</li>
@@ -180,10 +191,10 @@
 												</a>
 											</li> -->
 											
-											<li class="active">
-												<a href="${path}/boardList.swt?page=1">1</a>
+											<li>
+												<a href="${path}/boardList.swt?page=1&sort_type=${sort_type}&search_option=${search_option}&keyword=${keyword}">1</a>
 											</li>
-											<li class="active">
+											<li>
 												<a href="">...</a>
 											</li>
 										</c:if>
@@ -191,7 +202,7 @@
 										c:out은 출력임. 삼항연산자 사용. pageMaker.criDto.page : 선택한 페이지 == idx랑 같으면 class="active"효과를 주는 거 -->
 										<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 											<li <c:out value="${pageMaker.criDto.page == idx ? 'class=active':''}"/>>
-												<a href="${path}/boardList.swt?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}">${idx}</a>
+												<a href="${path}/boardList.swt?page=${idx}&sort_type=${sort_type}&search_option=${search_option}&keyword=${keyword}">${idx}</a>
 											</li>
 										</c:forEach>
 										
@@ -200,15 +211,15 @@
 												<a href="">...</a>
 											</li>
 											
-											<li class="active">
-												<a href="${path}/boardList.swt?page=${pageMaker.finalPage}">
+											<li>
+												<a href="${path}/boardList.swt?page=${pageMaker.finalPage}&sort_type=${sort_type}&search_option=${search_option}&keyword=${keyword}">
 													${pageMaker.finalPage}
 													<!-- <i class="fas fa-angle-right"></i> -->
 												</a>
 											</li>
 											
 											<li class="active">
-												<a href="${path}/boardList.swt?page=${pageMaker.endPage+1}">
+												<a href="${path}/boardList.swt?page=${pageMaker.endPage+1}&sort_type=${sort_type}&search_option=${search_option}&keyword=${keyword}">
 													<!-- &raquo; --> 
 													<i class="fas fa-angle-double-right"></i>
 												</a>
@@ -228,5 +239,37 @@
 		</div>
 	</section>
 	<%@ include file="/include/footer.jsp" %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var sort_type = "${sort_type}";
+			if(sort_type == "new"){
+				$("#orderNew").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
+			} else if(sort_type == "good"){
+				$("#orderGood").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
+			} else if(sort_type == "reply"){
+				$("#orderReply").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
+			} else if(sort_type == "view"){
+				$("#orderCnt").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
+			}
+		});
+		
+		$(document).on("click","#search_btn", function(){
+			var search_option = $('#selsearch').val();
+			var keyword = $.trim($('#search_board').val());
+			
+			if(keyword == null || keyword.length == 0){
+				$('#search_board').focus();
+				$('#search_board').css('border','1px solid rgb(183,46,154)');
+				return false;
+				
+			}
+//			alert(search_option+","+keyword);
+			location.href="${path}/boardList.swt?search_option="+search_option+"&keyword="+keyword;
+		});
+	
+	
+	</script>
+	
 </body>
 </html>

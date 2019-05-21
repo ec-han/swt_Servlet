@@ -66,6 +66,8 @@ ul {
 }
 #order_board {
     display: inline-block;
+    padding-top: 15px;
+    padding-left: 5px;
 }
 #order_board > span {
     cursor: pointer;
@@ -173,7 +175,7 @@ td {
     /* background-color: #d6d2df #a49bb9; */
     color: white;
     position: relative;
-    margin-right: 3px;
+    /* margin-right: 3px; */
 }
 
 .active > a {
@@ -239,4 +241,19 @@ td {
 	border-radius: 25px;
 	padding: 1px 7px;
 	
+}
+/*검색결과*/
+#search_result{
+	color: #555555;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 5px;
+	padding-top: 5px;
+	border-bottom: 3px double #cecece;
+	display: inline-block;
+}
+.search_span{
+	color: #4a4aa2;
+	font-weight: 600;
+	font-size: 15px;
 }
