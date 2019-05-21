@@ -171,7 +171,10 @@ FROM (SELECT rownum rnum, a.*
             ORDER BY bno DESC
             ) a
      ) WHERE rnum BETWEEN 1 AND 10
-     
+    
+-- 1. 가장 안쪽에 있는 subquery: 전체 게시글을 최신순으로 조회
+-- 2. 두 번째 subquery: 전체게시글 조회결과에 + rownum
+-- 3. 가장 바깥쪽에 있는 select문: 조회된 결과에서 page에 출력할 10건의 게시글만 조회 
 
 
 COMMIT;
