@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.swt.action.Action;
 import com.swt.action.ActionForward;
 import com.swt.action.BoardListAction;
+import com.swt.action.BoardViewAction;
+import com.swt.action.CommentListAction;
 import com.swt.action.ConstractAction;
 import com.swt.action.DropMemberAction;
 import com.swt.action.DropMemberPlayAction;
@@ -119,7 +121,15 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/boardList.swt")) { //ajax로 로그아웃 
 			action = new BoardListAction();
 			forward = action.excute(request, response);
-		}	
+		} else if(command.equals("/boardView.swt")) { //ajax로 로그아웃 
+			action = new BoardViewAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/commentlist.swt")) { //ajax로 로그아웃 
+			action = new CommentListAction();
+			forward = action.excute(request, response);
+		}
+		
+		
 		
 		
 		if(forward != null) {

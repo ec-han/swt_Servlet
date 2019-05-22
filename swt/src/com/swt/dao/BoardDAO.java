@@ -2,6 +2,8 @@ package com.swt.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -15,7 +17,7 @@ public class BoardDAO {
 	SqlSession sqlSession;
 	
 	int result = 0;
-	BoardDTO mDto = new BoardDTO();
+	BoardDTO bDto = new BoardDTO();
 	List<BoardDTO> list = null;
 	boolean flag = false;
 	
@@ -57,4 +59,63 @@ public class BoardDAO {
 		
 		return result;
 	}
+	
+	// 게시글 1건(상세조회)
+	public BoardDTO view(String bno) {
+		sqlSession = sqlSessionFactory.openSession();
+		
+		try {								
+			bDto = sqlSession.selectOne("view", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return bDto;
+	}
+	// 게시글 조회수 증가(+1)
+	public void viewCnt(String bno, HttpSession session) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {				
+			
+			long update_time = 0;
+			
+			// null이면 => 처음 조회수 1 증가
+			if(session.getAttribute("read_time_"+bno)!=null) {
+				// 조회수 맨 처음에 한번 증가시킬땐 read_time_+bno변수 없었으니까 if문 안 타고 그 다음부터 read_time_+bno변수 있으니까 탐 
+				// 이전에 게시글 조회 시간 
+				update_time = (long)session.getAttribute("read_time_"+bno);
+			}
+			
+			// 현재시간 구하기(밀리초)
+			long current_time = System.currentTimeMillis();
+			
+			// 현재시간과 이전에 게시글 조회시간을 비교
+			// 24시간(1일)이 지났으면 조회수를 1증가 
+			// 				아니면 조회수 증가 없음 
+			// 24*60*60*1000 이게 24시간임.
+			// currentTimeMillis가 밀리초단위로 나옴 
+			// 현재시간-0=현재시간
+			if(current_time - update_time > 24*60*60*1000) {
+				// 조회수 1 증가
+				sqlSession.update("viewCnt", bno);
+				
+				// 조회수 1 증가한 최신 시간을 session에 "read_time_"+bno라는 변수를 담음.
+				session.setAttribute("read_time_"+bno, current_time);
+				
+				// ex) 30번게시글을 조회하는 경우
+				// 		read_time_30 변수를 하나 만들고
+				//		현재시간을 담음 
+				// 좋아요는 read_time_을 good_time_으로 바꿔. 빼는것도 해야함. 사용자이름 비교해야함. 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
 }

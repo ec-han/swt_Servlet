@@ -77,6 +77,8 @@ td:nth-child(2) {
 	text-align: center;
 	font-weight: bold;
 	font-size: 18px;
+	display: inline-block;
+    padding-left: 250px;
 }
 .line {
 	padding: 13px 0;
@@ -141,12 +143,12 @@ td:nth-child(2) {
 .btn_good {
 	position: absolute;
     top: 0px;
-    right: 80px;
+    right: 70px;
 }
 .btn_hits {
 	position: relative;
     top: -2px;
-    right: -15px;
+    right: -25px;
 }
 /* 글 내용 */
 .data-bd-cont {
@@ -602,4 +604,13 @@ textarea {
     box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1),
     				0 3px 15px 0 rgba(0,0,0,0.05);
 }
-	
+
+#bd_num > span {
+	color: #555555;
+	font-weight: 400;
+	border-right: 3px double #d8d4d4;
+    padding-right: 10px;
+    padding-left: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
