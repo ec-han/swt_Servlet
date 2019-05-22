@@ -73,10 +73,11 @@ public class BoardListAction implements Action {
 		pageMaker.setTotalCount(totalCount);
 		
 		// View단으로 게시글목록 전송 
-		request.setAttribute("list", list);
-		request.setAttribute("pageMaker", pageMaker);
-		request.setAttribute("totalCount", totalCount);
-		request.setAttribute("sort_type", sort_type); // sort_type을 계속 보내줘야 페이지 이동해도 계속 sort_type을 가지고 다님. 
+		request.setAttribute("list", list);	// 게시글 목록
+		request.setAttribute("pageMaker", pageMaker); // 페이지네이션 생성 정보
+		request.setAttribute("totalCount", totalCount); // 게시글 총 갯수 
+		request.setAttribute("sort_type", sort_type); // 게시글 정렬 타입
+		// sort_type을 계속 보내줘야 페이지 이동해도 계속 sort_type을 가지고 다님. 
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url); 

@@ -8,6 +8,8 @@ public class CriteriaDTO {
 	private String search_option;	// 검색 타입
 	private String sort_type;		// 정렬 타입
 	
+	// String은 객체 자료형이라 null로 초기화 해 줌. 전역변수는 객체생성과 동시에 초기화. 
+	
 	public CriteriaDTO() { // 생성자 생성과 동시에 초기화 
 		// Default로 게시판 목록 출력 시 
 		// 1페이지에 10개의 게시물을 출력함. 
