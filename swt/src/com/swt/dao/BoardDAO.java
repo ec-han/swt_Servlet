@@ -118,4 +118,31 @@ public class BoardDAO {
 		
 	}
 	
+	public int replyCntAdd(int bno) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {								
+			result = sqlSession.update("replyUpdateAdd", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	public int replyCntMinus(int bno) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {								
+			result = sqlSession.update("replyCntMinus", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
 }

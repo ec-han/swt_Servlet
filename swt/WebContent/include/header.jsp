@@ -113,7 +113,9 @@
 	</div>
 	<div class="header_logo">
 		<div class="inner_header">
-			<img id="logo" src="${path}/images/mylogo_6.png" alt="로고이미지">
+			<a href="index.swt">
+				<img id="logo" src="${path}/images/mylogo_6.png" alt="로고이미지">
+			</a>
 		</div>
 	</div>
 	<div class="header_nav">

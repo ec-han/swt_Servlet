@@ -277,6 +277,7 @@ td:nth-child(2) {
 	text-align: center;
 	padding-top: 15px;
 	outline: none!important;
+	padding-right: 123px;
 }
 i.fa-heart {
 	font-size: 14px;
@@ -613,4 +614,8 @@ textarea {
     padding-left: 3px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+#comment_area_div{
+	padding-bottom: 15px;
 }

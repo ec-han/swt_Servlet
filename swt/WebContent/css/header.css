@@ -29,29 +29,22 @@
 	background-color: #DAD6E3;
 	color: #66395C;
 }
-a:not([href]):not([tabindex]) {
+header > a:not([href]):not([tabindex]) {
     color: #A7AFCC!important;
     text-decoration: none;
 }
 
-a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
-	color: #252851!important;
+header > a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+	color: #252851;
     text-decoration: none;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 #step_url {
-	
-	/* position: absolute; */
-	/* top: 16px;
-	right: 13px;  */
-	
 	font-size: 13px;
 	line-height: 18px;
 	color: #b30000;
 	padding-right: 30px;
-	
 }
-
 
 .footer_sns{
 	height: 35px;
@@ -114,7 +107,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	height: 35px;
 }
 .header_member ul > li > a{
-	color: #A7AFCC;
+	color: #A7AFCC!important;
 	text-decoration: none;
 	line-height: 35px;
 	padding: 0px 10px 0px 10px; 
@@ -134,7 +127,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	background-color: #DAD6E3;
 }
 /*부트 스트랩 적용하고 수정된 부분 fix*/
-a:not([href]):not([tabindex]) {
+header > a:not([href]):not([tabindex]) {
 	color: #A7AFCC;
 	cursor: pointer;
 }

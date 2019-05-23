@@ -29,8 +29,6 @@ public class BoardViewAction implements Action {
 		BoardDTO bDto = bDao.view(bno);
 		request.setAttribute("one", bDto); // view.jsp로 값 보내는 거.
 		
-		
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url); 
 		forward.setRedirect(false);

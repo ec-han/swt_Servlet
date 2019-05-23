@@ -29,6 +29,8 @@ import com.swt.action.MemberPlayAction;
 import com.swt.action.PwCheckAction;
 import com.swt.action.PwUpdateAction;
 import com.swt.action.PwUpdatePlayAction;
+import com.swt.action.ReplyAddAction;
+import com.swt.action.ReplyRemoveAction;
 
 /**
  * Servlet implementation class FrontController
@@ -126,6 +128,12 @@ public class FrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		} else if(command.equals("/commentlist.swt")) { //ajax로 로그아웃 
 			action = new CommentListAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/replyAdd.swt")) { //ajax로 로그아웃 
+			action = new ReplyAddAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/replyRemove.swt")) { //ajax로 로그아웃 
+			action = new ReplyRemoveAction();
 			forward = action.excute(request, response);
 		}
 		
