@@ -1,5 +1,6 @@
 package com.swt.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -118,31 +119,34 @@ public class BoardDAO {
 		
 	}
 	
-	public int replyCntAdd(int bno) {
+	// 댓글 등록 또는 삭제 시 해당 게시글 replycnt 증가 또는 감소(하나의 메서드로 묶을 수 있음) 
+	public void replyCntUpdate(String bno, String flag) {
 		sqlSession = sqlSessionFactory.openSession(true);
-		
-		try {								
-			result = sqlSession.update("replyUpdateAdd", bno);
+		try {	
+			HashMap<String, String> map = new HashMap<>();
+			map.put("bno", bno);
+			map.put("flag", flag);
+			sqlSession.update("replyCntUpdate", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
 		
+	}
+	
+	public int contentRegister(BoardDTO bDto) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {	
+			System.out.println("DAO단 실행");
+			result = sqlSession.insert("contentRegister", bDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
 		return result;
 	}
 	
-	public int replyCntMinus(int bno) {
-		sqlSession = sqlSessionFactory.openSession(true);
-		
-		try {								
-			result = sqlSession.update("replyCntMinus", bno);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			sqlSession.close();
-		}
-		
-		return result;
-	}
 }

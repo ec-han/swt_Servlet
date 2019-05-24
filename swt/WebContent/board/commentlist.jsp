@@ -112,4 +112,14 @@
 		
 	</ul>
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.link').click(function(){
+			$('#modal_all').css('display','flex');
+			$('#login_id').focus();
+		});
+	});
+	
+
+</script>
 </html>

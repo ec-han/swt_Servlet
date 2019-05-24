@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
 <%@ include file="../include/common.jsp" %>
+<%
+	String message = request.getParameter("message");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -241,7 +244,16 @@
 	<%@ include file="/include/footer.jsp" %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
+	var message = '<%=message%>';
 		$(document).ready(function(){
+			
+			if(message=="nologin"){
+				$('#modal_all').css('display','flex');
+				$('#step_url').text('로그인 해주세요').css('display','block');
+				$('#login_id').focus();
+			}
+			
+			
 			var sort_type = "${sort_type}";
 			if(sort_type == "new"){
 				$("#orderNew").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
@@ -252,6 +264,30 @@
 			} else if(sort_type == "view"){
 				$("#orderCnt").css("color","rgb(36, 195, 182)").css("font-weight", "bold").css("text-decoration", "underline");
 			}
+			
+			// 앞에 $(document)라고 시작안하면 안에 들어있음 
+			$("#btn_regi").on("click",function(){
+
+				$.ajax({
+					type: "POST",
+					url: "registerAjax.swt",
+					dataType: "json",
+					success: function(data){
+						if(data.message == "login"){
+							location.href = "registerView.swt";
+						} else if(data.message == "nologin") {
+							$('#modal_all').css('display','flex');
+							$('#step_url').text('로그인 해주세요').css('display','block');
+							$('#login_id').focus();
+						}
+					},
+					error: function(){
+						alert("System Error!!!!");
+					}
+				});
+			});
+			
+			
 		});
 		
 		$(document).on("click","#search_btn", function(){
@@ -267,6 +303,8 @@
 //			alert(search_option+","+keyword);
 			location.href="${path}/boardList.swt?search_option="+search_option+"&keyword="+keyword;
 		});
+		
+	
 	
 	
 	</script>

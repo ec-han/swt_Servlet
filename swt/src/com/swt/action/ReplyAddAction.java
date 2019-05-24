@@ -16,7 +16,8 @@ public class ReplyAddAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		int bno = Integer.parseInt(request.getParameter("re_bno"));
+		String strBno = request.getParameter("re_bno");
+		int bno = Integer.parseInt(strBno);
 		String writer = request.getParameter("re_writer");
 		String content = request.getParameter("re_textarea");
 		
@@ -29,7 +30,8 @@ public class ReplyAddAction implements Action {
 			System.out.println(rDto.toString()+"ACTION");
 			// 해당게시글 댓글카운트 1 증가 
 			BoardDAO bDao = BoardDAO.getInstance();
-			result = bDao.replyCntAdd(bno);
+			String flag = "plus";
+			bDao.replyCntUpdate(strBno, flag);
 			if(result>0) {
 				System.out.println("DB에 댓글 갯수 업데이트 성공!");
 			}else {

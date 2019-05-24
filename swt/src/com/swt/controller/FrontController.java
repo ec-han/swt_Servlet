@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.swt.action.Action;
 import com.swt.action.ActionForward;
 import com.swt.action.BoardListAction;
+import com.swt.action.RegisterAjaxAction;
+import com.swt.action.RegisterPlayAction;
+import com.swt.action.RegisterViewAction;
 import com.swt.action.BoardViewAction;
 import com.swt.action.CommentListAction;
 import com.swt.action.ConstractAction;
@@ -135,10 +138,19 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/replyRemove.swt")) { //ajax로 로그아웃 
 			action = new ReplyRemoveAction();
 			forward = action.excute(request, response);
-		}
+		} else if(command.equals("/registerAjax.swt")) { //ajax로 로그아웃 
+			action = new RegisterAjaxAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/registerView.swt")) { //ajax로 로그아웃 
+			action = new RegisterViewAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/registerPlay.swt")) { //ajax로 로그아웃 
+			action = new RegisterPlayAction();
+			forward = action.excute(request, response);
+		} 
 		
 		
-		
+	
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {

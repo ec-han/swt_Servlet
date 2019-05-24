@@ -15,7 +15,9 @@ public class ReplyRemoveAction implements Action {
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int bno = Integer.parseInt(request.getParameter("bno"));
+		String strBno = request.getParameter("bno");
+		int bno = Integer.parseInt(strBno);
+		
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		System.out.println("rno"+rno);
 		ReplyDAO rDao = ReplyDAO.getInstance();
@@ -25,7 +27,8 @@ public class ReplyRemoveAction implements Action {
 			System.out.println("성공");
 			// 해당게시글 댓글카운트 1 감소 
 			BoardDAO bDao = BoardDAO.getInstance();
-			result = bDao.replyCntMinus(bno);
+			String flag = "minus";
+			bDao.replyCntUpdate(strBno, flag);
 			if(result>0) {
 				System.out.println("DB에 댓글 갯수 업데이트 성공!");
 			}else {

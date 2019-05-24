@@ -138,6 +138,7 @@ td:nth-child(2) {
 
 #btn_regi {
 	float: right;
+	cursor: pointer;
 }
 
 
@@ -243,4 +244,14 @@ textarea {
 	text-decoration: none;
 	color: #2a6496;
 	font-weight: 600;
+}
+.step_url {
+	position: absolute;
+	top: 16px;
+	right: 13px;
+	font-size: 13px;
+	line-height: 18px;
+	color: #8e8e8e;
+	padding-right: 30px;
+	font-weight: 400;
 }
