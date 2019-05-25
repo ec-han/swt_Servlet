@@ -23,7 +23,7 @@
 	<i class="fas fa-arrow-up"></i>
 </button>
 <header>
-	<div class="header_menu">
+	<div class="header_menu jbFixed_menu">
 		<div class="inner_header inner_header_menu">
 			<div class="header_member">
 				<!-- 모달 로그인 시작  -->
@@ -111,52 +111,54 @@
 			</div>
 		</div>
 	</div>
-	<div class="header_logo">
-		<div class="inner_header">
-			<a href="index.swt">
-				<img id="logo" src="${path}/images/mylogo_6.png" alt="로고이미지">
-			</a>
-		</div>
-	</div>
-	<div class="header_nav">
-		<div class="inner_header">
-			<div class="inner_header_nav">
-				<ul>
-					<li id="dropdown1">
-						<a class="ihn" href="#">Tea Shop</a>
-						 <div class="dropdown2">
-							<a href="#">Tea</a>
-							<a href="#">Latte</a>
-							<a href="#">Tea Sachet</a>
-						</div>
-					</li>
-					<li><a href="#">·</a></li>
-					<li><a class="ihn" href="#">Teawear</a></li>
-					<li><a href="#">·</a></li>
-					<li><a class="ihn" href="#">GIFT & SET</a></li>
-					<li><a href="#">·</a></li>
-					<li><a class="ihn" href="#">S.W.T</a></li>
-					<li><a href="#">·</a></li>
-					<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
-				</ul>
-				
+	<div class="two_wrap">
+		<div class="header_logo jbFixed_logo">
+			<div class="inner_header">
+				<a href="index.swt">
+					<img id="logo" src="${path}/images/mylogo_6.png" alt="로고이미지">
+				</a>
 			</div>
 		</div>
-	<!-- 검색 모달창  -->
-	<div id="modal_search">
-		<div id="scmodal">
-			<div id="search_wrap">
-				<input class="search_txt" type="text" name="" placeholder="Search">
-				<a id="sc_btn" href="#"><i class="fas fa-search"></i></a>
-				<button id="close_search">X</button>
+		<div class="header_nav jbFixed_nav">
+			<div class="inner_header">
+				<div class="inner_header_nav">
+					<ul>
+						<li id="dropdown1">
+							<a class="ihn" href="#">Tea Shop</a>
+							 <div class="dropdown2">
+								<a href="#">Tea</a>
+								<a href="#">Latte</a>
+								<a href="#">Tea Sachet</a>
+							</div>
+						</li>
+						<li><a href="#">·</a></li>
+						<li><a class="ihn" href="#">Teawear</a></li>
+						<li><a href="#">·</a></li>
+						<li><a class="ihn" href="#">GIFT & SET</a></li>
+						<li><a href="#">·</a></li>
+						<li><a class="ihn" href="#">S.W.T</a></li>
+						<li><a href="#">·</a></li>
+						<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
+					</ul>
+					
+				</div>
+			</div>
+		<!-- 검색 모달창  -->
+		<div id="modal_search">
+			<div id="scmodal">
+				<div id="search_wrap">
+					<input class="search_txt" type="text" name="" placeholder="Search">
+					<a id="sc_btn" href="#"><i class="fas fa-search"></i></a>
+					<button id="close_search">X</button>
+				</div>
 			</div>
 		</div>
-	</div>
-		<div class="search_box">
-			<a class="search_btn" href="#">
-				<!-- <i class="fas fa-search"></i> -->
-				<img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn">
-			</a>
+			<div class="search_box">
+				<%-- <a class="search_btn" href="#">
+					<!-- <i class="fas fa-search"></i> -->
+					<img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn">
+				</a> --%>
+			</div>
 		</div>
 	</div>
 </header>
@@ -253,7 +255,20 @@
 		$('#close_search').click(function(){
 			$('#modal_search').css('display','none');
 		});
-	
+		
+		var jbOffset = $('.header_menu').offset();
+		$(window).scroll(function(){
+			if($(document).scrollTop()>0){
+				$('.jbFixed_menu').css('top','0px').css('position','fixed');
+				$('.two_wrap').css('top','-300px').css('position','fixed');
+//				$('.jbFixed_nav').css('top','-262px').css('position','fixed'); 
+			} else {
+				$('.jbFixed_menu').css('top','0px').css('position','relative');
+				$('.two_wrap').css('top','0px').css('position','relative');
+//				$('.jbFixed_nav').css('top','0px').css('position','relative');
+			}
+		});
+//		jbOffset.top
 	
 	});
 	

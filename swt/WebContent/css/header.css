@@ -1,10 +1,54 @@
 .header_menu{
 	width: 80%;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	background-color: #252851;
 	height: 35px;
-	/* border-top: 2.5px solid #A7AFCC;
-	border-bottom: 2.5px solid #A7AFCC; */
+	/*transition: .4s;*/
+	
+}
+.header_logo{
+	width: 80%;
+	margin: 0 auto;
+	background-color: white;
+	/*transition: .4s;*/
+
+}
+.header_nav{
+	width: 80%;
+	margin: 0 auto;
+	background-color: #66395C;
+	height: 77px;
+	/* position: relative; */
+	/* transition: .4s; */
+	
+}
+.two_wrap{
+	transition: .2s;
+	margin: 0 auto;
+	width: 100%;
+	z-index:998;
+}
+.jbFixed_menu{
+	position: relative;
+	/* position: fixed; */
+	/* top: 0px; */
+	z-index: 999;
+	left: 10%;
+	
+}
+.jbFixed_logo{
+	/* position: fixed; */
+	/* top: -185px; */
+	/*z-index: 400;*/
+	left: 10%;
+}
+.jbFixed_nav{
+	/* position: fixed; */
+	/* top: -262px; */
+	/*262*/
+	/*z-index: 300;*/
+	/* left: 10%; */
+	
 }
 .inner_header_nav{
 	width: 100%;
@@ -144,21 +188,7 @@ header > a:not([href]):not([tabindex]) {
 	border-left: 3px double #dee2e6;
     border-right: 3px double #dee2e6;
 }
-.header_logo{
-	width: 80%;
-	margin: 0 auto;
-	background-color: white;
-}
-.header_nav{
-	width: 80%;
-	margin: 0 auto;
-	background-color: #66395C;
-	height: 77px;
-	/* border-top: 1.5px solid #A7AFCC; */
-/* 	border-bottom: 1.5px solid #A7AFCC; */
-	position: relative;
-	/* margin-bottom: 10px; */
-}
+
 
 #logo{
 	padding-left: 32%;
