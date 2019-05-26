@@ -23,57 +23,58 @@
 	<i class="fas fa-arrow-up"></i>
 </button>
 <header>
-	<div class="header_menu jbFixed_menu">
-		<div class="inner_header inner_header_menu">
-			<div class="header_member">
-				<!-- 모달 로그인 시작  -->
-				<div id="modal_all">
-					<div id="modal">
-						<div id="wrap">
-							<button id="close_btn">
-								<i class="fas fa-times"></i>
-							</button>
-							<div id="swt_content">
-								<div id="login_area">
-									<div id="login_logo">
-										<img src="${path}/images/mylogo_6.png">
-									</div>
-									<div id="container">
-										<form name="" action="" method="POST" id="login_form">
-											<input type="text" class="idpw" id="login_id" name=""
-											  placeholder="아이디"></input>
-												<img src="${path}/images/help.PNG"> <!--  ? 이미지  -->
-											<input type="password" class="idpw" id="login_pw" name="" placeholder="패스워드"></input>
-										</form>
+	<!-- 모달 로그인 시작  -->
+	<div id="modal_all">
+		<div id="modal">
+			<div id="wrap">
+				<button id="close_btn">
+					<i class="fas fa-times"></i>
+				</button>
+				<div id="swt_content">
+					<div id="login_area">
+						<div id="login_logo">
+							<img src="${path}/images/mylogo_6.png">
+						</div>
+						<div id="container">
+							<form name="" action="" method="POST" id="login_form">
+								<input type="text" class="idpw" id="login_id" name=""
+								  placeholder="아이디"></input>
+									<img src="${path}/images/help.PNG"> <!--  ? 이미지  -->
+								<input type="password" class="idpw" id="login_pw" name="" placeholder="패스워드"></input>
+							</form>
 
-										<form action="/action_page.php">
-										    <div class="custom-control custom-switch">
-										      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
-										      <label class="custom-control-label" for="switch1">로그인 유지</label>
-										      <span id="step_url"></span>
-										    </div>
-										</form>
-											
-											<div>
-												<a href="#" id="btn_login">
-													<button class="btn btn1">Login</button>
-												</a>
-											</div>
-										<div id="login_help">
-											<!-- <a href="#">Join Us</a> -->
-											<div class="right">
-												<a href="#">아이디 찾기</a>
-												<span class="right_bar">｜</span>
-												<a href="pwUpdate.swt">비밀번호 재설정</a>
-											</div>
-										</div>
-									</div>
+							<form action="/action_page.php">
+							    <div class="custom-control custom-switch">
+							      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
+							      <label class="custom-control-label" for="switch1">로그인 유지</label>
+							      <span id="step_url"></span>
+							    </div>
+							</form>
+								
+								<div>
+									<a href="#" id="btn_login">
+										<button class="btn btn1">Login</button>
+									</a>
+								</div>
+							<div id="login_help">
+								<!-- <a href="#">Join Us</a> -->
+								<div class="right">
+									<a href="#">아이디 찾기</a>
+									<span class="right_bar">｜</span>
+									<a href="pwUpdate.swt">비밀번호 재설정</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- 모달 로그인 끝  -->
+			</div>
+		</div>
+	</div>
+	<!-- 모달 로그인 끝  -->
+	<div class="header_menu jbFixed_menu" id="header_line">
+		<div class="inner_header inner_header_menu">
+			<div class="header_member">
+				
 				<ul>
 				
 				<c:choose>
@@ -261,14 +262,13 @@
 			if($(document).scrollTop()>0){
 				$('.jbFixed_menu').css('top','0px').css('position','fixed');
 				$('.two_wrap').css('top','-300px').css('position','fixed');
-//				$('.jbFixed_nav').css('top','-262px').css('position','fixed'); 
+				$('#header_line').css('opacity','0.85');
 			} else {
 				$('.jbFixed_menu').css('top','0px').css('position','relative');
 				$('.two_wrap').css('top','0px').css('position','relative');
-//				$('.jbFixed_nav').css('top','0px').css('position','relative');
+				$('#header_line').css('opacity','1');
 			}
 		});
-//		jbOffset.top
 	
 	});
 	

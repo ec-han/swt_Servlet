@@ -194,6 +194,9 @@ td:nth-child(2) {
 #btn_regi {
 	float: right;
 }
+#btn_modi_view {
+	float: right;
+}
 #btn_list{
 	float: left;
 }
@@ -500,7 +503,7 @@ textarea {
 #bd_modal_all {
 	border: 3px solid black;
 	position: fixed;
-	z-index: 50;
+	z-index: 1001;
 	top: 0;
 	left: 0;
 	width: 100%;

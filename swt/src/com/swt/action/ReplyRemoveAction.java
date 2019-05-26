@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.swt.dao.BoardDAO;
 import com.swt.dao.ReplyDAO;
-import com.swt.dto.ReplyDTO;
 
 public class ReplyRemoveAction implements Action {
 

@@ -7,9 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
-import com.swt.action.ActionForward;
 import com.swt.dao.ProductDAO;
 import com.swt.dto.ProductDTO;
 

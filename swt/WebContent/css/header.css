@@ -160,6 +160,7 @@ header > a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hove
 	height: 29px;
 	display: inline-block; /* ★<a>는 항상 그 사이즈만큼만 줘야함. <li>사이즈야 맞춰줘야 hover했을때 손가락 뜸. <a>사이즈가 작으면 마우스 커서 올려도 손가락마우스버튼으로 안 바뀔 수 있음 */
 	font-weight: bold;
+    cursor: pointer;
 }
 .header_member > ul > li > a:hover{
 	/* text-decoration: underline; */
@@ -339,7 +340,7 @@ header > a:not([href]):not([tabindex]) {
 /* 로그인 모달창 */
 #modal_all {
 	position: fixed;
-	z-index: 45;
+	z-index: 1000;
 	top: 0;
 	left: 0;
 	width: 100%;

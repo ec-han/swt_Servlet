@@ -88,7 +88,7 @@
 									
 									<c:if test="${sessionScope.loginUser.id == one.writer}">
 										<a href="#">
-											<img class="bd-btns" id="btn_regi" alt="게시글 수정" src="${path}/images/regi.png">
+											<img class="bd-btns" id="btn_modi_view" alt="게시글 수정" src="${path}/images/regi.png">
 										</a>
 										<a href="#" id="del_btn">
 											<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete2.png">
@@ -194,7 +194,7 @@
 				$('#bd_modal_all').css('display','none');
 			});
 			$('#bd_btn_yes').click(function(){
-				location.href="boardList.swt";
+				location.href="deletePlay.swt?bno=${one.bno}";
 			});
 		});
 		
@@ -237,6 +237,31 @@
 			}
 		});
 		
+		// 게시글 수정버튼 클릭했을 때 상세게시글 페이지에서 수정페이지로 게시글번호 보내주고싶음 
+		$(document).on("click","#btn_modi_view", function(){
+				// 게시글번호 담아서 보냄 
+				var bno = '${one.bno}';
+				location.href="modifyView.swt?bno=${one.bno}";
+				//bno = $(this).attr("data_mbno");
+				
+				alert('게시글번호'+bno);
+				$.ajax({
+					url: "modifyAjax.swt",
+					type: "POST",
+					data: "bno=" + bno,
+					success: function(){
+						alert("성공");
+						alert('성공 후 게시글번호'+bno);
+						$('#modi_bno').val(bno);
+					},
+					error: function(){
+						alert("System Error!!!!");
+					}
+				});
+		});
+		
+		
+		
 		// 댓글 띄우는 기능
 		function comment_list(){
 			$.ajax({
@@ -261,10 +286,12 @@
 					comment_list();
 				},
 				error: function(){
-					alert("SYSTEM ERROR!!!")
+					alert("SYSTEM ERROR!!!");
 				}
 			});
 		});
+		
+		
 	
 	</script>	
 </body>

@@ -1,17 +1,13 @@
 package com.swt.action;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.swt.dao.MemberDAO;
-import com.swt.dao.ProductDAO;
 import com.swt.dto.MemberDTO;
-import com.swt.dto.ProductDTO;
 
 public class MemberPlayAction implements Action{
 

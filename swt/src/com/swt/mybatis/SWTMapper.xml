@@ -172,5 +172,15 @@
 		INSERT INTO tbl_board(bno,title,content,writer)
 		VALUES(seq_board.NEXTVAL,#{title},#{content},#{writer})
 	</insert>
-
+	
+	<update id="contentModify" parameterType="com.swt.dto.BoardDTO">
+		UPDATE tbl_board
+	   	 	SET title = #{title},
+	        	content = #{content}
+		WHERE bno = #{bno}
+	</update>
+	<delete id="contentDelete" parameterType="int">
+		DELETE FROM tbl_board 
+		WHERE bno = #{bno}
+	</delete>
 </mapper>

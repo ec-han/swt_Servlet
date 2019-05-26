@@ -149,4 +149,31 @@ public class BoardDAO {
 		return result;
 	}
 	
+	public int contentModify(BoardDTO bDto) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {	
+			System.out.println("Modify DAO단 실행");
+			result = sqlSession.update("contentModify", bDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+	
+	public int bdelete(int bno) {
+		sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {	
+			System.out.println("게시글 삭제 DAO단 실행");
+			result = sqlSession.update("contentDelete", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
 }

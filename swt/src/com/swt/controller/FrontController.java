@@ -18,6 +18,7 @@ import com.swt.action.RegisterViewAction;
 import com.swt.action.BoardViewAction;
 import com.swt.action.CommentListAction;
 import com.swt.action.ConstractAction;
+import com.swt.action.DeletePlayAction;
 import com.swt.action.DropMemberAction;
 import com.swt.action.DropMemberPlayAction;
 import com.swt.action.IdCheckAction;
@@ -29,6 +30,9 @@ import com.swt.action.LoginOutAction;
 import com.swt.action.LogoutAjaxAction;
 import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
+import com.swt.action.ModifyAjaxAction;
+import com.swt.action.ModifyPlayAction;
+import com.swt.action.ModifyViewAction;
 import com.swt.action.PwCheckAction;
 import com.swt.action.PwUpdateAction;
 import com.swt.action.PwUpdatePlayAction;
@@ -102,52 +106,65 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/logoutAjax.swt")) { //ajax로 로그아웃 
 			action = new LogoutAjaxAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/infoUpdate.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/infoUpdate.swt")) { 
 			action = new InfoUpdateAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/infoUpdatePlay.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/infoUpdatePlay.swt")) {
 			action = new InfoUpdatePlayAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/pwUpdate.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/pwUpdate.swt")) { 
 			action = new PwUpdateAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/pwCheck.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/pwCheck.swt")) { 
 			action = new PwCheckAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/pwUpdatePlay.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/pwUpdatePlay.swt")) { 
 			action = new PwUpdatePlayAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/dropMember.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/dropMember.swt")) {
 			action = new DropMemberAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/dropMemberPlay.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/dropMemberPlay.swt")) {
 			action = new DropMemberPlayAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/boardList.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/boardList.swt")) { 
 			action = new BoardListAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/boardView.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/boardView.swt")) { 
 			action = new BoardViewAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/commentlist.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/commentlist.swt")) { 
 			action = new CommentListAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/replyAdd.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/replyAdd.swt")) { 
 			action = new ReplyAddAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/replyRemove.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/replyRemove.swt")) {
 			action = new ReplyRemoveAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/registerAjax.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/registerAjax.swt")) { // Ajax로 게시글 등록하기 위해 로그인확인
 			action = new RegisterAjaxAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/registerView.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/registerView.swt")) { // 게시글 등록 페이지 출력
 			action = new RegisterViewAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/registerPlay.swt")) { //ajax로 로그아웃 
+		} else if(command.equals("/registerPlay.swt")) { // 게시글 등록하기 위해 DB다녀옴 
 			action = new RegisterPlayAction();
 			forward = action.excute(request, response);
+		} else if(command.equals("/modifyAjax.swt")) { 
+			action = new ModifyAjaxAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/modifyView.swt")) { // 상세 게시글 페이지에서 게시글 수정 버튼 누를때 게시글 수정하는 페이지 띄워줌 
+			action = new ModifyViewAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/modifyPlay.swt")) { // 게시글 내용 수정 후 수정버튼 누를때 DB 다녀옴
+			action = new ModifyPlayAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/deletePlay.swt")) { 
+			action = new DeletePlayAction();
+			forward = action.excute(request, response);
 		} 
+		
 		
 		
 	

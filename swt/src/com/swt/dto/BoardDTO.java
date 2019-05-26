@@ -41,6 +41,16 @@ public class BoardDTO {
 		this.content = content;
 		this.writer = writer;
 	}
+	
+	
+
+	public BoardDTO(int bno, String title, String content, String writer) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+	}
 
 	public int getBno() {
 		return bno;

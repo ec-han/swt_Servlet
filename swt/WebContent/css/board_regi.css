@@ -119,11 +119,7 @@ td:nth-child(2) {
 .btn_right {
 	float: right;
 }
-.btn_att {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-}
+
 .btn_area {
 	display: block;
 	width: 100%;
@@ -137,6 +133,10 @@ td:nth-child(2) {
 
 
 #btn_regi {
+	float: right;
+	cursor: pointer;
+}
+#btn_modi{
 	float: right;
 	cursor: pointer;
 }
@@ -254,4 +254,21 @@ textarea {
 	color: #8e8e8e;
 	padding-right: 30px;
 	font-weight: 400;
+}
+
+/*첨부파일*/
+
+.btn_att {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+}
+
+.btn_att_del {
+	float: right;
+    margin-left: 5px;
+}
+.file_x_btn > img {
+	display: none;
 }
