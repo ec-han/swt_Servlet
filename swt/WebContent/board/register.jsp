@@ -8,7 +8,8 @@
 			location.href="${path}/boardList.swt?message=nologin";
 		</script>
 </c:if>
-<%-- <c:choose>
+<%-- 이거 하지말라고 하심 
+<c:choose>
 	<c:when test="${sessionScope.loginUser == null}">
 		<script>
 			alert("로그인 하신 후 사용하세요.");

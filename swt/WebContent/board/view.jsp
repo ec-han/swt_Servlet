@@ -81,13 +81,32 @@
 								<div class="att_wrap">
 									<div class="att_area">
 										<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
-										<a href="#">"${one.filename}"</a>
+										<c:choose>
+											<c:when test="${one.filesize/1024/1024 > 1}">
+												<a href="download.swt?file=${one.filename}">
+													${one.filename}
+													(<fmt:formatNumber type="number" pattern="0.00" value="${one.filesize/1024/1024}">
+													</fmt:formatNumber> mb)
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="download.swt?file=${one.filename}">
+													${one.filename}
+													(<fmt:formatNumber type="number" pattern="0.00" value="${one.filesize/1024}">
+													</fmt:formatNumber> kb)
+												</a>
+											</c:otherwise>
+											
+										</c:choose>
 									</div>
 								</div>
+								
+								
+								
 								<div class="btn_area">
 									
 									<c:if test="${sessionScope.loginUser.id == one.writer}">
-										<a href="#">
+										<a href="${path}/modifyView.swt?bno=${one.bno}">
 											<img class="bd-btns" id="btn_modi_view" alt="게시글 수정" src="${path}/images/regi.png">
 										</a>
 										<a href="#" id="del_btn">
@@ -194,7 +213,7 @@
 				$('#bd_modal_all').css('display','none');
 			});
 			$('#bd_btn_yes').click(function(){
-				location.href="deletePlay.swt?bno=${one.bno}";
+				location.href="deletePlay.swt?bno=${one.bno}&filename=${one.filename}";
 			});
 		});
 		
@@ -238,7 +257,7 @@
 		});
 		
 		// 게시글 수정버튼 클릭했을 때 상세게시글 페이지에서 수정페이지로 게시글번호 보내주고싶음 
-		$(document).on("click","#btn_modi_view", function(){
+		/* $(document).on("click","#btn_modi_view", function(){
 				// 게시글번호 담아서 보냄 
 				var bno = '${one.bno}';
 				location.href="modifyView.swt?bno=${one.bno}";
@@ -258,7 +277,7 @@
 						alert("System Error!!!!");
 					}
 				});
-		});
+		}); */
 		
 		
 		

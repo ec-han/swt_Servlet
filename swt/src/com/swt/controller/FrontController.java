@@ -12,13 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.swt.action.Action;
 import com.swt.action.ActionForward;
 import com.swt.action.BoardListAction;
-import com.swt.action.RegisterAjaxAction;
-import com.swt.action.RegisterPlayAction;
-import com.swt.action.RegisterViewAction;
 import com.swt.action.BoardViewAction;
 import com.swt.action.CommentListAction;
 import com.swt.action.ConstractAction;
 import com.swt.action.DeletePlayAction;
+import com.swt.action.DownloadAction;
 import com.swt.action.DropMemberAction;
 import com.swt.action.DropMemberPlayAction;
 import com.swt.action.IdCheckAction;
@@ -30,12 +28,13 @@ import com.swt.action.LoginOutAction;
 import com.swt.action.LogoutAjaxAction;
 import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
-import com.swt.action.ModifyAjaxAction;
-import com.swt.action.ModifyPlayAction;
 import com.swt.action.ModifyViewAction;
 import com.swt.action.PwCheckAction;
 import com.swt.action.PwUpdateAction;
 import com.swt.action.PwUpdatePlayAction;
+import com.swt.action.RegisterAjaxAction;
+import com.swt.action.RegisterPlayAction;
+import com.swt.action.RegisterViewAction;
 import com.swt.action.ReplyAddAction;
 import com.swt.action.ReplyRemoveAction;
 
@@ -151,21 +150,16 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/registerPlay.swt")) { // 게시글 등록하기 위해 DB다녀옴 
 			action = new RegisterPlayAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/modifyAjax.swt")) { 
-			action = new ModifyAjaxAction();
-			forward = action.excute(request, response);
-		} else if(command.equals("/modifyView.swt")) { // 상세 게시글 페이지에서 게시글 수정 버튼 누를때 게시글 수정하는 페이지 띄워줌 
-			action = new ModifyViewAction();
-			forward = action.excute(request, response);
-		} else if(command.equals("/modifyPlay.swt")) { // 게시글 내용 수정 후 수정버튼 누를때 DB 다녀옴
-			action = new ModifyPlayAction();
-			forward = action.excute(request, response);
 		} else if(command.equals("/deletePlay.swt")) { 
 			action = new DeletePlayAction();
 			forward = action.excute(request, response);
-		} 
-		
-		
+		} else if(command.equals("/download.swt")) { 
+			action = new DownloadAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/modifyView.swt")) { 
+			action = new ModifyViewAction();
+			forward = action.excute(request, response);
+		}
 		
 	
 		

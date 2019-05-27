@@ -143,9 +143,11 @@
 											<td>
 												<!-- 첨부-->
 												<div class="text_center">
-													<!-- <i class="fas fa-sticky-note"></i> -->
-													<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
-													<!-- ${bDto.filesize} -->
+													<c:if test="${bDto.filesize >0}">
+														<!-- <i class="fas fa-sticky-note"></i> -->
+														<img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">
+														<!-- ${bDto.filesize} -->
+													</c:if>
 												</div>
 											</td>
 										</tr>

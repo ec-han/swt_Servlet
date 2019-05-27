@@ -5,25 +5,32 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.swt.dao.BoardDAO;
+import com.swt.dto.BoardDTO;
 
 public class ModifyViewAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "board/modify.jsp";
+		
 		
 		String strBno = request.getParameter("bno");
-		int bno = Integer.parseInt(strBno);
-		System.out.println("bno="+bno+",strBno="+strBno);
+		BoardDAO bDao = BoardDAO.getInstance();
+		BoardDTO bDto = new BoardDTO();
+		bDto = bDao.view(strBno);
 		
-		request.setAttribute("modi_bno", strBno); // 이게 안됨 
+		String url = "board/modify.jsp";
+		
+		request.setAttribute("one", bDto); // view.jsp로 값 보내는 거.
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url); 
 		forward.setRedirect(false);
 		
-		return forward;  
-
+		return forward;
 	}
+
 }

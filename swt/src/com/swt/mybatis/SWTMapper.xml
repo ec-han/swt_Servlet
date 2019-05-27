@@ -169,8 +169,8 @@
 	</delete>
 	
 	<insert id="contentRegister" parameterType="com.swt.dto.BoardDTO">
-		INSERT INTO tbl_board(bno,title,content,writer)
-		VALUES(seq_board.NEXTVAL,#{title},#{content},#{writer})
+		INSERT INTO tbl_board(bno,title,content,writer, filename, filesize)
+		VALUES(seq_board.NEXTVAL,#{title},#{content},#{writer}, #{filename}, #{filesize})
 	</insert>
 	
 	<update id="contentModify" parameterType="com.swt.dto.BoardDTO">
@@ -179,8 +179,17 @@
 	        	content = #{content}
 		WHERE bno = #{bno}
 	</update>
+	
+	<!-- 게시글 삭제 -->
 	<delete id="contentDelete" parameterType="int">
 		DELETE FROM tbl_board 
 		WHERE bno = #{bno}
 	</delete>
+	
+	<!--currval 마지막 시퀀스를 가져오는 것  -->
+	<select id="boardBno" resultType="int">
+		SELECT seq_board.currval
+		FROM dual
+	</select>
+	
 </mapper>

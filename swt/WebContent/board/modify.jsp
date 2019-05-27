@@ -36,7 +36,7 @@
 												<th>
 													<div class="tb-left">제목</div>
 													<fieldset class="fform">
-														<input name="modi_title" class="form-control" id="modi_title">
+														<input name="modi_title" class="form-control" id="modi_title" value="${one.title}">
 															<span class="step_url"></span>
 													</fieldset>
 												</th>
@@ -51,7 +51,7 @@
 														<span class="detail_wr">
 															<div class="tb-left">내용</div>
 															<fieldset class="fform">
-																	<textarea rows="1" cols="1" placeholder="내용" class="form-control" id="boardListModify" name="boardListModify" style='width:100%; min-width:260px;'></textarea>
+																	<textarea rows="1" cols="1" placeholder="내용" class="form-control" id="boardListModify" name="boardListModify" style='width:100%; min-width:260px;'><el>${one.content}</el></textarea>
 																	<script type="text/javascript">
 																		var oEditors = [];
 																		nhn.husky.EZCreator.createInIFrame({
@@ -84,7 +84,24 @@
 									
 									<div class="btn_area">
 										<div class="att_wrap">
-											<div class="att_area">
+											<!-- 기존 첨부파일 -->
+											<%-- <c:if test="${one.filesize>0}"> --%>
+												<div class="before_att_area">
+											        <div class="before_d_file_text">
+											            <img class="before_btn_img before_btn_att" alt="첨부파일" src="${path}/images/attachment2.png">	
+											            <span class="before_file_name" style="padding-left: 40px;"> 
+											            	기존 ${one.filename} 
+											            </span>
+											            <span id="before_file_size"> </span>
+											            <span class="before_file_x_btn">
+											            	<img class="before_btn_img before_btn_att_del" alt="첨부파일 삭제" src="${path}/images/minus.png">
+											            </span>
+											            <span class="file_msg">[첨부파일 삭제됨]</span>
+											        </div>
+											     </div>
+										    <%--  </c:if> --%>
+										     <!-- 글 수정 시 새로 첨부할 파일  --> 
+										     <div class="att_area">
 												<input type="file" name="b_file" id="b_file" style="display:none!important">
 										        <div class="d_file_text">
 										            <img class="btn_img btn_att" alt="첨부파일" src="${path}/images/attachment1.png">	
@@ -101,7 +118,11 @@
 										</div>
 										<div class="btn_right">
 											<a href="#">
-												<img class="bd-btns" id="btn_modi" alt="게시글 수정" src="${path}/images/regi.png">
+												<c:if test="${sessionScope.loginUser.id == one.writer}">
+													<a href="${path}/ModifyPlay.swt?bno=${one.bno}">
+														<img class="bd-btns" id="btn_modi" alt="게시글 수정" src="${path}/images/regi.png">
+													</a>
+												</c:if>
 											</a>
 										</div>
 										
@@ -124,6 +145,7 @@
 			$('.file_name').click(function(event) {
 			       $('#b_file').click();
 			});
+			
 		
 			$("#btn_modi").click(function(){
 				
@@ -169,6 +191,17 @@
 	            $('.file_x_btn > img').css("display", "none");
 	           // $('.d_file_text > i').css("color", "#BDBDBD");
 	       });
+			
+			$('.before_file_x_btn > img').click(function(event) {
+	            $('.before_file_name').text("첨부된 파일이 없습니다.")
+	                               .css("color", "#BDBDBD")
+	                               .css("letter-spacing", "-1px");
+	            $('#before_b_file').replaceWith($("#before_b_file").clone(true));
+	            $('#before_before_b_file').val("");
+	            $('#before_now_file_size').text("");
+	            $('.before_file_x_btn > img').css("display", "none");
+	           // $('.d_file_text > i').css("color", "#BDBDBD");
+	       });
 	       
 	       
 	       
@@ -208,6 +241,13 @@
 	                  }
 	            }
 	       });
+	       
+	      
+		});
+		
+		$(document).on('click','.before_btn_att_del', function(){
+			$('.file_msg').css('display','block');
+			$('.before_file_name').css('color',"#AAA").css('text-decoration','line-through');
 		});
 	
 	</script>

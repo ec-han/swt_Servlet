@@ -163,12 +163,26 @@ public class BoardDAO {
 		return result;
 	}
 	
+	// 게시글 삭제 
 	public int bdelete(int bno) {
 		sqlSession = sqlSessionFactory.openSession(true);
 		
 		try {	
 			System.out.println("게시글 삭제 DAO단 실행");
-			result = sqlSession.update("contentDelete", bno);
+			result = sqlSession.delete("contentDelete", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+	
+	public int boardBno() {
+		sqlSession = sqlSessionFactory.openSession();
+		
+		try {	
+			result = sqlSession.update("boardBno");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

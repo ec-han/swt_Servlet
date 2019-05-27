@@ -116,6 +116,37 @@ td:nth-child(2) {
 .att_area > a {
 	margin-left: 40px;
 }
+
+.before_att_wrap{
+	float: left;
+}
+.before_att_area {
+	position: relative;
+	font-weight: 700;
+	text-align: left;
+	line-height: 34.1px;
+	padding: .75rem;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.before_att_area > a {
+	margin-left: 40px;
+}
+
+.before_btn_img {
+	width: 35px;
+	height: 35px;
+	float: left;
+}
+.file_msg {
+	color: #b30000;
+	margin-left: 8px;
+	display: none;
+}
+
+
+
+
 .btn_right {
 	float: right;
 }
@@ -271,4 +302,25 @@ textarea {
 }
 .file_x_btn > img {
 	display: none;
+    cursor: pointer;
+}
+
+
+
+
+
+.before_btn_att {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+}
+
+.before_btn_att_del {
+	float: right;
+    margin-left: 5px;
+}
+.before_file_x_btn > img {
+	display: none;
+    cursor: pointer;
 }
