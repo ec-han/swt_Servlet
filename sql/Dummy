@@ -196,7 +196,9 @@ CREATE TABLE tbl_reply(
 
 ALTER TABLE tbl_reply 
 ADD CONSTRAINT tbl_reply_fk_bno
-FOREIGN KEY(bno) REFERENCES tbl_board(bno);
+FOREIGN KEY(bno) REFERENCES tbl_board(bno) ON DELETE CASCADE;
+-- 게시글 삭제되면 댓글도 연쇄삭제 됨 CASCADE: 연쇄 삭제할때 씀 
+-- 참조하고 있을때 연쇄작용하게 함. 외래키로 반드시 묶여있어야 함
 COMMIT;
 
 DELETE FROM tbl_reply;
