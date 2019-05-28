@@ -27,7 +27,7 @@
 							</div>
 							<div class="box-body">
 								<table class="table-boarded">
-									<caption>Q&A 게시글</caption>
+									<caption>QnA 게시글</caption>
 									<thead>
 										<tr>
 											<th id="bd_num">
@@ -109,18 +109,18 @@
 										<a href="${path}/modifyView.swt?bno=${one.bno}">
 											<img class="bd-btns" id="btn_modi_view" alt="게시글 수정" src="${path}/images/regi.png">
 										</a>
-										<a href="#" id="del_btn">
+										<a id="del_btn">
 											<img class="bd-btns" id="btn_del" alt="게시글 삭제" src="${path}/images/delete2.png">
 										</a>
 									</c:if>
 									
 									
-									<a href="#">
+									<a>
 										<img class="bd-btns" id="btn_list" alt="게시글 목록" src="${path}/images/list.png">
 									</a>
 									
 									
-									<a href="#">
+									<a>
 										<img class="bd-btns" id="btn_rpl" alt="게시글 답변" src="${path}/images/reply_blue.png">
 									</a>
 									<!-- 좋아요 버튼 -->
@@ -141,8 +141,8 @@
 											</div>
 											<p><span class="bd_modal_txt">정말 <span class="bd_focus_text">삭제</span>하시겠습니까?</span></p>
 											<div class="bd_btn_wrap">
-												<a class="bd_modal_btn" id="bd_btn_no" href="#">아니오</a>
-												<a class="bd_modal_btn" id="bd_btn_yes" href="#">예</a>
+												<a class="bd_modal_btn" id="bd_btn_no">아니오</a>
+												<a class="bd_modal_btn" id="bd_btn_yes">예</a>
 											</div>
 											<button id="bd_close_modal">X</button>
 										</div>
@@ -164,19 +164,14 @@
 										</li>
 									</ul>
 								</div>
-							</div>
-							
-							
+							</div>													
 							<!-- 댓글 목록 시작  -->
 							<div class="reply-wrapper">
 								<div id="commentList">
 								</div>
 							</div>
-							<!-- 댓글 목록 끝  -->
-							
-							
-						</div>
-						
+							<!-- 댓글 목록 끝  -->														
+						</div>						
 					</div>
 				</div>
 			</div>
@@ -185,8 +180,24 @@
 	<%@ include file="/include/footer.jsp" %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
+	
+		// 뒤로가기 막기(아예 뒤로 못 가게 막음)
+//		history.puchState(null, null, location.href);
+//		window.onpopstate = function(){
+//			history.go(1);
+//		}); 
+		
+		// 뒤로가기버튼 누를 때 원하는 페이지로 이동하게
+		history.pushState(null, document.title, location.href);
+		
+		window.addEventListener('popstate', function(event){
+			history.pushState(null, document.title, '<%=referer%>');
+			location.reload();
+		});
+	
 		$(document).ready(function(){
-			/* 문서가 준비되면 댓글 목록을 조회하는 AJAX 실행 */
+			
+			// 문서가 준비되면 댓글 목록을 조회하는 AJAX 실행 
 			comment_list();
 			
 			
@@ -202,7 +213,7 @@
 					$('.ani_heart_m').removeClass('bye');
 				}
 			});
-			/* 삭제확인 모달창 */
+//			삭제확인 모달창 
 			$('#del_btn').click(function(){
 				$('#bd_modal_all').css('display','block');
 			});
@@ -218,8 +229,8 @@
 		});
 		
 		$(document).on("click","#btn_list", function(){
-			location.href = "<%=referer%>";
-			/* referer: 이전페이지 가짐. */
+			location.href = "boardList.swt";
+		
 		});
 		
 		$(document).on("click","#btn-create-btn", function(){
@@ -255,31 +266,6 @@
 				});
 			}
 		});
-		
-		// 게시글 수정버튼 클릭했을 때 상세게시글 페이지에서 수정페이지로 게시글번호 보내주고싶음 
-		/* $(document).on("click","#btn_modi_view", function(){
-				// 게시글번호 담아서 보냄 
-				var bno = '${one.bno}';
-				location.href="modifyView.swt?bno=${one.bno}";
-				//bno = $(this).attr("data_mbno");
-				
-				alert('게시글번호'+bno);
-				$.ajax({
-					url: "modifyAjax.swt",
-					type: "POST",
-					data: "bno=" + bno,
-					success: function(){
-						alert("성공");
-						alert('성공 후 게시글번호'+bno);
-						$('#modi_bno').val(bno);
-					},
-					error: function(){
-						alert("System Error!!!!");
-					}
-				});
-		}); */
-		
-		
 		
 		// 댓글 띄우는 기능
 		function comment_list(){

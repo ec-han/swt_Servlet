@@ -26,6 +26,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet" href="${path}/css/board_regi.css?v=1">
 <title>게시글 등록</title>
 <script type="text/javascript" src="${path}/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
@@ -44,7 +45,7 @@
 							<form class="register_form" id="register_frm" method="POST" action="registerPlay.swt" enctype="multipart/form-data">
 								<div class="box-body">
 									<table class="table-boarded">
-										<caption>Q&A 게시글</caption>
+										<caption>QnA 게시글</caption>
 										<thead>
 											<tr>
 												<th>
@@ -140,19 +141,14 @@
 				// 첨부파일 제외하고 게시글 등록되게 하기
 				var title = $("#regi_title").val();
 				var content = $("#boardListInsert").val();
-				
-				
-				alert(title);
-				alert(content);
-			
-				
+					
 				// 게시글 내용 작성자 null안되게 유효성 체크
 				if(title==""||title.length==0){
 					$('.step_url').text('글을 등록하려면 입력해주세요').css('display','block');
 					return false;
 				} else {
 					$('.step_url').css('display','hidden');
-					alert('유효성 체크1 완료');
+//					alert('유효성 체크1 완료');
 				} 
 				
 				if(content == "<p><br></p>"){
@@ -160,7 +156,7 @@
 					return false;
 				} else {
 					$('.step_url').css('display','hidden');
-					alert('유효성 체크2 완료');
+//					alert('유효성 체크2 완료');
 				} 
 				
 				$("#register_frm").submit();

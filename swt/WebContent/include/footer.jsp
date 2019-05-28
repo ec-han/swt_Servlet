@@ -61,19 +61,15 @@ footer {
 	bottom: 0;
 	border-left: 3px double #dee2e6;
     border-right: 3px double #dee2e6;
-	/* background-color: #f7f7f7;
-	/* border: 3px solid pink; */
-	/* text-align: center;
-	width: 80%;
-	margin: 0 auto; */
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #fff; */
+    background-color: #fff;
 }
 .footer {
     width: 100%;
     margin: 0 auto;
+    height: 251.2px;
 }
 
 .footer .footer_top {
@@ -128,6 +124,7 @@ footer {
     padding: 30px 0 35px;
     display: table;
     width: 100%;
+    height: 151px;
 }
 .footer .footer_bottom .left_sec {
     padding-left: 42px;

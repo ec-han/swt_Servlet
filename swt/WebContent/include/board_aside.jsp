@@ -55,7 +55,7 @@
 				<a href="#">FAQ</a>
 			</li>
 			<li>
-				<a href="#">Q&A</a>
+				<a href="#">QnA</a>
 			</li>
 		</ul>
 	</div>

@@ -1,6 +1,9 @@
 ul {
     list-style-type: none;
 }
+a{
+	cursor: pointer;
+}
 #contentWrapper {
     position: relative;
     background-color: white;
@@ -188,10 +191,10 @@ fieldset {
     margin-bottom: 0;
     line-height: 1.3;
 }
-p {
+/* p {
     margin: 10px 10px 10px;
 	padding-top: 15px;
-}
+} */
 textarea.form-control {
     height: auto;
     margin-top: 15px;
@@ -305,10 +308,6 @@ textarea {
     cursor: pointer;
 }
 
-
-
-
-
 .before_btn_att {
 	position: absolute;
 	top: 10px;
@@ -322,4 +321,15 @@ textarea {
 }
 .before_file_x_btn > img {
     cursor: pointer;
+}
+.close_basic_btn {
+	color: #b30000;
+	cursor: pointer;
+}
+.open_file_btn {
+	color: #1e911e;
+	cursor: pointer;
+}
+#check_btn {
+	display: none;
 }

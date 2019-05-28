@@ -176,7 +176,9 @@
 	<update id="contentModify" parameterType="com.swt.dto.BoardDTO">
 		UPDATE tbl_board
 	   	 	SET title = #{title},
-	        	content = #{content}
+	        	content = #{content},
+	        	filename = #{filename},
+	        	filesize = #{filesize}
 		WHERE bno = #{bno}
 	</update>
 	

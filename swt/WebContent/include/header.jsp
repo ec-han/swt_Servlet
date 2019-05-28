@@ -132,13 +132,13 @@
 								<a href="#">Tea Sachet</a>
 							</div>
 						</li>
-						<li><a href="#">·</a></li>
+						<li><a>·</a></li>
 						<li><a class="ihn" href="#">Teawear</a></li>
-						<li><a href="#">·</a></li>
+						<li><a>·</a></li>
 						<li><a class="ihn" href="#">GIFT & SET</a></li>
-						<li><a href="#">·</a></li>
+						<li><a>·</a></li>
 						<li><a class="ihn" href="#">S.W.T</a></li>
-						<li><a href="#">·</a></li>
+						<li><a>·</a></li>
 						<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
 					</ul>
 					
@@ -155,10 +155,10 @@
 			</div>
 		</div>
 			<div class="search_box">
-				<%-- <a class="search_btn" href="#">
-					<!-- <i class="fas fa-search"></i> -->
-					<img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn">
-				</a> --%>
+				<a class="search_btn">
+					<i class="fas fa-search header_search_btn"></i>
+					<%-- <img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn"> --%>
+				</a> 
 			</div>
 		</div>
 	</div>

@@ -28,6 +28,7 @@ import com.swt.action.LoginOutAction;
 import com.swt.action.LogoutAjaxAction;
 import com.swt.action.MemberAction;
 import com.swt.action.MemberPlayAction;
+import com.swt.action.ModifyPlayAction;
 import com.swt.action.ModifyViewAction;
 import com.swt.action.PwCheckAction;
 import com.swt.action.PwUpdateAction;
@@ -159,9 +160,12 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/modifyView.swt")) { 
 			action = new ModifyViewAction();
 			forward = action.excute(request, response);
+		} else if(command.equals("/modifyPlay.swt")) { 
+			action = new ModifyPlayAction();
+			forward = action.excute(request, response);
 		}
 		
-	
+		
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
