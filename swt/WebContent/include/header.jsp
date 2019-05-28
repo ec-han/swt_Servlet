@@ -145,7 +145,7 @@
 				</div>
 			</div>
 		<!-- 검색 모달창  -->
-		<div id="modal_search">
+		<!-- <div id="modal_search">
 			<div id="scmodal">
 				<div id="search_wrap">
 					<input class="search_txt" type="text" name="" placeholder="Search">
@@ -153,9 +153,10 @@
 					<button id="close_search">X</button>
 				</div>
 			</div>
-		</div>
+		</div> -->
 			<div class="search_box">
 				<a class="search_btn">
+					<input class="search_txt" type="text" name="" placeholder="Search">
 					<i class="fas fa-search header_search_btn"></i>
 					<%-- <img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn"> --%>
 				</a> 
@@ -250,12 +251,12 @@
 			
 		});
 		//모달 검색창
-		$('.search_btn').click(function(){
+		/* $('.search_btn').click(function(){
 			$('#modal_search').css('display','flex');
 		});
 		$('#close_search').click(function(){
 			$('#modal_search').css('display','none');
-		});
+		}); */
 		
 		var jbOffset = $('.header_menu').offset();
 		$(window).scroll(function(){

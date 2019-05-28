@@ -204,9 +204,6 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 .main_info_wrap .main_info>div:first-child {
     border: none;
 }
-.fa-search:before {
-	color: black;
-}
 /* 메인페이지 */
 .container {
 	width: 80%;
