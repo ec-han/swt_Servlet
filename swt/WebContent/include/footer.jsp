@@ -9,43 +9,6 @@
 <link rel="stylesheet" href="${path}/css/common.css?v=1">
 <title>Insert title here</title>
 <style type="text/css">
-/* #footer {
-	position: relative;
-	bottom: 0;
-	border-left: 3px double #dee2e6;
-    border-right: 3px double #dee2e6;
-}
-#footer > ul > li {
-	padding: 10px 10px;
-}
-#footer > ul > li:hover {
-	text-decoration: underline;
-}
-#addr_logo {
-	width: 200px;
-	height: 90px;
-	padding: 10px 10px;
-	float: right;
-}
-#address > span {
-	float: left;
-	padding: 10px 10px;
-} 
-
-#footer_bottom {
-	width: 80%;
-	margin: auto;
-	font-size: 12px;
-}
-#footer_bottom > span {
-	text-align: center;
-} 
-.footer_sns{
-	height: 35px;
-	float: left;
-	position: absolute;
-	bottom: 13%;
-}*/
 
 .sns_btn {
 	display: inline-block;
@@ -69,7 +32,7 @@
 	transform: scale(1.1); 
 	color: #EEE;
 }
-.sns_btn:before {
+/* .sns_btn:before {
 	content: "";
 	position: absolute;
 	width: 120%;
@@ -91,7 +54,7 @@
 	0% {left: -100%; top: 90%;}
 	50% {left: 10%; top: -40%;}
 	100% {left: -10%; top: -10%;}
-}  
+}   */
 
 footer {
 	position: relative;
@@ -130,7 +93,7 @@ footer {
 .footer .footer_top .left_sec ul li {
     float: left;
     position: relative;
-    BORDER-RIGHT: 3PX double #EEE;
+    BORDER-RIGHT: 3PX double #c7c2c2;
     padding-right: 2px;
 }
 .footer .footer_top .left_sec ul li a {
@@ -138,8 +101,24 @@ footer {
     font-size: 12px;
     margin: 0 9px;
     display: inline-block;
-    padding-top: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
 }
+.footer .footer_top .left_sec ul li a:hover {
+	color: inherit;
+	bold: 400;
+	text-decoration: underline;
+}
+/* .footer .footer_top .left_sec ul li a:before {
+    content: '';
+    background-color: #cecece;
+    width: 1px;
+    height: 15px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+} */
 .footer .footer_top .right_sec {
     float: right;
     padding-right: 21px;
@@ -156,13 +135,13 @@ footer {
 }
 .footer .footer_bottom .left_sec .text01 {
     color: #84ad23;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 .footer .footer_bottom .left_sec .text02 {
     color: #323232;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 17px;
     font-family: 'NanumGothic';
@@ -178,6 +157,7 @@ footer {
     font-size: 11px;
     background-color: #555555;
     padding: 2px 4px 2px;
+    cursor: pointer;
 }
 .footer .footer_bottom .left_sec .text03 span.caution {
     display: block;
@@ -187,6 +167,15 @@ footer {
 .footer .footer_bottom .left_sec .text04 {
     font-family: 'Lora';
     font-size: 11px;
+}
+.footer .footer_bottom .right_sec {
+    padding-right: 51px;
+    float: right;
+    margin-top: 5px;
+}
+.footer_sns {
+	position: relative;
+	top: 65px;
 }
 
 </style>
@@ -228,54 +217,23 @@ footer {
 					개인정보관리책임자. 한은체
 					<span class="caution"></span>
 					</p>
-					<p class="text04 lora">COPYRIGHT 2019 S.W.T. ALL RIGHTS RESERVED.</p>
+					<p class="text04 lora">COPYRIGHT 2019 S.W.T Corp. ALL RIGHTS RESERVED.</p>
 				</div>
-			</div>
-			<div class="right_sec">
-				<div class="footer_sns">
-					<a href="https://www.instagram.com/" target="_blank" class="sns_btn">
-						<i class="fab fa-instagram"></i>
-					</a>
-					<a href="https://www.facebook.com/" target="_blank" class="sns_btn">
-						<i class="fab fa-facebook"></i>
-					</a>
-					<a href="https://twitter.com/?lang=ko" class="sns_btn"><i class="fab fa-twitter"></i></a>
-					<a href="https://www.google.com/" class="sns_btn"><i class="fab fa-google"></i></a>
-					<a href="https://line.me/ko/" class="sns_btn"><i class="fab fa-line"></i></a>
+				<div class="right_sec">
+					<div class="footer_sns">
+						<a href="https://www.instagram.com/" target="_blank" class="sns_btn">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="https://www.facebook.com/" target="_blank" class="sns_btn">
+							<i class="fab fa-facebook"></i>
+						</a>
+						<a href="https://twitter.com/?lang=ko" class="sns_btn"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.google.com/" class="sns_btn"><i class="fab fa-google"></i></a>
+						<a href="https://line.me/ko/" class="sns_btn"><i class="fab fa-line"></i></a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<!-- <div id="footer">
-			<div class="footer_sns">
-				<a href="https://www.instagram.com/" target="_blank" class="sns_btn">
-					<i class="fab fa-instagram"></i>
-				</a>
-				<a href="https://www.facebook.com/" target="_blank" class="sns_btn">
-					<i class="fab fa-facebook"></i>
-				</a>
-				<a href="https://twitter.com/?lang=ko" class="sns_btn"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.google.com/" class="sns_btn"><i class="fab fa-google"></i></a>
-				<a href="https://line.me/ko/" class="sns_btn"><i class="fab fa-line"></i></a>
-			</div>
-			<ul>
-				<li><a href="">Customer Service</a></li>
-				<li><strong><a href="">Privacy Policy</a></strong></li>
-				<li><a href="">Terms of Sale</a></li>
-			</ul>
-			<div id="address">
-				<span>
-					<a href="index.swt"> 작은 로고 
-						<img src="images/logo3.png" id="addr_logo">
-					</a>
-				</span>
-				<div id="footer_bottom">
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span><strong><a href="index.swt">S.W.T Corp.</a></strong></span>
-					<span>All rights Reserved.</span>
-				</div>
-			</div>
-		</div> -->
 	</footer> 
 </body>
 </html>

@@ -85,7 +85,7 @@
 									<div class="btn_area">
 										<div class="att_wrap">
 											<!-- 기존 첨부파일 -->
-											<c:if test="${one.filesize>0}"> 
+											<%-- <c:if test="${one.filesize>0}"> --%>
 												<div class="before_att_area">
 											        <div class="before_d_file_text">
 											            <img class="before_btn_img before_btn_att" alt="첨부파일" src="${path}/images/attachment2.png">	
@@ -97,9 +97,11 @@
 											            	<img class="before_btn_img before_btn_att_del" alt="첨부파일 삭제" src="${path}/images/minus.png">
 											            </span>
 											            <span class="file_msg">[첨부파일 삭제됨]</span>
+											            <i class="fas fa-check open_file_btn"></i>
+											            <i class="fas fa-times close_file_btn close_basic_btn"></i>
 											        </div>
 											     </div>
-										    </c:if> 
+										    <%--  </c:if> --%>
 										     <!-- 글 수정 시 새로 첨부할 파일  --> 
 										     <div class="att_area">
 												<input type="file" name="b_file" id="b_file" style="display:none!important">
