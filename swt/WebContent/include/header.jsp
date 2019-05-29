@@ -33,35 +33,33 @@
 				<div id="swt_content">
 					<div id="login_area">
 						<div id="login_logo">
-							<img src="${path}/images/mylogo_6.png">
+							<h3>Welcome Back! :D</h3>
 						</div>
-						<div id="container">
+						<div id="login_modal_container">
 							<form name="" action="" method="POST" id="login_form">
-								<input type="text" class="idpw" id="login_id" name=""
-								  placeholder="아이디"></input>
-									<img src="${path}/images/help.PNG"> <!--  ? 이미지  -->
-								<input type="password" class="idpw" id="login_pw" name="" placeholder="패스워드"></input>
+								<input type="text" class="idpw" id="login_id" name="login_id" placeholder="아이디"></input>
+								<input type="password" class="idpw" id="login_pw" name="login_pw" placeholder="패스워드"></input>
 							</form>
 
 							<form action="/action_page.php">
 							    <div class="custom-control custom-switch">
 							      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
 							      <label class="custom-control-label" for="switch1">로그인 유지</label>
-							      <span id="step_url"></span>
+							      
 							    </div>
 							</form>
-								
 								<div>
 									<a href="#" id="btn_login">
 										<button class="btn btn1">Login</button>
 									</a>
 								</div>
+								<span id="step_url"></span>
 							<div id="login_help">
 								<!-- <a href="#">Join Us</a> -->
 								<div class="right">
 									<a href="#">아이디 찾기</a>
 									<span class="right_bar">｜</span>
-									<a href="pwUpdate.swt">비밀번호 재설정</a>
+									<a href="#">비밀번호 재설정</a>
 								</div>
 							</div>
 						</div>
@@ -141,25 +139,13 @@
 						<li><a>·</a></li>
 						<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
 					</ul>
-					
 				</div>
-			</div>
-		<!-- 검색 모달창  -->
-		<!-- <div id="modal_search">
-			<div id="scmodal">
-				<div id="search_wrap">
-					<input class="search_txt" type="text" name="" placeholder="Search">
-					<a id="sc_btn" href="#"><i class="fas fa-search"></i></a>
-					<button id="close_search">X</button>
+				<div class="search_box">
+					<a class="search_btn">
+						<input class="search_txt" id="searchtxt" type="text" name="searchtxt" placeholder="Search">
+						<i class="fas fa-search header_search_btn" id="searchbar"></i>
+					</a> 
 				</div>
-			</div>
-		</div> -->
-			<div class="search_box">
-				<a class="search_btn">
-					<input class="search_txt" type="text" name="" placeholder="Search">
-					<i class="fas fa-search header_search_btn"></i>
-					<%-- <img alt="검색" src="${path}/images/main_search1.png" class="header_search_btn"> --%>
-				</a> 
 			</div>
 		</div>
 	</div>
@@ -192,6 +178,14 @@
 			var pw = $.trim($('#login_pw').val());
 			/* alert(id+','+pw); */
 		});
+		
+		$('#searchbar').hover(function(){
+			$('#searchtxt').css('display','block').css('transition','.4s');
+		});
+		$('#searchbar').click(function(){
+			$('#searchtxt').css('display','none');
+		});
+		
 		
 		$(".logout_btn").click(function(){
 			$.ajax({
@@ -250,13 +244,6 @@
 			
 			
 		});
-		//모달 검색창
-		/* $('.search_btn').click(function(){
-			$('#modal_search').css('display','flex');
-		});
-		$('#close_search').click(function(){
-			$('#modal_search').css('display','none');
-		}); */
 		
 		var jbOffset = $('.header_menu').offset();
 		$(window).scroll(function(){

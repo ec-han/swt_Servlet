@@ -53,7 +53,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 /*상품창*/ 
 .main_categories {
 	width: 100%;
-	margin: 0 auto;
+	margin: -30px auto 5px;
 	background-color: white;
 	display: flex;
 	order: 2;
@@ -138,6 +138,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 .main_info_wrap .main_info .main_info01 ul li:last-child {
     border-top: 1px solid #e5e5e5;
+    padding-top: 10px;
 }
 .notice div ul {
     margin-top: 10px;

@@ -87,7 +87,6 @@ header > a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hove
 	font-size: 13px;
 	line-height: 18px;
 	color: #b30000;
-	padding-right: 30px;
 }
 
 
@@ -359,11 +358,10 @@ header > a:not([href]):not([tabindex]) {
 }
 #login_logo {
 	position: absolute;
-	top: 0;
+	top: 40px;
 }
-#login_logo > img {
-	/* width: 250px; */
-	height: 75px;
+#login_logo > h3{
+	font-weight: 500;
 }
 
 #loginInfo {
@@ -504,10 +502,9 @@ header > a:not([href]):not([tabindex]) {
 /* 검색 버튼 */
 .search_box {
 	position: absolute;
-	left: 72%;
+	left: 85%;
+	top: 20px;
 	background-color: transparent;
-	height: 50px;
-	width: 200px;
 }
 .search_btn{
 	font-size: 30px;
@@ -526,7 +523,8 @@ header > a:not([href]):not([tabindex]) {
 .header_search_btn {
 	float: right;
 	position: absolute;
-	left: 160px;
+	left: 70px;
+	/* top: 5px; */
 }
 
 .fa-search:before {
@@ -547,6 +545,9 @@ header > a:not([href]):not([tabindex]) {
 	transition: 0.4s;
 	line-height: 40px;
 	padding: 0 6px;
-	width: 180px;
+	width: 200px;
     height: 55px;
+    display: none; 
+
 }
+
