@@ -178,15 +178,25 @@
 			var pw = $.trim($('#login_pw').val());
 			/* alert(id+','+pw); */
 		});
-		
-		$('#searchbar').hover(function(){
+		var inputs = $('#searchtxt').val();
+		/* 검색바 */
+		$('#searchbar').mouseenter(function(){
 			$('#searchtxt').css('display','block').css('transition','.4s');
 		});
-		$('#searchbar').click(function(){
+		$('#searchtxt').mouseenter(function(){		
+			$('#searchtxt').css('display','block').css('transition','.4s');		
+		});		
+		$('#searchtxt').hasFocus(function(){
+			$('#searchtxt').css('display','block').css('transition','.4s');			
+		});
+		$('.search_box').mouseleave(function(){
 			$('#searchtxt').css('display','none');
 		});
+		$('#searchbar').mouseenter(function(){
+			$('#searchtxt').focus();
+		});
 		
-		
+
 		$(".logout_btn").click(function(){
 			$.ajax({
 				url: "logoutAjax.swt",
