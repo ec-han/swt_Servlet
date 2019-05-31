@@ -140,7 +140,7 @@
 						<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
 					</ul>
 				</div>
-				<div class="search_box">
+				<div class="search_box" id="sc_box">
 					<a class="search_btn">
 						<input class="search_txt" id="searchtxt" type="text" name="searchtxt" placeholder="Search">
 						<i class="fas fa-search header_search_btn" id="searchbar"></i>
@@ -182,19 +182,26 @@
 		/* 검색바 */
 		$('#searchbar').mouseenter(function(){
 			$('#searchtxt').css('display','block').css('transition','.4s');
+			$('#searchtxt').focus();
 		});
 		$('#searchtxt').mouseenter(function(){		
 			$('#searchtxt').css('display','block').css('transition','.4s');		
 		});		
-		$('#searchtxt').hasFocus(function(){
+		
+		$('#searchtxt').hasFocus(function(){		
+			$('#searchtxt').css('display','block');	
+		});	
+		
+		/* $('#searchtxt').hasFocus(function(){
 			$('#searchtxt').css('display','block').css('transition','.4s');			
 		});
-		$('.search_box').mouseleave(function(){
+		$('#searchtxt').hasFocus(function(){
+			$('#searchtxt').css('display','block').css('transition','.4s');			
+		}); */
+		$('#searchbar').mouseleave(function(){
 			$('#searchtxt').css('display','none');
 		});
-		$('#searchbar').mouseenter(function(){
-			$('#searchtxt').focus();
-		});
+		
 		
 
 		$(".logout_btn").click(function(){
