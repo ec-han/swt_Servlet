@@ -51,9 +51,9 @@
 	
 }
 .inner_header_nav{
-	width: 100%;
-    margin: 0 350px;
-	
+	width: 80%;
+    float: left;
+	margin: 0 350px; 
 }
 .inner_header_nav > li{
 	float:right;
@@ -72,6 +72,9 @@
 .ihn:hover{
 	background-color: #DAD6E3;
 	color: #66395C;
+}
+.ihn_dot:hover{
+	color: white!important;
 }
 header > a:not([href]):not([tabindex]) {
     color: #A7AFCC!important;

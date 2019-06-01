@@ -7,7 +7,7 @@ a{
 #contentWrapper {
     position: relative;
     background-color: white;
-    width: 100%;
+    width: 1256px;
     margin: 0 auto;
     max-width: 80%;
     height: auto;
@@ -21,13 +21,25 @@ a{
     border-top: 1px solid #f2f2f2 !important;
 }
 #content {
-	width: 900px;
-	min-height: 600px;
+	/*width: 900px;
+	height: 700px;
 	padding-bottom: 30px;
     box-sizing: border-box;
-    border: 1px solid #eee;
     margin: 0px 300px 30px;
-    padding: 20px;
+    padding: 20px;*/
+    
+    height: auto;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    margin: 0px 300px 0px;
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 350px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.page_body{
+	position: relative;
 }
 
 #ribon {

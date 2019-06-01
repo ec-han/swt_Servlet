@@ -125,6 +125,7 @@ footer {
     display: table;
     width: 100%;
     height: 151px;
+    position: absolute;
 }
 .footer .footer_bottom .left_sec {
     padding-left: 42px;
@@ -166,13 +167,12 @@ footer {
     font-size: 11px;
 }
 .footer .footer_bottom .right_sec {
-    padding-right: 51px;
-    float: right;
-    margin-top: 5px;
+	float: right;
+	padding-top: 65px;
+    padding-right: 60px;
 }
 .footer_sns {
-	position: relative;
-	top: 65px;
+    cursor: pointer;
 }
 
 </style>

@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 							<!-- depth가 닫라서 상위폴더로 나가서 경로 찾아가야함 -->
 <link rel="stylesheet" href="${path}/css/common.css?v=1"> 
 <link rel="stylesheet" href="${path}/css/header.css?v=1"> 
@@ -129,13 +130,13 @@
 								<a href="#">Tea Sachet</a>
 							</div>
 						</li>
-						<li><a>·</a></li>
+						<li><a class="ihn_dot">·</a></li>
 						<li><a class="ihn" href="#">Teawear</a></li>
-						<li><a>·</a></li>
+						<li><a class="ihn_dot">·</a></li>
 						<li><a class="ihn" href="#">GIFT & SET</a></li>
-						<li><a>·</a></li>
+						<li><a class="ihn_dot">·</a></li>
 						<li><a class="ihn" href="#">S.W.T</a></li>
-						<li><a>·</a></li>
+						<li><a class="ihn_dot">·</a></li>
 						<li><a class="ihn" href="${path}/boardList.swt">CS Center</a></li>
 					</ul>
 				</div>

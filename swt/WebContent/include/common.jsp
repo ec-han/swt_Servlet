@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <!-- favicon -->
 <link rel="icon" type="image/png" href="images/logoswt_trans.png"> 
 <!-- fontawesome -->
