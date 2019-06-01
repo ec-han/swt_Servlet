@@ -16,7 +16,7 @@
 			margin: 0;
 			padding: 0;
 		}
-		body { background-color: #f5f6f7; }
+		body { background-color: #e9eaee; }
 		ul {list-style: none;}
 		a { text-decoration: none; color: white; }
 		input {
@@ -28,44 +28,33 @@
 		button {
 			outline: none;
 		}
-		section {
-			background-color: #f5f6f7;
-		}
-		footer {
-			background-color: #f5f6f7;
-		}
 
-		/* 네이버 로고  */
-		.swt_log { font-size: 2em; }
-		.header, .container, .footer {
+		.header, .container {
 			width: 768px;
 			margin: auto;
+			box-sizing: border-box;
+			border-left: 3px double #dee2e6;
+   			border-right: 3px double #dee2e6;
+   			background-color: #f5f6f7;
 		}
 		.header {
-			background: white;
+			height: 200px;
 			padding-top: 62px;
-			position: relative;
+			position: rlative;
 			border-left: 3px double #dee2e6;
 			border-right: 3px double #dee2e6;
 		}
 		.container {
+			position: relative;
 			margin: 0 auto;
 			max-width: 768px;
 			min-width: 460px;
+			padding-top: 20px;
 			height: 1150px;
-			background: white;
 			border-left: 3px double #dee2e6;
 			border-right: 3px double #dee2e6;
 		}
-		.footer {
-			height: 81px;
-			text-align: center;
-			padding: 0px 0px 15px;
-			background: white;
-			margin-top: -20px;
-			border-left: 3px double #dee2e6;
-			border-right: 3px double #dee2e6;
-		}
+	
 		.n_logo {
 			display: block;
 			width: 240px;
@@ -75,8 +64,16 @@
 		}
 		/* 회원가입 정보 */
 		.join_content {
-			width: 460px;
+			width: 600px;
 			margin: 0 auto;
+		}
+		.join_box_wrap{
+			width: 550px;
+			padding: 15px 15px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			background-color: white;
+			border: 3px double #dee2e6;
 		}
 		.row_group {
 			overflow: hidden;
@@ -138,9 +135,9 @@
 			line-height: 18px;
 			color: #8e8e8e;
 		} 
-		
-		/* .error_next_box { /* 유효성 체크  */
-			display: none; /* 나중에 block으로 바꿔야 함  */
+		/* 유효성 체크:나중에 block으로 바꿔야 함  */
+		/* .error_next_box {
+			display: none; 
 			margin: 9px 0 -2px;
 			font-size: 12px;
 			line-height: 14px;
@@ -190,15 +187,15 @@
 		}
 		.btn_double_area > span {
 			display: block;
-			width: 100%;
+		    width: 90%;
+    		margin: 0 auto;
 		}
 		a:hover {
 			color: white;
 			text-decoration: none;
 		}
-		.btn_type {
+		#join_btn_type {
 			width: auto;
-			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
 			line-height: 50px;
@@ -206,58 +203,24 @@
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
-			color: #dee2e6!important;
+			color: #dee2e6;
 			border: 3px double #dee2e6;
 			background-color: #816288;
+			transition: color 0.4s linear;
 		}
-		.btn_type:hover {
-			color: white;
+		#join_btn_type:hover {
+			color: black;
+		    background-color: #dee2e6;
+		    border: 3px double black;
+		    outline: none;
 		}
-		.footer_wrap > ul {
-			list-style: none;
-			margin: 0 auto 9px;
-		}
-		.footer_wrap * {
-			font-size: 12px;
-			line-height: normal;
-			color: #333;
-		}
-		.footer_wrap > ul > li {
-			display: inline;
-			padding: 0 5px 0 7px;
-			border-left: 1px solid #dadada;
-		}
-		.footer_wrap > ul > li a:hover {
-			color: #816288;
-		}
-		.footer_wrap > ul > li:first-child {
-			border-left: 0px;
-		}
-		.addr_logo {
-			width: 18px;
-			height: 18px;
-		}
-		.address {
-			margin: 0px auto;
-			text-align: center;
-		}
-		.address * {
-			/* font: 9px verdana; */
-
-			font-family: 'Noto Serif KR', serif;
-			font-size: 12px;
-		}
-		.address a {
-			font-weight: bold;
-		}
-		.address a:hover {
-			color: #816288;
-		}
+		
 		.s_logo > img {
-			padding-left: 170px;
-			padding-right: 220px;
-			margin-bottom: 60px;
-			height: 147px;
+		    position: relative;
+		    left: 25%;
+		    height: 130px;
+		    margin: 0 auto;
+		    box-sizing: border-box;
 		}
 		#wrap_email {
 			
@@ -378,210 +341,185 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="s_logo">
-					<img alt="로고 이미지 "src="images/mylogo_6.png">
+					<img alt="로고 이미지 "src="${path}/images/mylogo_constract2.png">
 				</a>
 			</h1>
 		</div>
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="memberPlay.swt">
-			<div class="container">
+		<div class="container">
+			<form class="join_form" id="join_frm" method="POST" action="memberPlay.swt">
 				<div class="join_content">
-					<div class="row_group">
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="id">아이디</label>
-							</h3>
-							<span class="ps_box int_id">
-								<input type="text" id="id" name="id" class="int" maxlength="15">
-								<span class="step_url" id="error_id"></span>
-								<!-- <span class="step_url">@naver.com</span> -->
-							</span>
-						</div>
-
-						<div class="join_row">
-
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd1">비밀번호</label>
-							</h3>
-							<span class="ps_box int_pass">
-								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="12">
-								<span class="step_url"></span>
-							</span>
-
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd2">비밀번호 재확인</label>
-							</h3>
-							<span class="ps_box int_pass">
-								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="12">
-								<span class="step_url"></span>
-							</span>
-
-						</div>
-					</div>
-						
-					<div class="row_group">
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="name">이름</label>
-							</h3>
-							<span class="ps_box">
-								<input type="text" id="name" name="name" class="int" maxlength="10">
-								<span class="step_url"></span>
-							</span>
-						</div>
-
-						<div class="join_row join_birthday">
-							<h3 class="join_title">
-								<label for="yy">생년월일</label>
-							</h3>
-						</div>
-						<div class="bir_wrap">
-							<div class="bir_yy">
-								<span class="ps_box">
-									<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4">
-									<span class="step_url"></span> 
-								</span>
-							</div>
-							<div class="bir_mm">
-								<span class="ps_mm">
-									<select id="mm" class="sel" name="mm">
-										<option>월(Month)</option>
-										<option value="01">01(Jan.)</option>
-										<option value="02">02(Feb.)</option>
-										<option value="03">03(Mar.)</option>
-										<option value="04">04(Apr.)</option>
-										<option value="05">05(May)</option>
-										<option value="06">06(Jun)</option>
-										<option value="07">07(Jul.)</option>
-										<option value="08">08(Aug.)</option>
-										<option value="09">09(Sep.)</option>
-										<option value="10">10(Oct.)</option>
-										<option value="11">11(Nov.)</option>
-										<option value="12">12(Dec.)</option>
-									</select>
-								</span>
-							</div>
-							<div class="bir_dd">
-								<span class="ps_box">
-									<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2">
-									<span class="step_url"></span>
-								</span>
-							</div>
-						</div>
-						<div class="daumaddr">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="addr">주소</label>
-							</h3>
-						
-							<span class="addr_wrap">
-								<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
-							</span>
-						
-						
-							<span id="addr_btn">
-								<input type="button" id="addr_btn2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-							</span>
-						
-							<span class="addr_wrap">
-								<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly">
-								
-								<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소">
-								<span class="step_addr"></span> 
-								
-							</span>
-							
-						</div>
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="phone">휴대전화</label>
-							</h3>
-							<span class="ps_box int_id">
-								<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력">
-								<span class="step_url"></span>
-							</span>
-							<h3 class="join_title">
-								<label for="email">이메일</label>
-							</h3>
-							<div id="wrap_email">
+					<div class="join_box_wrap">
+						<div class="row_group">
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="id">아이디</label>
+								</h3>
 								<span class="ps_box int_id">
-									<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com">
+									<input type="text" id="id" name="id" class="int" maxlength="15">
+									<span class="step_url" id="error_id"></span>
+								</span>
+							</div>
+	
+							<div class="join_row">
+	
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="pswd1">비밀번호</label>
+								</h3>
+								<span class="ps_box int_pass">
+									<input type="password" id="pswd1" name="pswd1" class="int" maxlength="12">
 									<span class="step_url"></span>
 								</span>
-								<!-- <span class="ps_email" id="idemail">
-									<input type="text" class="int" id="email_id" placeholder="E-mail">
-								</span> -->
-								<!-- <span id="at">@</span>
-								<span class="ps_email" id="urlemail">
-									<input type="text" class="int" id="email_url" placeholder="URL">
+	
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="pswd2">비밀번호 재확인</label>
+								</h3>
+								<span class="ps_box int_pass">
+									<input type="password" id="pswd2" name="pswd2" class="int" maxlength="12">
+									<span class="step_url"></span>
 								</span>
-								<span class="ps_email int" id="mailsel">
-									<select class="sel" id="selmail">
-										<option value="">
-											Email 선택
-										</option>
-										<option value="directVal">직접입력</option>
-										<option value="naver.com">naver.com(네이버)</option>
-										<option value="daum.net">daum.net(다음카카오)</option>
-										<option value="gmail.com">gmail.com(구글)</option>
-										<option value="nate.com">nate.com(네이트)</option>
-									</select>
-								</span> -->
+	
+							</div>
+						</div>
+							
+						<div class="row_group">
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="name">이름</label>
+								</h3>
+								<span class="ps_box">
+									<input type="text" id="name" name="name" class="int" maxlength="10">
+									<span class="step_url"></span>
+								</span>
+							</div>
+	
+							<div class="join_row join_birthday">
+								<h3 class="join_title">
+									<label for="yy">생년월일</label>
+								</h3>
+							</div>
+							<div class="bir_wrap">
+								<div class="bir_yy">
+									<span class="ps_box">
+										<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4">
+										<span class="step_url"></span> 
+									</span>
+								</div>
+								<div class="bir_mm">
+									<span class="ps_mm">
+										<select id="mm" class="sel" name="mm">
+											<option>월(Month)</option>
+											<option value="01">01(Jan.)</option>
+											<option value="02">02(Feb.)</option>
+											<option value="03">03(Mar.)</option>
+											<option value="04">04(Apr.)</option>
+											<option value="05">05(May)</option>
+											<option value="06">06(Jun)</option>
+											<option value="07">07(Jul.)</option>
+											<option value="08">08(Aug.)</option>
+											<option value="09">09(Sep.)</option>
+											<option value="10">10(Oct.)</option>
+											<option value="11">11(Nov.)</option>
+											<option value="12">12(Dec.)</option>
+										</select>
+									</span>
+								</div>
+								<div class="bir_dd">
+									<span class="ps_box">
+										<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2">
+										<span class="step_url"></span>
+									</span>
+								</div>
+							</div>
+							<div class="daumaddr">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="addr">주소</label>
+								</h3>
+							
+								<span class="addr_wrap">
+									<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly">
+								</span>
+							
+							
+								<span id="addr_btn">
+									<input type="button" id="addr_btn2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+								</span>
+							
+								<span class="addr_wrap">
+									<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly">
+									
+									<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소">
+									<span class="step_addr"></span> 
+									
+								</span>
+								
+							</div>
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="phone">휴대전화</label>
+								</h3>
+								<span class="ps_box int_id">
+									<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력">
+									<span class="step_url"></span>
+								</span>
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="email">이메일</label>
+								</h3>
+								<div id="wrap_email">
+									<span class="ps_box int_id">
+										<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com">
+										<span class="step_url"></span>
+									</span>
+									<!-- <span class="ps_email" id="idemail">
+										<input type="text" class="int" id="email_id" placeholder="E-mail">
+									</span> -->
+									<!-- <span id="at">@</span>
+									<span class="ps_email" id="urlemail">
+										<input type="text" class="int" id="email_url" placeholder="URL">
+									</span>
+									<span class="ps_email int" id="mailsel">
+										<select class="sel" id="selmail">
+											<option value="">
+												Email 선택
+											</option>
+											<option value="directVal">직접입력</option>
+											<option value="naver.com">naver.com(네이버)</option>
+											<option value="daum.net">daum.net(다음카카오)</option>
+											<option value="gmail.com">gmail.com(구글)</option>
+											<option value="nate.com">nate.com(네이트)</option>
+										</select>
+									</span> -->
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="btn_double_area">
 						<span>
-							<a href="#" class="btn_type">가입하기</a>
+							<a href="#" id="join_btn_type">Join Us</a>
 						</span>
 					</div>
 
 				</div>
-			</div>
-		</form>
-	</section>
-
-	<footer>
-		<div class="footer">
-			<div class="footer_wrap">
-				<ul>
-					<li><a href="#">이용약관</a></li>
-					<li><strong><a href="#">개인정보처리방침</a></strong></li>
-					<li><a href="#">책임의 한계와 법적고지</a></li>
-					<li><a href="#">회원정보 고객센터</a></li>
-				</ul>
-				
-				<div class="address">
-					<span>
-						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="images/logoswt_trans.png">
-						</a>
-					</span>
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span>
-						<strong><a href="index.swt">S.W.T Corp.</a></strong>
-					</span>
-					<span>All Rights Reserved.</span>
-				</div>
-
-			</div>
+			</form>
 		</div>
-	</footer>
+	</section>
+	<%@ include file="/include/mem_footer.jsp" %>
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
-			$('.btn_type').click(function(){
+			$('#join_btn_type').click(function(){
 				$('#join_frm').submit();
 			});
 		

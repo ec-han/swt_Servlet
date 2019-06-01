@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${path}/css/common.css?v=1"> 
 <title>비밀번호 수정</title>
 <style type="text/css">
 		* { 
@@ -15,51 +16,39 @@
 			margin: 0;
 			padding: 0;
 		}
-		body { background-color: #f5f6f7; }
+		body { background-color: #e9eaee; }
 		ul {list-style: none;}
 		a { text-decoration: none; color: white; }
-		input {
+		input,select,button {
 			outline: none;
 		}
-		select {
-			outline: none;
-		}
-		button {
-			outline: none;
-		}
-		section {
-			background-color: #f5f6f7;
-		}
-		footer {
-			background-color: #f5f6f7;
-		}
-
 		
-		.swt_log { font-size: 2em; }
-		.header, .container, .footer {
+		.header, .container {
 			width: 768px;
 			margin: auto;
+			box-sizing: border-box;
+			border-left: 3px double #dee2e6;
+   			border-right: 3px double #dee2e6;
+   			background-color: #f5f6f7;
 		}
 		.header {
-			background: white;
+			height: 200px;
 			padding-top: 62px;
 			position: relative;
-			
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.container {
+			position: relative;
 			margin: 0 auto;
 			max-width: 768px;
 			min-width: 460px;
-			height: 550px;
-			background: white;
+			padding-top: 20px;
+			height: 500px;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
-		.footer {
-			height: 81px;
-			text-align: center;
-			padding: 0px 0px 15px;
-			background: white;
-			margin-top: -20px;
-		}
+	
 		.n_logo {
 			display: block;
 			width: 240px;
@@ -151,74 +140,44 @@
 			display: block;
 			width: 100%;
 		}
-		.btn_type {
+		.pw_btn_type {
 			width: 215px;
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 61px;
+			line-height: 52px;
 			display: inline-block;
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
 			color: #fff;
-			border: 1px solid #816288;
 			background-color: #816288;
+			border: 3px double #dee2e6;
+		}
 		
-
-		}
-		.btn_type:hover {
-			color: white;
-		}
 		#btn_cancel {
+			color: #dee2e6;
 			background-color: #696D98;
 			border: 1px solid #696D98;
+			border: 3px double #dee2e6;
 		}
-		.footer_wrap > ul {
-			list-style: none;
-			margin: 0 auto 9px;
+		#btn_cancel:hover {
+			text-decoration: none;
 		}
-		.footer_wrap * {
-			font-size: 12px;
-			line-height: normal;
-			color: #333;
+		#btn_save{
+			color: #dee2e6;
 		}
-		.footer_wrap > ul > li {
-			display: inline;
-			padding: 0 5px 0 7px;
-			border-left: 1px solid #dadada;
+		#btn_save:hover {
+			text-decoration: none;
 		}
-		.footer_wrap > ul > li a:hover {
-			color: #816288;
-		}
-		.footer_wrap > ul > li:first-child {
-			border-left: 0px;
-		}
-		.addr_logo {
-			width: 18px;
-			height: 18px;
-		}
-		.address {
-			margin: 0px auto;
-			text-align: center;
-		}
-		.address * {
-			/* font: 9px verdana; */
-
-			font-family: 'Noto Serif KR', serif;
-			font-size: 12px;
-		}
-		.address a {
-			font-weight: bold;
-		}
-		.address a:hover {
-			color: #816288;
-		}
+		
 		.s_logo > img {
-			padding-left: 170px;
-			padding-right: 220px;
-			margin-bottom: 60px;
-			height: 147px;
+			position: absolute;
+		    top: 70px;
+		    left: 25%;
+		    height: 130px;
+		    margin: 0 auto;
+		    box-sizing: border-box;
 		}
 		
 		#star {
@@ -227,6 +186,7 @@
 		.pres_pw {
 			width: 100%;
 			border: 3px double #eee;
+		    background-color: white;
 		}
 		
 		
@@ -238,20 +198,20 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="s_logo">
-					<img alt="로고 이미지 "src="images/mylogo_6.png">
+					<img alt="로고 이미지 "src="${path}/images/mylogo_constract2.png">
 				</a>
 			</h1>
 		</div>
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="pwUpdatePlay.swt">
-			<!-- 비밀번호재설정하기 위해 기본키인 아이디값을 가져와야하는데 아이디값이 세션을 통해 가져와야하는데
-			그 방법이 두가지 있음. 액션에서 세션객체 생성후 꺼내오는 법(좀 복잡)과 jsp페이지에서 input태그 
-			하나 만든다음에 거기다가 세션값을 value에 집어넣어서 form태그 안에 써서 얘를 비번 가져올때 같이 받는 방법  -->
-			<input name="id" type="hidden" name="id" value="${sessionScope.loginUser.id}">
-			<!-- input태그를 변수처럼 씀. type="hidden"으로 -->
-			<div class="container">
+		<div class="container">
+			<form class="join_form" id="join_frm" method="POST" action="pwUpdatePlay.swt">
+				<!-- 비밀번호재설정하기 위해 기본키인 아이디값을 가져와야하는데 아이디값이 세션을 통해 가져와야하는데
+				그 방법이 두가지 있음. 액션에서 세션객체 생성후 꺼내오는 법(좀 복잡)과 jsp페이지에서 input태그 
+				하나 만든다음에 거기다가 세션값을 value에 집어넣어서 form태그 안에 써서 얘를 비번 가져올때 같이 받는 방법  -->
+				<input name="id" type="hidden" name="id" value="${sessionScope.loginUser.id}">
+				<!-- input태그를 변수처럼 씀. type="hidden"으로 -->
 				<div class="join_content">
 					<div class="row_group">
 						<div class="join_row">
@@ -264,65 +224,36 @@
 									<input type="password" id="pw_now" name="pw_now" class="int" maxlength="15">
 									<span class="step_url pwAjax"></span>
 								</span>
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="pswd1">새 비밀번호</label>
+								</h3>
+								<span class="ps_box int_pass">
+									<input type="password" id="pswd1" name="pswd1" class="int" maxlength="15">
+									<span class="step_url"></span>
+								</span>
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="pswd2">새 비밀번호 재확인</label>
+								</h3>
+								<span class="ps_box int_pass">
+									<input type="password" id="pswd2" name="pswd2" class="int" maxlength="15">
+									<span class="step_url"></span>
+								</span>
 							</div>
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd1">새 비밀번호</label>
-							</h3>
-							<span class="ps_box int_pass">
-								<input type="password" id="pswd1" name="pswd1" class="int" maxlength="15">
-								<span class="step_url"></span>
-							</span>
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="pswd2">새 비밀번호 재확인</label>
-							</h3>
-							<span class="ps_box int_pass">
-								<input type="password" id="pswd2" name="pswd2" class="int" maxlength="15">
-								<span class="step_url"></span>
-							</span>
 						</div>
 					</div>
 				</div>
-					<div class="btn_double_area">
-						<span>
-							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type" id="btn_save">저장하기</a>	
-						</span>
-					</div>
-					
-				</div>
-			</div>
-		</form>
-	</section>
-
-	<footer>
-		<div class="footer">
-			<div class="footer_wrap">
-				<ul>
-					<li><a href="#">이용약관</a></li>
-					<li><strong><a href="#">개인정보처리방침</a></strong></li>
-					<li><a href="#">책임의 한계와 법적고지</a></li>
-					<li><a href="#">회원정보 고객센터</a></li>
-				</ul>
-				
-				<div class="address">
+				<div class="btn_double_area">
 					<span>
-						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="images/logoswt_trans.png">
-						</a>
+						<a href="#" class="pw_btn_type" id="btn_cancel">취소</a>
+						<a href="#" class="pw_btn_type" id="btn_save">저장하기</a>	
 					</span>
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span>
-						<strong><a href="index.swt">S.W.T Corp.</a></strong>
-					</span>
-					<span>All Rights Reserved.</span>
 				</div>
-
-			</div>
+			</form>
 		</div>
-	</footer>
+	</section>
+	<%@ include file="/include/mem_footer.jsp" %>
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -331,7 +262,7 @@
 	$(document).ready(function(){
 			var currentPw = false;
 			var newPwEq= false;
-			
+			$('#pw_now').focus();
 			$('#btn_save').click(function(){
 				var postPw = $('#pw_now').val();
 				var newPw = $('#pswd1').val();

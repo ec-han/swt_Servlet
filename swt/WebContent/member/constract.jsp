@@ -20,48 +20,42 @@
 		}
 		body { background: #e9eaee; }
 		.swt_log { font-size: 2em; }
-		.header, .container, .footer {
+		.header, .container {
 			width: 768px;
 			margin: auto;
 			box-sizing: border-box;
-
+			border-left: 3px double #dee2e6;
+   			border-right: 3px double #dee2e6;
+   			background-color: #f5f6f7;
 		}
 		
 		.header {
-			height: 169px;
+			height: 200px;
 			padding-top: 62px;
 			position: relative;
 		}
 		.n_logo > img {
 			display: inline-block;
 		    position: absolute;
-		    top: 30px;
-		    left: 195px;
+		    top: 70px;
+		    left: 25%;
 		    height: 130px;
 		    margin: 0 auto;
 		    box-sizing: border-box;
 		}
 		.container {
 			position: relative;
-		
+		    padding-top: 20px;
+		    height: 800px;
 		}
-		.footer {
-			height: 81px;
-			text-align: center;
-			padding: 30px 0px 15px;
-		/* 	border: 1px solid mediumseagreen;
-		 */
-		}
-		
-		
 		.lang {
 			position: absolute;
 			top: 14px;
-			right: 0;
+			right: 15px;
 		}
 		.langselect {
 			font-size: 12px;
-			font-weight: 400px
+			font-weight: 400px;
 			height: 30px;
 			padding: 6px 8px 5px 7px;
 			min-width: 98px;
@@ -247,52 +241,8 @@
 			text-decoration: underline;
 			color: #333;
 		}
-		footer {
-			background-color: #f7f7f7;
-			border-top: 3px double #dee2e6;
-		}
-		.footer_wrap > ul {
-			list-style: none;
-			margin: 0 auto 9px;
-		}
-		.footer_wrap * {
-			font-size: 11px;
-			line-height: normal;
-			color: #333;
-		}
-		.footer_wrap > ul > li {
-			display: inline;
-			padding: 0 5px 0 7px;
-			border-left: 1px solid #dadada;
-		}
-		.footer_wrap > ul > li a:hover {
-			color: #252851;
-		}
-		.footer_wrap > ul > li:first-child {
-			border-left: 0px;
-		}
-		.addr_logo {
-			width: 20px;
-			height: 20px;
-		}
-		.address {
-			margin: 0px auto;
-			text-align: center;
-		}
-		/* .address * {
-			font: 9px verdana;
-		} */
-		.addree a {
-			font-weight: bold;
-		}
-		.address a:hover {
-			color: #252851;
-		}	
-		#err_check {
-			color: #b30000;
-			font-size: 12px;
-			display: none;
-		}
+		
+		
 </style>
 </head>
 <body>
@@ -300,7 +250,7 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="n_logo">
-					<img src="${path}/images/mylogo_constract.png">
+					<img src="${path}/images/mylogo_constract2.png">
 				</a>
 			</h1>
 			<div class="lang">
@@ -420,34 +370,7 @@
 			</div>
 		</div>
 	</section>
-
-	<footer>
-		<div class="footer">
-			<div class="footer_wrap">
-				<ul>
-					<li><a href="#">이용약관</a></li>
-					<li><strong><a href="#">개인정보처리방침</a></strong></li>
-					<li><a href="#">책임의 한계와 법적고지</a></li>
-					<li><a href="#">회원정보 고객센터</a></li>
-				</ul>
-				
-				<div class="address">
-					<span>
-						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="${path}/images/logoswt_trans.png">
-						</a>
-					</span>
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span>
-						<strong><a href="${path}/index.swt">S.W.T Corp.</a></strong>
-					</span>
-					<span>All Rights Reserved.</span>
-				</div>
-
-			</div>
-		</div>
-	</footer>
+	<%@ include file="/include/mem_footer.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){

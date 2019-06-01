@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${path}/css/common.css?v=1"> 
 <title>회원정보 수정</title>
 <style type="text/css">
 		* { 
@@ -15,50 +16,39 @@
 			margin: 0;
 			padding: 0;
 		}
-		body { background-color: #f5f6f7; }
+		body { background-color: #e9eaee; }
 		ul {list-style: none;}
 		a { text-decoration: none; color: white; }
-		input {
+		input,select,button {
 			outline: none;
 		}
-		select {
-			outline: none;
-		}
-		button {
-			outline: none;
-		}
-		section {
-			background-color: #f5f6f7;
-		}
-		footer {
-			background-color: #f5f6f7;
-		}
-
-		.swt_log { font-size: 2em; }
-		.header, .container, .footer {
+		
+		.header, .container {
 			width: 768px;
 			margin: auto;
+			box-sizing: border-box;
+			border-left: 3px double #dee2e6;
+   			border-right: 3px double #dee2e6;
+   			background-color: #f5f6f7;
 		}
 		.header {
-			background: white;
+			height: 200px;
 			padding-top: 62px;
 			position: relative;
-			
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.container {
+			position: relative;
 			margin: 0 auto;
 			max-width: 768px;
 			min-width: 460px;
-			height: 900px;
-			background: white;
+			padding-top: 20px;
+			height: 1000px;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
-		.footer {
-			height: 81px;
-			text-align: center;
-			padding: 0px 0px 15px;
-			background: white;
-			margin-top: -20px;
-		}
+		
 		.n_logo {
 			display: block;
 			width: 240px;
@@ -67,9 +57,17 @@
 			margin: auto;
 		}
 		/* 회원정보 */
-		.join_content {
-			width: 460px;
+		.info_content {
+			width: 600px;
 			margin: 0 auto;
+		}
+		.info_up_wrap{
+			width: 550px;
+			padding: 15px 15px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			background-color: white;
+			border: 3px double #dee2e6;
 		}
 		.row_group {
 			overflow: hidden;
@@ -139,15 +137,6 @@
 			color: #8e8e8e;
 		} 
 		
-		/* .error_next_box { /* 유효성 체크  */
-			display: none; /* 나중에 block으로 바꿔야 함  */
-			margin: 9px 0 -2px;
-			font-size: 12px;
-			line-height: 14px;
-			color: red;
-			height: 15px;
-			padding-left: 12px;
-		} */
 		.int_pass {
 			padding-right: 40px;
 		}
@@ -185,79 +174,45 @@
 
 		/* 버튼 */
 		.btn_double_area {
-			margin: 30px -5px 0px;
+			margin: 30px 61px 10px;
 			overflow: hidden;
+			cursor: pointer;
 		}
 		.btn_double_area > span {
 			display: block;
 			width: 100%;
 		}
-		.btn_type {
+		.info_btn_type {
 			width: 215px;
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 61px;
+			line-height: 52px;
 			display: inline-block;
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
-			color: #fff;
-			border: 1px solid #816288;
 			background-color: #816288;
+			border: 3px double #dee2e6;
 		}
-		.btn_type:hover {
-			color: white;
-		}
+	
 		#btn_cancel {
 			background-color: #696D98;
 			border: 1px solid #696D98;
+			border: 3px double #dee2e6;
+			color: #dee2e6;
 		}
-		.footer_wrap > ul {
-			list-style: none;
-			margin: 0 auto 9px;
+		#btn_update {
+			color: #dee2e6;
 		}
-		.footer_wrap * {
-			font-size: 12px;
-			line-height: normal;
-			color: #333;
-		}
-		.footer_wrap > ul > li {
-			display: inline;
-			padding: 0 5px 0 7px;
-			border-left: 1px solid #dadada;
-		}
-		.footer_wrap > ul > li a:hover {
-			color: #816288;
-		}
-		.footer_wrap > ul > li:first-child {
-			border-left: 0px;
-		}
-		.addr_logo {
-			width: 18px;
-			height: 18px;
-		}
-		.address {
-			margin: 0px auto;
-			text-align: center;
-		}
-		.address * {
-			/* font: 9px verdana; */
-
-			font-family: 'Noto Serif KR', serif;
-			font-size: 12px;
-		}
-		.address a {
-			font-weight: bold;
-		}
-		.address a:hover {
-			color: #816288;
-		}
+		
 		.s_logo > img {
-			padding-left: 170px;
-			padding-right: 220px;
-			margin-bottom: 60px;
-			height: 147px;
+			position: absolute;
+		    top: 70px;
+		    left: 25%;
+		    height: 130px;
+		    margin: 0 auto;
+		    box-sizing: border-box;
 		}
 		#wrap_email {
 			
@@ -377,6 +332,7 @@
 			padding-top: 10px;
 			position: absolute;
 			top: 10px;
+			left: 11%;
 			font-size: 14px;
 			letter-spacing: 0.7px;
 		}
@@ -394,174 +350,150 @@
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="s_logo">
-					<img alt="로고 이미지 "src="images/mylogo_6.png">
+					<img alt="로고 이미지 "src="${path}/images/mylogo_constract2.png">
 				</a>
 			</h1>
 		</div>
 	</header>
 
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="infoUpdatePlay.swt">
-			<div class="container">
-				<div class="join_content">
-					<div class="row_group">
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="id">아이디</label>
-							</h3>
-							<span class="ps_box int_id">
-								<input type="text" id="id" name="id" class="int" maxlength="15" readonly="readonly" value="${sessionScope.loginUser.id}">
-								<span class="step_url" id="error_id"></span>
-								<!-- <span class="step_url">@naver.com</span> -->
-							</span>
-						</div>
-						
-					</div>
-						
-					<div class="row_group">
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="name">이름</label>
-							</h3>
-							<span class="ps_box">
-								<input type="text" id="name" name="name" class="int" maxlength="10" value="${sessionScope.loginUser.name}" >
-								<span class="step_url"></span>
-							</span>
-						</div>
-
-						<div class="join_row join_birthday">
-							<h3 class="join_title">
-								<label for="yy">생년월일</label>
-							</h3>
-						</div>
-						<div class="bir_wrap">
-							<div class="bir_yy">
-								<span class="ps_box">
-									<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4" readonly="readonly" value="${sessionScope.loginUser.bir_yy}">
-									<span class="step_url"></span> 
+		<div class="container">
+			<form class="info_form" id="info_frm" method="POST" action="infoUpdatePlay.swt">
+				<div class="info_content">
+					<div class="info_up_wrap">
+						<div class="row_group">
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="id">아이디</label>
+								</h3>
+								<span class="ps_box int_id">
+									<input type="text" id="id" name="id" class="int" maxlength="15" readonly="readonly" value="${sessionScope.loginUser.id}">
+									<span class="step_url" id="error_id"></span>
+									<!-- <span class="step_url">@naver.com</span> -->
 								</span>
 							</div>
-							<div class="bir_mm">
-								<span class="ps_mm">
-									<select id="mm" class="sel" name="mm" disabled="disabled">
-										<option>월(Month)</option>
-										<option value="1">01(Jan.)</option>
-										<option value="2">02(Feb.)</option>
-										<option value="3">03(Mar.)</option>
-										<option value="4">04(Apr.)</option>
-										<option value="5">05(May)</option>
-										<option value="6">06(Jun)</option>
-										<option value="7">07(Jul.)</option>
-										<option value="8">08(Aug.)</option>
-										<option value="9">09(Sep.)</option>
-										<option value="10">10(Oct.)</option>
-										<option value="11">11(Nov.)</option>
-										<option value="12">12(Dec.)</option>
-									</select>
-								</span>
-							</div>
-							<div class="bir_dd">
-								<span class="ps_box">
-									<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2" readonly="readonly" value="${sessionScope.loginUser.bir_dd}">
-									<span class="step_url"></span>
-								</span>
-							</div>
-						</div>
-						<div class="daumaddr">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="addr">주소</label>
-							</h3>
-						
-							<span class="addr_wrap">
-								<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly" value="${sessionScope.loginUser.zipcode}">
-							</span>
-						
-						
-							<span id="addr_btn">
-								<input type="button" id="addr_btn2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-							</span>
-						
-							<span class="addr_wrap">
-								<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly" value="${sessionScope.loginUser.addr1}">
-								
-								<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" value="${sessionScope.loginUser.addr2}">
-								<span class="step_addr"></span> 
-								
-							</span>
 							
 						</div>
-						<div class="join_row">
-							<h3 class="join_title">
-								<i class="fas fa-asterisk" id="star"></i>
-								<label for="phone">휴대전화</label>
-							</h3>
-							<span class="ps_box int_id">
-								<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력" value="${sessionScope.loginUser.phone}">
-								<span class="step_url"></span>
-							</span>
-							<h3 class="join_title">
-								<label for="email">이메일</label>
-							</h3>
-							<div id="wrap_email">
-								<span class="ps_box int_id">
-									<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com" value="${sessionScope.loginUser.email}">
+							
+						<div class="row_group">
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="name">이름</label>
+								</h3>
+								<span class="ps_box">
+									<input type="text" id="name" name="name" class="int" maxlength="10" value="${sessionScope.loginUser.name}" >
 									<span class="step_url"></span>
 								</span>
+							</div>
+	
+							<div class="join_row join_birthday">
+								<h3 class="join_title">
+									<label for="yy">생년월일</label>
+								</h3>
+							</div>
+							<div class="bir_wrap">
+								<div class="bir_yy">
+									<span class="ps_box">
+										<input type="text" id="yy" name="yy" placeholder="년(4자,Year)" class="int" maxlength="4" readonly="readonly" value="${sessionScope.loginUser.bir_yy}">
+										<span class="step_url"></span> 
+									</span>
+								</div>
+								<div class="bir_mm">
+									<span class="ps_mm">
+										<select id="mm" class="sel" name="mm" disabled="disabled">
+											<option>월(Month)</option>
+											<option value="1">01(Jan.)</option>
+											<option value="2">02(Feb.)</option>
+											<option value="3">03(Mar.)</option>
+											<option value="4">04(Apr.)</option>
+											<option value="5">05(May)</option>
+											<option value="6">06(Jun)</option>
+											<option value="7">07(Jul.)</option>
+											<option value="8">08(Aug.)</option>
+											<option value="9">09(Sep.)</option>
+											<option value="10">10(Oct.)</option>
+											<option value="11">11(Nov.)</option>
+											<option value="12">12(Dec.)</option>
+										</select>
+									</span>
+								</div>
+								<div class="bir_dd">
+									<span class="ps_box">
+										<input type="text" id="dd" name="dd" placeholder="일(Day)" class="int" maxlength="2" readonly="readonly" value="${sessionScope.loginUser.bir_dd}">
+										<span class="step_url"></span>
+									</span>
+								</div>
+							</div>
+							<div class="daumaddr">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="addr">주소</label>
+								</h3>
+							
+								<span class="addr_wrap">
+									<input type="text" class="addrbtn" name="zipcode" id="sample6_postcode" placeholder="우편번호" readonly="readonly" value="${sessionScope.loginUser.zipcode}">
+								</span>
+							
+							
+								<span id="addr_btn">
+									<input type="button" id="addr_btn2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+								</span>
+							
+								<span class="addr_wrap">
+									<input type="text" class="addrbtn" id="sample6_address" name="addr1" placeholder="주소" readonly="readonly" value="${sessionScope.loginUser.addr1}">
+									
+									<input type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" value="${sessionScope.loginUser.addr2}">
+									<span class="step_addr"></span> 
+									
+								</span>
+								
+							</div>
+							<div class="join_row">
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="phone">휴대전화</label>
+								</h3>
+								<span class="ps_box int_id">
+									<input type="text" id="phone" name="phone" class="int" maxlength="11" placeholder="- 제외하고 입력" value="${sessionScope.loginUser.phone}">
+									<span class="step_url"></span>
+								</span>
+								<h3 class="join_title">
+									<i class="fas fa-asterisk" id="star"></i>
+									<label for="email">이메일</label>
+								</h3>
+								<div id="wrap_email">
+									<span class="ps_box int_id">
+										<input type="text" id="email" name="email" class="int" placeholder="ex)id@email.com" value="${sessionScope.loginUser.email}">
+										<span class="step_url"></span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="btn_double_area">
 						<span>
-							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type" id="btn_update">회원수정</a>	
+							<a href="#" class="info_btn_type" id="btn_cancel">취소</a>
+							<a href="#" class="info_btn_type" id="btn_update">회원수정</a>	
 						</span>
 					</div>
 					<div class="cancel_area">
 						<span><a href="${path}/dropMember.swt" id="cancel_mem">회원탈퇴</a></span>
 					</div>
 				</div>
-			</div>
-		</form>
-	</section>
-
-	<footer>
-		<div class="footer">
-			<div class="footer_wrap">
-				<ul>
-					<li><a href="#">이용약관</a></li>
-					<li><strong><a href="#">개인정보처리방침</a></strong></li>
-					<li><a href="#">책임의 한계와 법적고지</a></li>
-					<li><a href="#">회원정보 고객센터</a></li>
-				</ul>
-				
-				<div class="address">
-					<span>
-						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="images/logoswt_trans.png">
-						</a>
-					</span>
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span>
-						<strong><a href="index.swt">S.W.T Corp.</a></strong>
-					</span>
-					<span>All Rights Reserved.</span>
-				</div>
-
-			</div>
+			</form>
 		</div>
-	</footer>
+	</section>
+	<%@ include file="/include/mem_footer.jsp" %>
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
-			$('.btn_type').click(function(){
-				$('#join_frm').submit();
+			$('.info_btn_type').click(function(){
+				$('#info_frm').submit();
 			});
 		
 			//우편번호, 주소 클릭시 다음주소API 창 출력
@@ -758,7 +690,7 @@
 		var emailurl = email.substring(index+1); */
 		
 		$("#btn_update").click(function(){
-			$("#join_frm").submit;
+			$("#info_frm").submit;
 		});
 		
 		

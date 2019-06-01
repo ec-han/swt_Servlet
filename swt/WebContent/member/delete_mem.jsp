@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${path}/css/common.css?v=1"> 
 <title>회원탈퇴</title>
 <style type="text/css">
 		* { 
@@ -15,55 +16,39 @@
 			margin: 0;
 			padding: 0;
 		}
-		body { background-color: #f5f6f7; }
+		body { background-color: #e9eaee; }
 		ul {list-style: none;}
 		a { text-decoration: none; color: white; }
-		input {
+		input,select,button {
 			outline: none;
 		}
-		select {
-			outline: none;
-		}
-		button {
-			outline: none;
-		}
-		section {
-			background-color: #f5f6f7;
-		}
-		footer {
-			background-color: #f5f6f7;
-			position: relative;
-			right: 25%;
-		}
-
-		
-		.swt_log { font-size: 2em; }
-		.header, .container, .footer {
+	
+		.header, .container {
 			width: 768px;
 			margin: auto;
+			box-sizing: border-box;
+			border-left: 3px double #dee2e6;
+   			border-right: 3px double #dee2e6;
+   			background-color: #f5f6f7;
 		}
 		.header {
-			background: white;
+			height: 200px;
 			padding-top: 62px;
-			position: relative;
-			
+			position: rlative;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
 		.container {
+			position: relative;
 			margin: 0 auto;
 			max-width: 768px;
 			min-width: 460px;
-			height: 700px;
-			background: white;
+			padding-top: 20px;
+			height: 800px;
+			border-left: 3px double #dee2e6;
+			border-right: 3px double #dee2e6;
 		}
-		.footer {
-			height: 81px;
-			text-align: center;
-			padding: 0px 0px 15px;
-			background: white;
-			position: absolute;
-			top: -15px;
-			left: 50%;
-		}
+		
 		.n_logo {
 			display: block;
 			width: 240px;
@@ -155,81 +140,44 @@
 			display: block;
 			width: 100%;
 		}
-		.btn_type {
+		.dropmem_btn_type {
 			width: 215px;
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 61px;
+			line-height: 52px;
 			display: inline-block;
 			height: 61px;
 			padding-top: 1px;
 			text-align: center;
 			color: #fff;
-			border: 1px solid #816288;
 			background-color: #816288;
+			border: 3px double #dee2e6;
+		}
 		
-
-		}
-		.btn_type:hover {
-			color: white;
-		}
 		#btn_cancel {
 			background-color: #696D98;
-			border: 1px solid #696D98;
+			border: 3px double #dee2e6;
+			color: #dee2e6;
 		}
-		.footer_wrap > ul {
-			list-style: none;
-			margin: 0 auto 9px;
-		}
-		.footer_wrap * {
-			font-size: 12px;
-			line-height: normal;
-			color: #333;
-		}
-		.footer_wrap > ul > li {
-			display: inline;
-			padding: 0 5px 0 7px;
-			border-left: 1px solid #dadada;
-		}
-		.footer_wrap > ul > li a:hover {
-			color: #816288;
-		}
-		.footer_wrap > ul > li:first-child {
-			border-left: 0px;
-		}
-		.addr_logo {
-			width: 18px;
-			height: 18px;
-		}
-		.address {
-			margin: 0px auto;
-			text-align: center;
-		}
-		.address * {
-			/* font: 9px verdana; */
-
-			font-family: 'Noto Serif KR', serif;
-			font-size: 12px;
-		}
-		.address a {
-			font-weight: bold;
-		}
-		.address a:hover {
-			color: #816288;
+		#btn_memout {
+			color: #dee2e6;
 		}
 		.s_logo > img {
-			padding-left: 170px;
-			padding-right: 220px;
-			margin-bottom: 60px;
-			height: 147px;
+			position: relative;
+		    left: 25%;
+		    height: 130px;
+		    margin: 0 auto;
+		    box-sizing: border-box;
 		}
 		
 		#star {
 			color: #b30000;
 		}
 		.check_container {
-			border: 3px double #eee;
+		    border: 3px double #eee;
+   			background-color: white;
+    		padding: 15px 15px;
 		}
 		.terms_wrap {
 			font-size: 18px;
@@ -237,7 +185,7 @@
 		}
 		.focus_text {
 			font-weight: bold;
-			color: #1B1B22;
+		    color: #2d2d77;
 			font-size: 1.1em;
 		}
 		#terms_h {
@@ -313,7 +261,7 @@
 			margin: 0 5px;
 			font-size: 20px;
 			font-weight: 600;
-			line-height: 30px;
+			line-height: 23px;
 			height: 50px;
 			padding-top: 1px;
 			text-align: center;
@@ -327,15 +275,18 @@
 			order: 1;
 			padding: 10px;
 			background-color: #696D98;
+			color: #dee2e6;
+			border: 3px double #dee2e6;
 		}
 		#btn_no:hover, #btn_yes:hover {
-			color: white;
 			text-decoration: none;
 		}
 		#btn_yes {
 			order: 2;
 			padding: 10px;
 			background-color: #816288;
+			color: #dee2e6;
+			border: 3px double #dee2e6;
 		}
 		
 		
@@ -358,19 +309,18 @@
 </style>
 </head>
 <body>
-<header>
+	<header>
 		<div class="header">
 			<h1 class="swt_logo">
 				<a href="index.swt" class="s_logo">
-					<img alt="로고 이미지 "src="${path}/images/mylogo_6.png">
+					<img alt="로고 이미지 "src="${path}/images/mylogo_constract2.png">
 				</a>
 			</h1>
 		</div>
 	</header>
-
 	<section>
-		<form class="join_form" id="join_frm" method="POST" action="">
-			<div class="container">
+		<div class="container">
+			<form class="join_form" id="join_frm" method="POST" action="">
 				<!-- 모달 창  -->
 				<div id="modal_all">
 					<div id="modal">
@@ -423,50 +373,22 @@
 				</div>
 					<div class="btn_double_area">
 						<span>
-							<a href="#" class="btn_type" id="btn_cancel">취소</a>
-							<a href="#" class="btn_type" id="btn_memout">회원탈퇴</a>	
+							<a href="#" class="dropmem_btn_type" id="btn_cancel">취소</a>
+							<a href="#" class="dropmem_btn_type" id="btn_memout">회원탈퇴</a>	
 						</span>
 					</div>
 					
 				</div>
-			</div>
-		</form>
-
-	</section>
-
-	<footer>
-		<div class="footer">
-			<div class="footer_wrap">
-				<ul>
-					<li><a href="#">이용약관</a></li>
-					<li><strong><a href="#">개인정보처리방침</a></strong></li>
-					<li><a href="#">책임의 한계와 법적고지</a></li>
-					<li><a href="#">회원정보 고객센터</a></li>
-				</ul>
-				
-				<div class="address">
-					<span>
-						<a href="index.swt">
-							<img class="addr_logo" alt="S.W.T 로고" src="${path}/images/logoswt_trans.png">
-						</a>
-					</span>
-					<span>Copyright</span>
-					<span>ⓒ</span>
-					<span>
-						<strong><a href="index.swt">S.W.T Corp.</a></strong>
-					</span>
-					<span>All Rights Reserved.</span>
-				</div>
-
-			</div>
+			</form>
 		</div>
-	</footer>
+	</section>
+	<%@ include file="/include/mem_footer.jsp" %>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.js"></script> 
 	<script type="text/javascript">
 	$(document).ready(function(){
-			/* $('.btn_type').click(function(){
+			/* $('.dropmem_btn_type').click(function(){
 				$('#join_frm').submit();
 			}); */
 			var state = false;
@@ -480,7 +402,7 @@
 
 			//모달 탈퇴확인 창 
 			$('#btn_memout').click(function(){
-				alert(state);
+//				alert(state);
 				if(state){
 					$('#modal_all').css('display','block');
 				} else {

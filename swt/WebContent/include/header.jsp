@@ -54,8 +54,7 @@
 									</a>
 								</div>
 								<span id="step_url"></span>
-							<div id="login_help">
-								<!-- <a href="#">Join Us</a> -->
+						
 								<div id="right">
 									<a href="#">아이디 찾기</a>
 									<span class="right_bar">｜</span>
@@ -92,15 +91,15 @@
 					<li class="mydrop1">
 						<a href="#">MyPage</a>
 						<div id="mydrop2">
-						<%-- <c:choose>
-							<c:when test="${empty sessionScope.loginUser}"> --%>
-							<a href="${path}/infoUpdate.swt">Account</a>
-							<a href="${path}/pwUpdate.swt">Password</a>
-							<a href="${path}/dropMember.swt">ByeBye</a>
-							<a href="#">Order</a>
-							<a href="#">WishList</a>
-							<%-- </c:when>
-						</c:choose> --%>
+						<c:choose>
+							<c:when test="${!empty sessionScope.loginUser}">
+								<a href="${path}/infoUpdate.swt" target="_blank">Account</a>
+								<a href="${path}/pwUpdate.swt" target="_blank">Password</a>
+								<a href="${path}/dropMember.swt" target="_blank">ByeBye</a>
+								<a href="#">Order</a>
+								<a href="#">WishList</a>
+							</c:when>
+						</c:choose>
 						</div> 
 					</li>
 					<li><a href="#">Cart</a></li>

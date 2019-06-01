@@ -26,13 +26,14 @@
     text-align: left;
     padding-bottom: 30px;
     border-bottom: 1px solid #dcdcdc;
+    padding-left: 15px;
+    font-weight: bold;
 }
-.aside ul {
-    border-bottom: 1px solid #e8e8e8;
-}
+
 .aside ul li {
     border-bottom: 1px solid #e8e8e8;
 }
+
 .aside ul li a {
     line-height: 45px;
     display: block;
