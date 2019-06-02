@@ -96,7 +96,6 @@
 							<c:when test="${!empty sessionScope.loginUser}">
 								<a href="${path}/infoUpdate.swt" target="_blank">Account</a>
 								<a href="${path}/pwUpdate.swt" target="_blank">Password</a>
-								<a href="${path}/dropMember.swt" target="_blank">ByeBye</a>
 								<a href="#">Order</a>
 								<a href="#">WishList</a>
 							</c:when>
@@ -111,14 +110,14 @@
 		</div>
 	</div>
 	<div class="two_wrap">
-		<div class="header_logo jbFixed_logo">
+		<div class="header_logo">
 			<div class="inner_header">
 				<a href="index.swt">
 					<img id="logo" src="${path}/images/mylogo_6.png" alt="로고이미지">
 				</a>
 			</div>
 		</div>
-		<div class="header_nav jbFixed_nav">
+		<div class="header_nav">
 			<div class="inner_header">
 				<div class="inner_header_nav">
 					<ul>

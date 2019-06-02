@@ -56,15 +56,14 @@
 	100% {left: -10%; top: -10%;}
 }   */
 
-footer {
+#ftWrap{
 	position: relative;
-	bottom: 0;
-	border-left: 3px double #dee2e6;
-    border-right: 3px double #dee2e6;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
+   	border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 .footer {
     width: 100%;
@@ -126,6 +125,7 @@ footer {
     width: 100%;
     height: 151px;
     position: absolute;
+    border-bottom: 1px solid #d5d7da;
 }
 .footer .footer_bottom .left_sec {
     padding-left: 42px;
@@ -175,10 +175,12 @@ footer {
     cursor: pointer;
 }
 
+
 </style>
 </head>
 <body>
 	<footer>
+		<div id="ftWrap">
 		<div class="footer">
 			<div class="footer_top">
 				<div class="left_sec">
@@ -200,8 +202,6 @@ footer {
 						</li>
 					</ul>
 				</div>
-				<!-- 오른쪽 -->
-				<div class="right_sec"></div>
 			</div>
 			<div class="footer_bottom">
 				<div class="left_sec">
@@ -230,6 +230,7 @@ footer {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</footer> 
 </body>

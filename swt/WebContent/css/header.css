@@ -10,17 +10,14 @@
 	width: 80%;
 	margin: 0 auto;
 	background-color: white;
-	/*transition: .4s;*/
-
+	border-left: 3px double #dee2e6;
+    border-right: 3px double #dee2e6;
 }
 .header_nav{
 	width: 80%;
 	margin: 0 auto;
 	background-color: #66395C;
 	height: 77px;
-	/* position: relative; */
-	/* transition: .4s; */
-	
 }
 .two_wrap{
 	transition: .2s;
@@ -36,20 +33,7 @@
 	left: 10%;
 	
 }
-.jbFixed_logo{
-	/* position: fixed; */
-	/* top: -185px; */
-	/*z-index: 400;*/
-	left: 10%;
-}
-.jbFixed_nav{
-	/* position: fixed; */
-	/* top: -262px; */
-	/*262*/
-	/*z-index: 300;*/
-	/* left: 10%; */
-	
-}
+
 .inner_header_nav{
 	width: 80%;
     float: left;
@@ -137,8 +121,6 @@ header > a:not([href]):not([tabindex]) {
 	margin: 0 auto;
 	position: relative;
 	background-color: white;
-	border-left: 3px double #dee2e6;
-    border-right: 3px double #dee2e6;
 }
 
 #logo{
@@ -380,7 +362,7 @@ header > a:not([href]):not([tabindex]) {
 }
 .right_bar { /* border-right 로도 칸막이 만들 수 있음 */
 	display: inline-block;
-	font-size: 11px;
+	font-size: 15px;
 	color: #ccc;
 	margin: 0 4px;
 } 

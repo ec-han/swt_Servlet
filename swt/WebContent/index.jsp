@@ -207,13 +207,10 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 /* 메인페이지 */
 .container {
-	width: 80%;
 	margin: 0 auto;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
-	max-width: 1215.35px;
-	max-width: 80%!important;
 	height: auto;
 	justify-content: center;
 	align-items: center;
@@ -221,13 +218,16 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     border-right: 3px double #dee2e6;
 	/* opacity: 0.8; */
 }
+#main_container{
+	max-width: 80%;
+}
 </style>
 </head>
 <body>
 	
 	<section>
 		<article>
-			<div class="container">
+			<div class="container" id="main_container">
 				<div id="demo" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 				  <ul class="carousel-indicators">

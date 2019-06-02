@@ -15,7 +15,7 @@
 </head>
 <body>
 	<section>
-		<div id="contentWrapper" class="content01">
+		<div id="contentWrapper" class="content01 container">
 			<div id="contentWrap">
 				<%@ include file="../include/board_aside.jsp" %>
 				<div id="content">

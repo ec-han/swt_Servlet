@@ -56,7 +56,7 @@
 						</p>
 															<!-- data_ㅇㅇㅇ: 태그에다가 저장소(변수)를 하나 만듦. ㅇㅇㅇ안에 변수이름 짓듯 맘대로 지음 됨 -->
 					</c:if>
-					<input type="submit" name="create" id="btn-modify-btn" class="bd-btn btn-default btn-wide" value="수정">
+					<input type="hidden" name="create" id="btn-modify-btn" class="bd-btn btn-default btn-wide" value="수정">
 				</div>
 			</li>
 		</c:forEach>
