@@ -99,7 +99,7 @@
 			position: relative;
 			width: 95%; /* 자기가 가질수있는 영역의 처음부터 끝까지 100%. 얘의 영역을 알려면 얘의 부모를 봐야함.  */
 			height: 29px;
-			/* padding-right: 25px; */
+			padding-left: 8px; 
 			line-height: 29px;
 			/* border-bottom: 1px solid #dadada; */
 			border: none;

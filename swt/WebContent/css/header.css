@@ -132,7 +132,7 @@ header > a:not([href]):not([tabindex]) {
 #dropdown1 {
 	position: relative;
 }
-.dropdown2 { /* 기준이 잘못 잡힘  */
+.dropdown2 { 
 	position: absolute;
 	display: block;
 	top: 77px;
@@ -140,15 +140,14 @@ header > a:not([href]):not([tabindex]) {
 	color: white;
 	background-color: #66395C;
 	z-index: 999;
-	display: none;
+	box-shadow: 0 6px 12px rgba(80, 51, 139, 0.5);
+	display: none;  	
 }
 .dropdown2 > a {
 	text-align: left;
 	display: inline-block;
 	width: 110px;
 	box-sizing: border-box;
-	/* border: 1px solid black; */
-	
 }
 #dropdown1:hover .dropdown2{
 	display: block;
@@ -176,7 +175,8 @@ header > a:not([href]):not([tabindex]) {
     opacity: 0.8;
     text-align: center;
 	z-index: 99;
-	display: none;
+	box-shadow: 0 6px 12px rgba(126, 99, 164, 0.3);
+	display: none;	
 }
 #mydrop2 > a {
     text-align: center;
@@ -398,7 +398,7 @@ header > a:not([href]):not([tabindex]) {
 	color: white;
 	border: 3px double #828db0;
 	cursor: pointer;
-	/* border-radius: 50%; */
+	box-shadow: 4px 0px 3px rgba(8, 8, 8, 0.2);
 	transform: rotate(45deg);
     transition: 0.2s;
 	outline: none;
