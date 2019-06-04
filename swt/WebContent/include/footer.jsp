@@ -163,7 +163,7 @@
     font-weight: 600;
 }
 .footer .footer_bottom .left_sec .text04 {
-    font-family: 'Lora';
+    /* font-family: 'Lora'; */
     font-size: 11px;
 }
 .footer .footer_bottom .right_sec {

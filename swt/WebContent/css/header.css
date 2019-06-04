@@ -140,7 +140,7 @@ header > a:not([href]):not([tabindex]) {
 	color: white;
 	background-color: #66395C;
 	z-index: 999;
-	box-shadow: 0 6px 12px rgba(80, 51, 139, 0.5);
+	box-shadow: 0 6px 8px rgb(105, 109, 152);
 	display: none;  	
 }
 .dropdown2 > a {
